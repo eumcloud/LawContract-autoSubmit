@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 import com.web.DTO.Member;
 
-public class MembershipDAO {
+public class Membership {
 
 	
 	
@@ -27,7 +27,7 @@ public class MembershipDAO {
 	
 	
 	public void Insert(Connection conn, Member member) {
-		String querry = "Insert into Member( no, email, phonNum, pw, residentNum, addr "
+		String querry = "Insert into Membership( no, email, phonNum, pw, residentNum, addr "
 				+ "values (?, ?, ?, ? ,?, ?) ";
 		
 		PreparedStatement pstmt;
