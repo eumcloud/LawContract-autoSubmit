@@ -2,6 +2,7 @@
 <%
 	String conpath=request.getContextPath();
 %>
+<input type="hidden" name="currentPage" value="home"/>
 <style type="text/css">
 .text {
 	color: white;
