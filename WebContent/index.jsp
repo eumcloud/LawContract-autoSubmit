@@ -20,7 +20,7 @@
 		pageName = "/introduce/introduceForm.jsp";
 	else if("signatureForm".contentEquals(currentPage))
 		pageName = "/signature/signatureForm.jsp";
-	//hello 자바
+	//hello 자바 김기홍 추가
 %>
 
 <% %>
