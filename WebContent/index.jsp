@@ -22,6 +22,7 @@
 		pageName = "/signature/signatureForm.jsp";
 %>
 
+<% %>
 
 <html>
 
