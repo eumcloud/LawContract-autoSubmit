@@ -4,7 +4,7 @@ public class Member {
 	
 	private String no;
 	private String email;
-	private String phonNum;
+	private String phoneNum;
 	private String residentNum;//ÁÖ¹Î¹øÈ£
 	private String addr;
 	
@@ -24,11 +24,11 @@ public class Member {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPhonNum() {
-		return phonNum;
+	public String getPhoneNum() {
+		return phoneNum;
 	}
-	public void setPhonNum(String phonNum) {
-		this.phonNum = phonNum;
+	public void setPhoneNum(String phonNum) {
+		this.phoneNum = phonNum;
 	}
 	public String getResidentNum() {
 		return residentNum;
