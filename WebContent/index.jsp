@@ -25,7 +25,7 @@
 
 <html>
 
-<body>
+<body><head><title>여러분을 위한 스마트계약</title></head>
 <table style="width: 100%;">
 <tr>
 	<td>
