@@ -22,7 +22,7 @@
 		pageName = "/signature/signatureForm.jsp";
 	else if("phoneForm".contentEquals(currentPage))
 		pageName = "/membership/phoneForm.jsp";
-	//hello 자바 김기홍 추가
+	//hello 자바 김기홍 추가 ㅎㅎ
 %>
 
 <html>
