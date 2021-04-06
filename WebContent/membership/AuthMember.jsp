@@ -11,7 +11,7 @@
 <title>본인인증</title>
 </head>
 <body>
-<form action="">
+<form action="<%=request.getContextPath()%>/signature/conditionProc.jsp" method="post">
 <center>
 <br/><br/><br/>
 <table border=0>
