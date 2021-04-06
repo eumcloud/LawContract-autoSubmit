@@ -10,7 +10,7 @@
     	String today = sdf.format(d);
 
     %>
-<script src="<%=path %>/js/conditionForm.js" type="text/javascript"></script>
+
 <style type="text/css">
 #add:hover{
 	background: #B0E0E6;
@@ -47,10 +47,15 @@ table.table1 th {
   background: #282d32 ;
  
 }
+#list {
+	margin-left: 300px;
+}
 </style>
 <form>
 <input type="hidden" name="currentPage" value="conditionForm"/>
+<script src="<%=path %>/js/conditionForm.js" type="text/javascript"></script>
 <br/><br/><br/><br/><br/>
+<h1 style="margin-left: 300px;">계약 필수정보 요소</h1><br/><br/>
 <center>
 <table class="table1">
 <tr style="text-align: center;">
@@ -65,12 +70,23 @@ table.table1 th {
 </tr>
 </table>
 </center>
+<br/><br/><br/><br/>
+<table class="table1" style="margin-left: 260px;">
+<tr style="text-align: center;">
+<th>계약 대상</th><th>주소</th><th>이메일</th>
+</tr>
+<tr>
+<td><input type="text" name='writer' placeholder='이름을 입력하세요'/></td>
+<td><input type="text" name='addr' placeholder='주소를 입력하세요'/></td>
+<td><input type="text" name='targetEmail' placeholder='이메일을 입력하세요'/></td>
+</tr>
+</table>
 <table id=list>
-<p style="color: red; font-size: 10px;">※ 특약사항은 일반적인 계약사항과 상충되는 경우 ‘특약사항을 우선’ 하도록 협의하는 내용입니다.</p>
+<p style="color: red; font-size: 13px; margin-left: 300px; margin-top: 400px;">※ 특약사항은 일반적인 계약사항과 상충되는 경우 ‘특약사항을 우선’ 하도록 협의하는 내용입니다.</p>
 <tr>
 	<td>특약사항</td>
-	<td><textarea rows="2" cols="50" name="spcContents"></textarea></td>
-	<td colspan='2' align="center"><img src="<%=path%>/image/add.png" onclick="add();" id="add" width="20px" height="20px"/></td>
+	<td><textarea rows="2" cols="80" name="spcContents"></textarea></td>
+	<td colspan='2' align="center"><img src="<%=path%>/image/add.png" onclick="add();" width="20px" height="20px"/></td>
 </tr>
 </table>
 <img src="<%=path%>/image/next.png" id="next" width="70px" height="70px" />
