@@ -82,12 +82,12 @@ table.table1 th {
 </tr>
 </table>
 <table id=list>
-<p style="color: red; font-size: 13px; margin-left: 300px; margin-top: 400px;">※ 특약사항은 일반적인 계약사항과 상충되는 경우 ‘특약사항을 우선’ 하도록 협의하는 내용입니다.</p>
+<p style="color: red; font-size: 13px; margin-left: 300px; margin-top: 200px;">※ 특약사항은 일반적인 계약사항과 상충되는 경우 ‘특약사항을 우선’ 하도록 협의하는 내용입니다.</p>
 <tr>
 	<td>특약사항</td>
 	<td><textarea rows="2" cols="80" name="spcContents"></textarea></td>
 	<td colspan='2' align="center"><img src="<%=path%>/image/add.png" onclick="add();" width="20px" height="20px"/></td>
 </tr>
 </table>
-<img src="<%=path%>/image/next.png" id="next" width="70px" height="70px" />
+<img src="<%=path%>/image/next.png" id="next" width="70px" height="70px" style="margin-right: 300px; margin-bottom: 200px;" />
 </form>
