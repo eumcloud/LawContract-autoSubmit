@@ -22,12 +22,24 @@
 		pageName = "/signature/conditionForm.jsp";
 	else if("signatureForm".contentEquals(currentPage))
 		pageName = "/signature/signatureForm.jsp";
+<<<<<<< HEAD
 
+=======
+
+	else if("phoneForm".contentEquals(currentPage))
+		pageName = "/membership/phoneForm.jsp";
+	//hello 자바 김기홍 추가 
+
+	//hello 자바
+
+>>>>>>> refs/remotes/origin/youngsin
 %>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/youngsin
 <html>
-
 <body><head><title>여러분을 위한 스마트계약</title></head>
 <table style="width: 100%;">
 <tr>
