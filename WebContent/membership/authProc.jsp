@@ -1,5 +1,8 @@
 <!--membership/authProc.jsp  -->
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/song
 <%@page import="java.util.Random"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%

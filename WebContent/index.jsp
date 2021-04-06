@@ -10,6 +10,8 @@
 		pageName = "/form/home.jsp";
 	else if("loginForm".contentEquals(currentPage))
 		pageName = "/login/loginForm.jsp";
+	else if("logout".contentEquals(currentPage))
+		pageName = "/login/logout.jsp";
 	else if("membershipForm".contentEquals(currentPage))
 		pageName = "/membership/membershipForm.jsp";
 	else if("contractForm".contentEquals(currentPage))
@@ -22,13 +24,14 @@
 		pageName = "/signature/conditionForm.jsp";
 	else if("signatureForm".contentEquals(currentPage))
 		pageName = "/signature/signatureForm.jsp";
-
+	else if("myinfoForm".contentEquals(currentPage))
+		pageName = "/myinfo/myinfoForm.jsp";
+	else if("modifyForm".contentEquals(currentPage))
+		pageName = "/myinfo/modifyForm.jsp";
 	else if("phoneForm".contentEquals(currentPage))
 		pageName = "/membership/phoneForm.jsp";
 
-
 %>
-
 
 <html>
 <body><head><title>여러분을 위한 스마트계약</title></head>

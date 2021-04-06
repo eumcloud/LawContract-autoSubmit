@@ -1,15 +1,20 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<% 
-String contextPath =request.getContextPath();
-String path = contextPath +  "/index.jsp?currentPage=";
-%>
-<form action="<%=path%>membershipForm" method="post">
-<input type="hidden" name="currentPage" value="loginForm"/>
-<<<<<<< HEAD
-<br/><br/><br/><br/>
-로그인 페이지
-<input type="submit" value="회원가입" />
+<script  src='<%=request.getContextPath()%>/js/common.js' type="text/javascript"></script>
+<script  src='<%=request.getContextPath()%>/js/loginForm.js' type="text/javascript"></script>
+<center>
+<br /><br />
+<form id='frm' action="<%=request.getContextPath()%>/login/loginProc.jsp" method = "post">
+	<input type="hidden" name="currentPage" value="loginForm"/>
+	<select name="idType">
+		<option value = 'phoneNum'>휴대폰</option>
+		<option value = 'email'>이메일</option>
+	</select><br />
+	<input type = "text" id = "id" name = "id" /><br />
+	<input type = "text" id = "pw" name = "pw" /><br />
+	<input type = "button" value = "비회원 로그인">
+	<input type = "button" onclick = "checkEmpty();" value = "로그인하기"> <br /> 
+	<a href = "">아이디 찾기 </a>
+	<a href = "" >비밀번호 찾기</a>
 </form>
-=======
-로그인 페이지 추가로 더 수정했음
->>>>>>> branch 'master' of https://github.com/eumcloud/mini2Pj.git
+</center>
+  

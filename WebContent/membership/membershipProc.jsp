@@ -33,7 +33,7 @@
 	String pagePath ="";
 	if(authNum.contentEquals(sessinAuthNum)){
 		pagePath = "loginForm";
-	     Membership memberShip = new Membership();
+	    Membership memberShip = new Membership();
 		Connection conn = memberShip.getConn();
 		int mexNum = memberShip.getAI(conn);
 		memberShip.Insert(conn, member, mexNum); 
