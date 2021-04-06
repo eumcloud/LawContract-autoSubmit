@@ -9,7 +9,7 @@
 	
 	System.out.println("idtype : " + idtype);
 	System.out.println("id : " + id);
-	System.out.println("pw : " + pw);
+	System.out.println("pw : " + pw); 
 	
 	Login login = new Login();
 	login.setId( request.getParameter("id") );
