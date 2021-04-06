@@ -1,5 +1,5 @@
 <!--membership/authProc.jsp  -->
-<%@page import="jdk.internal.misc.FileSystemOption"%>
+
 <%@page import="java.util.Random"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
