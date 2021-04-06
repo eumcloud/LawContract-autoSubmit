@@ -37,16 +37,13 @@ img{max-width:100%;}
                 </li>
                 <%if(usrId == null){ %>
                 <li><a href="<%=path %>loginForm"><b>로그인</b></a></li>
-                <li><a href=""><b>회원가입</b></a></li>
+                <li><a href="<%=path %>phoneForm"><b>회원가입</b></a></li>
                 <%}else{ %>
                 <li><%=usrId %>님 반갑니다.</li>
                 <li><a href = "<%=path %>logout">로그아웃</a>
                 <li><a href = "<%=path %>myinfoForm">내정보</a></li>
                 <li><a href = "<%=path %>modifyForm">계약 내역</a></li>
                 <%} %>
-                <!-- 로그인후 로그인 버튼 에서 바뀔 내정보 버튼
-                <li style="-webkit-text-size-adjust: 100%;-webkit-font-smoothing: antialiased;font-family: NotoSans,sans-serif;letter-spacing: -.04em;line-height: 1;word-break: keep-all;white-space: nowrap;list-style: none;box-sizing: inherit;text-decoration: none;cursor: pointer;display: inline-block;font-weight: 500;text-align: center;transition: background-color .2s;background-color: hsla(0,0%,100%,0);color: #fff;padding: 8px 24px 10px;margin: a 8px 0 0;margin-right: 4px;margin-left: 1200px;max-width: 50px;width: calc(50% - 12px);font-size: 13px;padding-left: 12px;adding-right: 12px;">
-                <a href="#"><b>내정보</b></a><li> -->
             </ul>
         </div>
     </header>
