@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
-String contxtPath =request.getContextPath();
+String contxtPath =request.getContextPath(); 
 %>
 <style type="text/css">
 html,body {
