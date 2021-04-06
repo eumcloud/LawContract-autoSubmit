@@ -11,11 +11,8 @@ import com.web.DTO.Member;
 public class Membership {
 
 	public Connection getConn() {
-<<<<<<< HEAD
+
 		String url="jdbc:oracle:thin:@192.168.0.21:1521:xe";
-=======
-		String url = "jdbc:oracle:thin:@192.168.0.21:1521:xe";
->>>>>>> refs/remotes/origin/youngsin
 		String usr = "c##acon";
 		String pass= "1234";
 		Connection conn = null;
