@@ -26,39 +26,37 @@ public class LoginDAO {
 	public int LoginProc(Connection conn, Login login) {
 		
 		
-		PreparedStatement pstmt = null;
 		
 		String sql="select count(*) "
-				+ "from member "
+				+ "from membership "
 				+ "where phoneNum=? "
 				+ "and pw=?";
 		
 		String sql2 = "select count(*) "
-				+ "from member "
+				+ "from membership "
 				+ "where email=? "
 				+ "and pw=?";
 		try {
+			PreparedStatement pstmt = null;
 			if(login.getEmail() != null) {				
-			 pstmt = conn.prepareStatement(sql2);
+				pstmt = conn.prepareStatement(sql2);
 			
-			pstmt.setString(1, login.getEmail());
-			pstmt.setString(2, login.getPw());
+				pstmt.setString(1, login.getEmail());
+				pstmt.setString(2, login.getPw());
 			
-			}
-			
-			else if (login.getPhoneNum() != null){				
+			}else if (login.getPhoneNum() != null){				
 				pstmt = conn.prepareStatement(sql);
 				
 				pstmt.setString(1, login.getPhoneNum());
 				pstmt.setString(2, login.getPw());
 				
 			}
-			
 			ResultSet rs = pstmt.executeQuery();
-			
-			if/*while*/(rs.next())//select문 실행 후 반환값이 존재한다면
-				return rs.getInt(1);	//query문 실행 결과 첫 번째 숫자 반환
-			
+			System.out.println("2");
+			if/*while*/(rs.next()) {//select문 실행 후 반환값이 존재한다면
+//				return rs.getInt(1);	//query문 실행 결과 첫 번째 숫자 반환
+				return 1;
+			}
 			pstmt.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

@@ -10,6 +10,8 @@
 		pageName = "/form/home.jsp";
 	else if("loginForm".contentEquals(currentPage))
 		pageName = "/login/loginForm.jsp";
+	else if("logout".contentEquals(currentPage))
+		pageName = "/login/logout.jsp";
 	else if("membershipForm".contentEquals(currentPage))
 		pageName = "/membership/membershipForm.jsp";
 	else if("contractForm".contentEquals(currentPage))
@@ -20,7 +22,10 @@
 		pageName = "/introduce/introduceForm.jsp";
 	else if("signatureForm".contentEquals(currentPage))
 		pageName = "/signature/signatureForm.jsp";
-	//hello 자바 김기홍 추가
+	else if("myinfoForm".contentEquals(currentPage))
+		pageName = "/myinfo/myinfoForm.jsp";
+	else if("modifyForm".contentEquals(currentPage))
+		pageName = "/myinfo/modifyForm.jsp";
 %>
 
 <% %>
