@@ -30,7 +30,7 @@
 		pageName = "/myinfo/modifyForm.jsp";
 	else if("phoneForm".contentEquals(currentPage))
 		pageName = "/membership/phoneForm.jsp";
-
+ 
 %>
 
 <html>

@@ -6,7 +6,7 @@
     <%
     //경로
     String path =request.getContextPath()+"/membership/authProc.jsp";
-    
+     
     String phoneNum = request.getParameter("phoneNum");
     String name = request.getParameter("name");
     String pw = request.getParameter("pw");
