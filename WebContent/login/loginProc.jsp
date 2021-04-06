@@ -31,7 +31,7 @@
 	
 	if(result==1){
 		pagePath = "home";	//home.jsp
-// 		session.setAttribute("usrId", login.getId());
+ 		session.setAttribute("usrId", id);
 		System.out.println("로그인 성공!");
 	}
 	else {

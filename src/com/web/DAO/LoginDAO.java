@@ -52,10 +52,10 @@ public class LoginDAO {
 				
 			}
 			ResultSet rs = pstmt.executeQuery();
-			System.out.println("2");
+//			System.out.println("2");
 			if/*while*/(rs.next()) {//select문 실행 후 반환값이 존재한다면
-//				return rs.getInt(1);	//query문 실행 결과 첫 번째 숫자 반환
-				return 1;
+				return rs.getInt(1);	//query문 실행 결과 첫 번째 숫자 반환
+//				return 1;
 			}
 			pstmt.close();
 		} catch (SQLException e) {

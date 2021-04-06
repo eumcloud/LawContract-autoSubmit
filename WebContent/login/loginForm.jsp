@@ -17,9 +17,3 @@
 	<a href = "" >비밀번호 찾기</a>
 </form>
 </center>
-
-<!-- if(idType = "phoneNum"){ -->
-
-<!-- }else if(idType = "email"){ -->
-
-<!-- } -->
