@@ -4,19 +4,15 @@
     pageEncoding="UTF-8"%>
     
     <%
-    
-    Random rand = new Random();
-	int randNum = rand.nextInt(10000);
-	String authNum = String.format("%04d", randNum);
-	//String.format("%04d", (new Random()).nextInt(10000));
-	//이메일 전송
-	session.setAttribute("authNum", authNum);
+    String path =request.getContextPath()+"/membership/authProc.jsp";
     
     String phoneNum = request.getParameter("phoneNum");
+    String name = request.getParameter("name");
     String pw = request.getParameter("pw");
     String pwOk = request.getParameter("pwOk");
     String email = request.getParameter("email");
-    
+    String residentNum = request.getParameter("residentNum");
+    String sessinAuthNum = (String)session.getAttribute("sessinAuthNum");
     if(phoneNum==null){
     	phoneNum="";
     }
@@ -29,9 +25,15 @@
     if(email==null){
     	email="";
     }
-   
-    
-   
+    if(name==null){
+    	name="";
+    }
+    if(residentNum==null){
+    	residentNum="";
+    }
+    if(sessinAuthNum==null){
+    	sessinAuthNum="";
+    }
     %>
 <script src='<%=request.getContextPath() %>/js/authForm.js' type="text/javascript"></script>
 <script src='<%=request.getContextPath() %>/js/commonForm.js' type="text/javascript"></script>
@@ -42,17 +44,24 @@
 
 }
 </style>
-
-<%=session.getAttribute("authNum") %>
-
+<br/><br/><br/><br/>
+<h1><%=sessinAuthNum %></h1>
+<div id=errorMsg></div>
 <center>
-<form id='frm' action="memberForm/memberProc" method="post">
+<form id='frm' action="<%=request.getContextPath() %>/membership/membershipProc.jsp" method="post">
+
 <table>
 	<tr>
 		<td align='right' height=40>휴대폰번호(-생략)</td>
 		<td>
 			<input type=text id='phoneNum' name='phoneNum' value="<%=phoneNum %>" placeholder='폰번호 입력'/>
-			<input type=button onclick="duplicates();" value='중복체크'  style="width: 120px; "/>  
+			
+		</td>
+	</tr>
+	<tr>
+		<td align='right' height=40>이름</td>
+		<td>
+			<input type=text id='name' name='name' value="<%=name %>" placeholder='name 입력'/> 
 		</td>
 	</tr>
 	<tr>
@@ -68,21 +77,28 @@
 		</td>
 	</tr>
 	<tr>
+		<td align='right'>주민번호</td>
+		<td>
+			<input type=text id='residentNum' name='residentNum' value="<%=residentNum %>" placeholder='주민번호 입력'/> 
+		</td>
+	</tr>
+	
+	<tr>
 		<td align='right'>E-Mail</td>
 		<td>
 			<input type=text id='email' name='email' value="<%=email %>" placeholder='email 입력' style="width: 200px; "/>
-			<input type=button onclick="sendEmail();" value='인증번호 전송' style="width: 120px; "/> 
+			<input type=button onclick="phoneForm('frm', '<%=path %>')" value='인증번호 전송' style="width: 120px; "/> 
 		</td>
     </tr>
     <tr>
 		<td align='right'>인증번호</td>
 		<td>
-			<input type=text name='authNum' value='인증번호' placeholder='인증번호확인'/> 
+			<input type=text name='authNum' placeholder='인증번호확인'/> 
 		</td>
 	</tr>
 	<tr>
 		<td align='center' height=40 colspan=4>
-			<input type=button onclick="sendMember();" value='회원가입' style="width: 120px; "/>
+			<input type="submit" value='회원가입' style="width: 120px; "/>
 			<input type=reset value='취소' style="width: 120px; "/>	 
 		</td>
 	</tr>
@@ -92,7 +108,7 @@
 =======
 <%@ page contentType="text/html; charset=UTF-8"%>
 
-<input type="hidden" name="currentPage" value="membershipForm"/>
+
 <<<<<<< HEAD
 <br/><br/><br/><br/>
 회원가입 페이지 수정함

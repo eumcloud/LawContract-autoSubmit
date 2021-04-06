@@ -2,16 +2,22 @@ package com.web.DTO;
 
 public class Member {
 	
-	private String no;
-	private String email;
-	private String phoneNum;
+	private String no;// 넘버
+	private String email; //이메일
+	private String phoneNum; //폰
 	private String residentNum;//주민번호
-	private String addr;
+	private String addr; //주소
+	private String name; //이름
 	
-	private String pw;
-	private String chkpw;
+	private String pw;// 비밀번호
+	private String chkpw; //비밀번호 확인
 	
-	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public String getNo() {
 		return no;
 	}
