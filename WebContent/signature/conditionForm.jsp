@@ -48,7 +48,8 @@ table.table1 th {
  
 }
 </style>
-<input type="hidden" name="currentPage" value="signatureForm"/>
+<form>
+<input type="hidden" name="currentPage" value="conditionForm"/>
 <br/><br/><br/><br/><br/>
 <center>
 <table class="table1">
@@ -73,3 +74,4 @@ table.table1 th {
 </tr>
 </table>
 <img src="<%=path%>/image/next.png" id="next" width="70px" height="70px" />
+</form>

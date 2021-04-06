@@ -18,12 +18,11 @@
 		pageName = "/fee/feeinfoForm.jsp";
 	else if("introduceForm".contentEquals(currentPage))
 		pageName = "/introduce/introduceForm.jsp";
-	else if("signatureForm".contentEquals(currentPage))
-		pageName = "/signature/signatureForm.jsp";
-	//hello 자바 김기홍 추가
+	else if("conditionForm".contentEquals(currentPage))
+		pageName = "/signature/conditionForm.jsp";
+
 %>
 
-<% %>
 
 <html>
 
