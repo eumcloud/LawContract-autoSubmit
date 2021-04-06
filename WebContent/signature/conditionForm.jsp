@@ -1,13 +1,13 @@
 
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
-<%@ page contentType="text/html; charset=UTF-8"%>
+<%@page contentType="text/html; charset=UTF-8"%>
     <%
     	String path = request.getContextPath();
     	Date d = new Date();
     	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     	String today = sdf.format(d);
-		String signPath= path+"/signature/conditionProc.jsp";
+
     %>
 
 <style type="text/css">
@@ -65,7 +65,8 @@ table.table1 th {
 <td><input type="text" name='writer' placeholder='이름을 입력하세요'/></td>
 <td><input type="text" name='addr' placeholder='주소를 입력하세요'/></td>
 <td><input type="date" name='date' value="<%=today%>"/></td>
-<td><input type="date" name='startTerm' value="<%=today%>"/></td><td><input type="date" name='endTerm' value="<%=today%>"/></td>
+<td><input type="date" name='startTerm' value="<%=today%>"/></td>
+<td><input type="date" name='endTerm' value="<%=today%>"/></td>
 <td><input type="text" name='Loan' placeholder='대차금액을 입력하세요'/></td>
 </tr>
 </table>
@@ -76,8 +77,8 @@ table.table1 th {
 <th>계약 대상</th><th>주소</th><th>이메일</th>
 </tr>
 <tr>
-<td><input type="text" name='writer' placeholder='이름을 입력하세요'/></td>
-<td><input type="text" name='addr' placeholder='주소를 입력하세요'/></td>
+<td><input type="text" name='targetWriter' placeholder='이름을 입력하세요'/></td>
+<td><input type="text" name='targetAddr' placeholder='주소를 입력하세요'/></td>
 <td><input type="text" name='targetEmail' placeholder='이메일을 입력하세요'/></td>
 </tr>
 </table>
@@ -89,5 +90,5 @@ table.table1 th {
 	<td colspan='2' align="center"><img src="<%=path%>/image/add.png" onclick="add();" width="20px" height="20px"/></td>
 </tr>
 </table>
-<img src="<%=path%>/image/next.png" id="next" width="70px" height="70px" style="margin-right: 300px; margin-bottom: 200px;" onclick="formSubmit('frm', '<%=signPath%>');"/>
+<img src="<%=path%>/image/next.png" id="next" width="70px" height="70px" style="margin-right: 300px; margin-bottom: 200px;" onclick="openAuth();"/>
 </form>

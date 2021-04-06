@@ -27,13 +27,8 @@ img{max-width:100%;}
                 <li><a href="<%=path %>introduceForm">서비스 소개</a></li>
                 <li><a href="<%=path %>contractForm">계약서 양식</a></li>
                 <li><a href="<%=path %>feeinfoForm">요금 안내</a></li>
-<<<<<<< HEAD
                 <li><a href="<%=path %>conditionForm">서명신청</a></li>
-                <li><a href="<%=path %>membershipForm">회원가입</a></li>
-=======
-                <li><a href="<%=path %>signatureForm">서명신청</a></li>
                 <li><a href="<%=path %>phoneForm">회원가입</a></li>
->>>>>>> refs/remotes/origin/youngsin
                 <li style="-webkit-text-size-adjust: 100%;-webkit-font-smoothing: antialiased;font-family: NotoSans,sans-serif;letter-spacing: -.04em;line-height: 1;word-break: keep-all;white-space: nowrap;list-style: none;box-sizing: inherit;text-decoration: none;cursor: pointer;display: inline-block;font-weight: 500;text-align: center;transition: background-color .2s;background-color: hsla(0,0%,100%,0);border: 1px solid #fff;color: #fff;padding: 8px 24px 10px;margin: a 8px 0 0;margin-right: 4px;margin-left: 1200px;max-width: 50px;width: calc(50% - 12px);font-size: 13px;padding-left: 12px;adding-right: 12px;">
                 <a href="<%=path %>loginForm"><b>로그인</b></a><li>
                 

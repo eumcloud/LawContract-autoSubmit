@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <%@page import="java.util.Random"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -106,14 +106,12 @@
 </table>
 </form>
 </center>
-=======
+
 <%@ page contentType="text/html; charset=UTF-8"%>
 
 
-<<<<<<< HEAD
+<input type="hidden" name="currentPage" value="membershipForm"/>
+
+
 <br/><br/><br/><br/>
-회원가입 페이지 수정함
-=======
-회원가입 페이지 수정함 더 수정
->>>>>>> branch 'master' of https://github.com/eumcloud/mini2Pj.git
->>>>>>> branch 'master' of https://github.com/eumcloud/mini2Pj.git
+
