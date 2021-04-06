@@ -4,6 +4,7 @@
     pageEncoding="UTF-8"%>
     
     <%
+    //경로
     String path =request.getContextPath()+"/membership/authProc.jsp";
     
     String phoneNum = request.getParameter("phoneNum");

@@ -3,6 +3,7 @@ package com.web.DAO;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.web.DTO.Member;
@@ -23,22 +24,40 @@ public class Membership {
 		return conn;
 	}
 	
-	
-	public void Insert(Connection conn, Member member) {
-		String querry = "Insert into Membership( no, email, phonNum, pw, residentNum, addr, name"
-				+ "values (?, ?, ?, ? ,?, ?, ?) ";
+	public int getAI(Connection conn) {
+		String sql="select nvl(max(no), 0)+1 from membership";
+		int maxNum=0;
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			//pstmt.setString(1, tableName);
+			
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next())
+				maxNum =rs.getInt(1);
+			rs.close();
+			pstmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return maxNum;
+	}
+	public void Insert(Connection conn, Member member, int maxNum) {
+		String querry = "Insert into Membership(no, email, phoneNum, residentNum, pw, name) "
+				+ " values (?, ?, ?, ? ,?, ?) ";
 		
 		PreparedStatement pstmt;
 		try {
 			pstmt = conn.prepareStatement(querry);
-			
-			pstmt.setString(1, member.getNo());
+			System.out.println("³Ñ¹ö °ª : "+maxNum);
+			pstmt.setInt(1, maxNum);
 			pstmt.setString(2, member.getEmail());
 			pstmt.setString(3, member.getPhoneNum());
-			pstmt.setString(4, member.getPw());
-			pstmt.setString(5, member.getResidentNum());
-			pstmt.setString(6, member.getAddr());
-			pstmt.setString(7, member.getName());
+			pstmt.setString(4, member.getResidentNum());
+			pstmt.setString(5, member.getPw());
+			
+		//	pstmt.setString(6, member.getAddr());
+			pstmt.setString(6, member.getName());
 			
 			pstmt.executeUpdate();
 			pstmt.close();

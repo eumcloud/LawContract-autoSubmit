@@ -2,7 +2,7 @@ package com.web.DTO;
 
 public class Member {
 	
-	private String no;// 넘버
+	private int no;// 넘버
 	private String email; //이메일
 	private String phoneNum; //폰
 	private String residentNum;//주민번호
@@ -18,10 +18,10 @@ public class Member {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getNo() {
+	public int getNo() {
 		return no;
 	}
-	public void setNo(String no) {
+	public void setNo(int no) {
 		this.no = no;
 	}
 	public String getEmail() {
