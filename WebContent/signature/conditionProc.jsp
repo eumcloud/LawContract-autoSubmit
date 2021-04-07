@@ -21,5 +21,5 @@ session.setAttribute("spcContents", spcContents);
 %>
 
 <jsp:forward page="/index.jsp">
-<jsp:param value="signatureForm" name="currentPage"/>
+<jsp:param value="conditionForm" name="currentPage"/>
 </jsp:forward>

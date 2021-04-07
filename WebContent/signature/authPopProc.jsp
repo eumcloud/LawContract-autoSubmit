@@ -9,6 +9,6 @@ session.setAttribute("creditorRegiNum", residentNum);
 session.setAttribute("authNum", authNum);
 
 %>
-<jsp:forward page="conditionAuth.jsp">
+<jsp:forward page="authPop.jsp">
 <jsp:param value="conditionForm" name="currentPage"/>
 </jsp:forward>

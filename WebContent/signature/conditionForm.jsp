@@ -8,6 +8,7 @@
     	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     	String today = sdf.format(d);
     	
+    	
     %>
 
 <style type="text/css">
@@ -88,5 +89,5 @@ table.table1 th {
 	<td colspan='2' align="center"><img src="<%=path%>/image/add.png" onclick="add();" width="20px" height="20px"/></td>
 </tr>
 </table>
-<img src="<%=path%>/image/next.png" id="next" width="70px" height="70px" style="margin-right: 300px; margin-bottom: 200px;" onclick="openPop('http://localhost:8080/20210402_miniPj2/signature/authPop.jsp');"/>
+<img src="<%=path%>/image/next.png" id="next" width="70px" height="70px" style="margin-right: 300px; margin-bottom: 200px;" onclick="formSubmit('frm', '<%=request.getContextPath() %>/signature/conditionProc.jsp'), openPop('http://localhost:8080/20210402_miniPj2/signature/authPop.jsp');"/>
 </form>
