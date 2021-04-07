@@ -24,4 +24,4 @@
 	<input type = "submit" value = "저장하기"/>
 	<input type = "button" value = "취소" onclick = "openModityForm('frm', '<%=PwModityFormPath%>');"/>
 </center>
-</form>
+</form>  
