@@ -12,7 +12,7 @@
 	top: 28%;
 	left: 30%;
 	text-align: center;
-	}
+	} 
 .step{
     -webkit-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
