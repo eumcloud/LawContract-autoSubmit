@@ -16,7 +16,7 @@ public class Membership {
 		String usr = "c##acon";
 		String pass= "1234";
 		Connection conn = null;
-		
+		   
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -66,4 +66,65 @@ public class Membership {
 			e.printStackTrace();
 		}		
 	}
+	
+	
+	public void mySelect(Connection conn, Member member) {
+		String query = "select name, phoneNum, email, Addr from Membership ";
+		
+		PreparedStatement pstmt;
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, member.getName());
+			pstmt.setString(2, member.getPhoneNum());
+			pstmt.setString(3, member.getEmail());
+			pstmt.setString(4, member.getAddr());
+			
+			pstmt.executeUpdate();
+			pstmt.close();
+			System.out.print(member.getName()+" "+member.getPhoneNum()+" "+member.getEmail()+" "+member.getAddr());
+		} catch (SQLException e) {			e.printStackTrace();		}
+	}
+	
+	public void myUpdate(Connection conn, Member member) {
+		
+		String email = member.getEmail();
+		String phoneNum= member.getPhoneNum();
+		String pw =  member.getPw();
+		int no = member.getNo();
+		String name = member.getName();
+		String addr = member.getAddr();
+		
+		
+		String query = "UPDATE login "
+				+ "SET "
+				+ "    phoneNum = "+phoneNum + ",  "
+				+ "    email = "+email+",  "
+				+ "    pw = "+pw+" "
+						+ "UPDATE Membership"
+						+ "SET"
+						+ "    name = "+name+", "
+						+ "    addr = "+addr +", " 
+						+ "WHERE no = "+no
+				;	
+	
+	
+			PreparedStatement pstmt;
+			
+			
+			
+			try {
+				pstmt = conn.prepareStatement(query);
+				
+				pstmt.setString(1, member.getPhoneNum());
+				pstmt.setString(2, member.getEmail());
+				pstmt.setString(3, member.getPw());
+				pstmt.setString(4, member.getName());
+				pstmt.setString(5, member.getAddr());
+				
+				
+				pstmt.executeUpdate();
+				pstmt.close();
+				
+			} catch (SQLException e) {			e.printStackTrace();		}}
 }
