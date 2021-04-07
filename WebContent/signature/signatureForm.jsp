@@ -64,7 +64,7 @@
 						
 
   <div>채권자 <%=session.getAttribute("creditor") %> 을「갑」이라 하고, 채무자 <%=session.getAttribute("deptor") %> 을「을」로 하여 「갑」과「을」 간에 다음과 같이 금전소비대차계약을 체결한다.</div><br/>
-<div><b>제1조 (금전소비대차)</b><br/>  「갑」은 「을」에게 금OOO원을 대여하고, 「을」은 이를 차용한다.</div><br/>
+<div><b>제1조 (금전소비대차)</b><br/>  「갑」은 「을」에게 금<%=session.getAttribute("money") %>원을 대여하고, 「을」은 이를 차용한다.</div><br/>
 <div><b>제2조 (이자) </b><br/> 위의 차용금에 대한 이자는 없는 것으로 하되 제3조 정한 기한의 익일부터 실질 변제시 까지 연<%=session.getAttribute("interest")%>%의 연체이자를 지급하여야 한다.</div><br/>
 <div><b>제3조 (변제기한)</b><br/>  「을」의「갑」에 대한 위 차용금의 변제기한은 <%=session.getAttribute("deadline") %> 까지로 한다.</div><br/>
 <div><b>제4조 (변제장소)</b><br/>  「을」의「갑」에 대한 변제 장소는 「갑」의 주소지로 한다.</div><br/>
