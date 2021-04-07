@@ -2,7 +2,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-
+	String writer = (String)session.getAttribute("writer");
+	String writaddrer = (String)session.getAttribute("addr");
+	String date = (String)session.getAttribute("date");
+	String Term = (String)session.getAttribute("Term");
+	String Loan = (String)session.getAttribute("Loan");
+	String targetWriter = (String)session.getAttribute("targetWriter");
+	String targetAddr = (String)session.getAttribute("targetAddr");
+	String targetEmail = (String)session.getAttribute("targetEmail");
+	String spcContents = (String)session.getAttribute("spcContents");
+	
 %>
 
 
@@ -118,7 +127,7 @@ td {
 
 
 
-					<div>채무자 성명 : <%-- <%=deptor %> --%>
+					<div>채무자 성명 : <%=writer %>
 					<br/> 연락처 : <%-- <%=phoneNum2 %> --%>
 					<br/>주소 :<%-- <%=Addr2 %> --%>
 					</div>

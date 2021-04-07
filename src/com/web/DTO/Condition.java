@@ -4,16 +4,16 @@ import java.util.Date;
 
 //계약조건 getter Setter
 public class Condition {
-	private String money;
-	private Date contDate;
-	private Date deadline;
+	private String money; //금액
+	private Date contDate; //계약날짜
+	private Date deadline; //계약종료날짜
 	
 	
-	private String client;
-	private String debtor;
+	private String client; //빌려주는사람
+	private String debtor; //빌리는사람
 	
-	private String clientAddr;
-	private String debtorAddr;
+	private String clientAddr; //빌려주는사람 주소
+	private String debtorAddr; //빌리는 사람 주소
 	
 	
 	
