@@ -1,14 +1,10 @@
-<%@page import="com.jin.mail.JinsMail"%>
+
 <%@page contentType="text/html; charset=UTF-8"%>
 
 <%
-	request.setCharacterEncoding("UTF-8");
+
 	String deptorEmail = request.getParameter("deptorEmail");
-	JinsMail mail = new JinsMail();
-	mail.setId("gihong0703");
-	mail.setPw("467913ssak!!");
-	mail.setSndUsr("acon","gihong0703@gmail.com");
-	mail.SendMail("rhaud0703@naver.com", "test", "test");
+
 %>
 <!DOCTYPE html>
 <html>
