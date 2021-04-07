@@ -54,6 +54,7 @@ public class LoginDAO {
 			ResultSet rs = pstmt.executeQuery();
 			if/*while*/(rs.next()) {//select문 실행 후 반환값이 존재한다면
 //				return rs.getInt(1);	//query문 실행 결과 첫 번째 숫자 반환
+				System.out.println(rs);
 				return 1;
 			}
 			pstmt.close();
