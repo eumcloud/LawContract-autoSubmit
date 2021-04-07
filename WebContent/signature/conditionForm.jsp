@@ -7,7 +7,7 @@
     	Date d = new Date();
     	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     	String today = sdf.format(d);
-
+    	
     %>
 
 <style type="text/css">
@@ -28,6 +28,7 @@ table.table1 {
   text-align: center;
   line-height: 1.5;
   margin: 20px 10px;
+  margin-left: 260px;
 }
 table.table1 td {
   width: 155px;
@@ -56,21 +57,18 @@ table.table1 th {
 <script src="<%=path %>/js/common.js" type="text/javascript"></script>
 <br/><br/><br/><br/><br/>
 <h1 style="margin-left: 300px;">계약 필수정보 요소</h1><br/><br/>
-<center>
 <table class="table1">
 <tr style="text-align: center;">
-<th>계약 당사자</th><th>주소</th><th colspan="2">기한</th><th>계약날짜</th><th>대차금액</th>
+<th>계약 당사자</th><th>주소</th><th>계약날짜</th><th>계약종료 날짜</th><th>대차금액</th>
 </tr>
 <tr>
 <td><input type="text" name='writer' placeholder='이름을 입력하세요'/></td>
 <td><input type="text" name='addr' placeholder='주소를 입력하세요'/></td>
 <td><input type="date" name='date' value="<%=today%>"/></td>
-<td><input type="date" name='startTerm' value="<%=today%>"/></td>
-<td><input type="date" name='endTerm' value="<%=today%>"/></td>
+<td><input type="date" name='Term' value="<%=today%>"/></td>
 <td><input type="text" name='Loan' placeholder='대차금액을 입력하세요'/></td>
 </tr>
 </table>
-</center>
 <br/><br/><br/><br/>
 <table class="table1" style="margin-left: 260px;">
 <tr style="text-align: center;">
@@ -90,5 +88,5 @@ table.table1 th {
 	<td colspan='2' align="center"><img src="<%=path%>/image/add.png" onclick="add();" width="20px" height="20px"/></td>
 </tr>
 </table>
-<img src="<%=path%>/image/next.png" id="next" width="70px" height="70px" style="margin-right: 300px; margin-bottom: 200px;" onclick="openAuth();"/>
+<img src="<%=path%>/image/next.png" id="next" width="70px" height="70px" style="margin-right: 300px; margin-bottom: 200px;" onclick="formSubmit('frm', '<%=path %>/signature/conditionProc.jsp'), openAuth();"/>
 </form>
