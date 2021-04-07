@@ -1,14 +1,12 @@
 <%@page import="com.web.DTO.Condition"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@page contentType="text/html; charset=UTF-8"%>
 <%
-
-
 %>
 
 
 <html>
 <head>
+<script src="<%=request.getContextPath() %>/js/common.js" type="text/javascript"></script>
 <style type='text/css'>
 .paper {
 	width: 500px;
@@ -16,8 +14,6 @@
 	background-color: #fff;
 	padding: 40px;
 }
-
-
 .paper {border =1;
 	margin-top:20px;
 	padding:70px;
@@ -26,21 +22,16 @@
 	width:595px;
 	height:842px;
 }
-
-
-
 #title {
 	align-text: center;
 	margin-bottom:40px;
 }
-
 .article {
 	align: center;
 	font-size: 16px;
 	font-weight: bold;
 	margin: 20px;
 }
-
 .contents {
 	margin: 0 20px 0 20px;
 	font-weight: none;
@@ -50,10 +41,19 @@
 	width:200px;
 	height:100px;
 }
+#next{
+	float: right;
+	background: white;
+	border-radius: 50%;
+}
+#next:hover{
+	background:yellow;
+	border-radius: 50%;
+}
 </style>
 </head>
-<body bgcolor="#000">
-	<div id=list> 목록 <div/>
+<form id = "frm" method="post">
+<body style="background-color: black;">
 		<input type="hidden" name="currentPage" value="signatureForm" /> <br />
 		
 		<div class='paper'>
@@ -98,6 +98,9 @@
                 <br/>주 소 :<%=session.getAttribute("deptorAddr") %>
                 
 </div></div>
+<img src="<%=request.getContextPath()%>/image/next.png" id="next" width="70px" height="70px" style="margin-right: 300px; margin-bottom: 200px;" onclick="formSubmit('frm', '<%=request.getContextPath()%>/signature/signatureProc.jsp')"/>
+ <br/><br/><br/><br/>
  
 </body>
+</form>
 </html>
