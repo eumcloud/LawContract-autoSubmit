@@ -9,22 +9,17 @@
 	
 	Login login = new Login();
 	
-	if("phoneNum".contentEquals(idtype))
+	if("phoneNum".contentEquals(idtype)){
 		login.setPhoneNum(id);
-	else if("email".contentEquals(idtype))
+		login.setPw(pw);
+	}else if("email".contentEquals(idtype)){
 		login.setEmail(id);
-	
-	System.out.println("이메일 : " + login.getEmail());
-	System.out.println("휴대폰 : " + login.getPhoneNum());
-	
-	login.setPw( request.getParameter("pw"));
-	
+		login.setPw(pw);
+	}
 	
 	LoginDAO loginDao = new LoginDAO();
 	Connection conn = loginDao.getConn();
-	
-	
-	
+
 	int result = loginDao.LoginProc(conn, login);
 	System.out.println(result);
 	String pagePath = "loginForm";
