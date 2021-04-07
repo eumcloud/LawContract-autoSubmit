@@ -1,12 +1,18 @@
 <%@page import="com.web.DTO.Condition"%>
 <%@page contentType="text/html; charset=UTF-8"%>
 <%
+String deptorRegiNum=(String)session.getAttribute("deptorRegiNum");
+	if(deptorRegiNum==null) {
+		deptorRegiNum="";
+	}
+
 %>
 
 
 <html>
 <head>
 <script src="<%=request.getContextPath() %>/js/common.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath() %>/js/conditionForm.js" type="text/javascript"></script>
 <style type='text/css'>
 .paper {
 	width: 500px;
@@ -94,11 +100,11 @@
 </div><br/><br/>
 
       <div>「을」  성 명 :<%=session.getAttribute("deptor") %> (인)
-                <br/>주민등록번호 :<%=session.getAttribute("deptorRegiNum") %>
+                <br/>주민등록번호 :<%=deptorRegiNum %>
                 <br/>주 소 :<%=session.getAttribute("deptorAddr") %>
                 
 </div></div>
-<img src="<%=request.getContextPath()%>/image/next.png" id="next" width="70px" height="70px" style="margin-right: 300px; margin-bottom: 200px;" onclick="formSubmit('frm', '<%=request.getContextPath()%>/signature/signatureProc.jsp')"/>
+<img src="<%=request.getContextPath()%>/image/next.png" id="next" width="70px" height="70px" style="margin-right: 300px; margin-bottom: 200px;" onclick="openPop2('http://localhost:8080/20210402_miniPj2/signature/sendMailPop.jsp');"/>
  <br/><br/><br/><br/>
  
 </body>

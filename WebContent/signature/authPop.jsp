@@ -15,12 +15,20 @@
 
 <head>
 <style type="text/css"></style>
+<script language="javascript">
+
+function PopupNextPage(path){
+
+    window.opener.location.href=path;
+    self.close();
+}
+</script>
 
 <meta charset="utf-8">
 <title>본인인증</title>
 </head>
 <body>
-<form action="<%=request.getContextPath()%>/signature/conditionAuthProc.jsp" method="post">
+<form action="<%=request.getContextPath()%>/signature/authPopProc.jsp" method="post">
 <center>
 <br/><br/><br/>
 <table border=0>
@@ -36,7 +44,7 @@
 </select>
 </td><td>휴대폰번호</td><td><input type='textarea' name="phoneNum" value="<%=phoneNum%>"/></td></tr>
 <tr><td></td><td><input type=submit value=인증번호 요청></td><td><input type=textarea></td>
-<tr><td></td><td></td><td><input type="button" onclick="authFormClose();" value="확인"/></td>
+<tr><td></td><td></td><td><input type="button" onclick="PopupNextPage('<%=request.getContextPath() %>/index.jsp?currentPage=signatureForm');" value="확인"/></td>
 </table>
 </center>
 </form>
