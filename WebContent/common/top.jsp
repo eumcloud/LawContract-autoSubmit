@@ -17,14 +17,19 @@ img{max-width:100%;}
 #header a.logo img{height: 100%;}
 #header ul li{display: inline-block; margin: 0 10px;}
 #header.min{height: 40px;}
-
+.rightMenu {-webkit-text-size-adjust: 100%;-webkit-font-smoothing: antialiased;font-family: NotoSans,sans-serif;letter-spacing: -.04em;line-height: 1;
+				word-break: keep-all;white-space: nowrap;list-style: none;box-sizing: inherit;text-decoration: none;cursor: pointer;display: inline-block;font-weight: 500;
+				text-align: center;transition: background-color .2s;background-color: hsla(0,0%,100%,0);border: 1px solid #fff;color: #fff;padding: 8px 24px 10px;margin: a 8px 0 0;
+				margin-right: 4px;margin-left: 1200px;max-width: 50px;width: calc(50% - 12px);font-size: 13px;padding-left: 12px;adding-right: 12px; 
+	
+}
 </style>
 
  
   <div id="wrap">
 <header id="header">
         <div class="flex-box">
-            <ul style="-webkit-text-size-adjust: 100%;-webkit-font-smoothing: antialiased;font-family: NotoSans,sans-serif;font-weight: 400;letter-spacing: -.04em;line-height: 1;word-break: keep-all;white-space: nowrap;list-style: none;font-size: 15px;background-color: transparent;border: 0;box-sizing: inherit;margin: 0;padding: 0;color: white;text-decoration: none;cursor: pointer; ">
+            <ul style="-webkit-text-size-adjust: 100%;-webkit-font-smoothing: antialiased;font-family: NotoSans,sans-serif;font-weight: 400;letter-spacing: -.04em;line-height: 1;word-break: keep-all;white-space: nowrap;list-style: none;font-size: 15px;background-color: transparent;border: 0;box-sizing: inherit;margin: 0;padding: 0;color: white;text-decoration: none;cursor: pointer;  width: 100%;">
                 <li style="margin-left: 50px; vertical-align: middle"><a href="<%=path %>home"><img src="<%=contextPath%>/image/logo.png" width="100px" height="100px"></a></li>
                 <li><a href="<%=path %>introduceForm">서비스 소개</a></li>
                 <li><a href="<%=path %>contractForm">계약서 양식</a></li>
@@ -32,23 +37,15 @@ img{max-width:100%;}
               <li><a href="<%=path %>conditionForm">서명신청</a></li>
             
                 
-                <!-- 로그인후 로그인 버튼 에서 바뀔 내정보 버튼
-                <li style="-webkit-text-size-adjust: 100%;-webkit-font-smoothing: antialiased;font-family: NotoSans,sans-serif;letter-spacing: -.04em;line-height: 1;word-break: keep-all;white-space: nowrap;list-style: none;box-sizing: inherit;text-decoration: none;cursor: pointer;display: inline-block;font-weight: 500;text-align: center;transition: background-color .2s;background-color: hsla(0,0%,100%,0);color: #fff;padding: 8px 24px 10px;margin: a 8px 0 0;margin-right: 4px;margin-left: 1200px;max-width: 50px;width: calc(50% - 12px);font-size: 13px;padding-left: 12px;adding-right: 12px;">
-                <a href="#"><b>내정보</b></a><li> -->
-
-				<li style="-webkit-text-size-adjust: 100%;-webkit-font-smoothing: antialiased;font-family: NotoSans,sans-serif;letter-spacing: -.04em;line-height: 1;
-				word-break: keep-all;white-space: nowrap;list-style: none;box-sizing: inherit;text-decoration: none;cursor: pointer;display: inline-block;font-weight: 500;
-				text-align: center;transition: background-color .2s;background-color: hsla(0,0%,100%,0);border: 1px solid #fff;color: #fff;padding: 8px 24px 10px;margin: a 8px 0 0;
-				margin-right: 4px;margin-left: 1200px;max-width: 50px;width: calc(50% - 12px);font-size: 13px;padding-left: 12px;adding-right: 12px;">
-                </li>
+              
                 <%if(usrId == null){ %>
-                <li><a href="<%=path %>loginForm"><b>로그인</b></a></li>
-                <li><a href="<%=path %>phoneForm"><b>회원가입</b></a></li>
+                <li class="rightMenu" style="margin-left: 1100px"><a href="<%=path %>loginForm"><b>로그인</b></a></li>
+                <li class="rightMenu"><a href="<%=path %>phoneForm"><b>회원가입</b></a></li>
                 <%}else{ %>
-                <li><%=usrId %>님 반갑니다.</li>
-                <li><a href = "<%=path %>logout">로그아웃</a>
-                <li><a href = "<%=path %>myinfoForm">내정보</a></li>
-                <li><a href = "<%=path %>modifyForm">계약 내역</a></li>
+                <li style="margin-left: 850px"><%=usrId %>님 반갑니다.</li>
+                <li class="rightMenu"><a href = "<%=path %>logout">로그아웃</a>
+                <li class="rightMenu"><a href = "<%=path %>myinfoForm">내정보</a></li>
+                <li class="rightMenu"><a href = "<%=path %>modifyForm">계약 내역</a></li>
                 <%} %>
 
             </ul>
