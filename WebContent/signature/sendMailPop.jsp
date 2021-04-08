@@ -11,6 +11,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>계약대상자 메일 전송</title>
+<script src="<%=request.getContextPath() %>/js/common.js" type="text/javascript"></script>
 <script language="javascript">
 
 function PopupNextPage(path){
