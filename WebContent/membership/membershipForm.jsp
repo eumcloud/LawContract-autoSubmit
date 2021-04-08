@@ -45,6 +45,7 @@
 
 }
 </style>
+<h1 style="color:blue" align="center">회원가입</h1>
 <br/><br/><br/><br/>
 <h1><%=sessinAuthNum %></h1>
 <div id=errorMsg></div>
@@ -55,44 +56,44 @@
 	<tr>
 		<td align='right' height=40>휴대폰번호(-생략)</td>
 		<td>
-			<input type=text id='phoneNum' name='phoneNum' value="<%=phoneNum %>" placeholder='폰번호 입력'/>
+			<input type=text id='phoneNum' name='phoneNum' value="<%=phoneNum %>" placeholder='폰번호 입력' maxlength="20"/>
 			
 		</td>
 	</tr>
 	<tr>
 		<td align='right' height=40>이름</td>
 		<td>
-			<input type=text id='name' name='name' value="<%=name %>" placeholder='name 입력'/> 
+			<input type=text id='name' name='name' value="<%=name %>" placeholder='name 입력' maxlength="20"/> 
 		</td>
 	</tr>
 	<tr>
 		<td align='right' height=40>패스워드</td>
 		<td>
-			<input type=text id='pw' name='pw' value="<%=pw %>" placeholder='pw 입력'/> 
+			<input type=text id='pw' name='pw' value="<%=pw %>" placeholder='pw 입력' maxlength="20" maxlength="20"/> 
 		</td>
 	</tr>
 	<tr>
-		<td align='right'>패스워드 확인</td>
+		<td align='right' height=40>패스워드 확인</td>
 		<td>
-			<input type=text id='pwOk' name='pwOk' value="<%=pwOk %>" placeholder='pw 입력'/> 
+			<input type=text id='pwOk' name='pwOk' value="<%=pwOk %>" placeholder='pw 입력' maxlength="20"/> 
 		</td>
 	</tr>
 	<tr>
-		<td align='right'>주민번호</td>
+		<td align='right' height=40>주민번호</td>
 		<td>
-			<input type=text id='residentNum' name='residentNum' value="<%=residentNum %>" placeholder='주민번호 입력'/> 
+			<input type=text id='residentNum' name='residentNum' value="<%=residentNum %>" placeholder='주민번호 입력' maxlength="20"/> 
 		</td>
 	</tr>
 	
 	<tr>
-		<td align='right'>E-Mail</td>
+		<td align='right' height=40>E-Mail</td>
 		<td>
-			<input type=text id='email' name='email' value="<%=email %>" placeholder='email 입력' style="width: 200px; "/>
+			<input type=text id='email' name='email' value="<%=email %>" placeholder='email 입력' style="width: 150px; "/>
 			<input type=button onclick="phoneForm('frm', '<%=path %>')" value='인증번호 전송' style="width: 120px; "/> 
 		</td>
     </tr>
     <tr>
-		<td align='right'>인증번호</td>
+		<td align='right' height=40>인증번호</td>
 		<td>
 			<input type=text name='authNum' placeholder='인증번호확인'/> 
 		</td>
