@@ -43,7 +43,7 @@ img{max-width:100%;}
                 </li>
                 <%if(usrId == null){ %>
                 <li><a href="<%=path %>loginForm"><b>로그인</b></a></li>
-                <li><a href="<%=path %>phoneForm"><b>회원가입</b></a></li>
+                <li><a href="<%=path %>membershipForm"><b>회원가입</b></a></li>
                 <%}else{ %>
                 <li><%=usrId %>님 반갑니다.</li>
                 <li><a href = "<%=path %>logout">로그아웃</a>

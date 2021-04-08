@@ -21,7 +21,7 @@ function sendMember(){
 	
 	document.getElementById('frm').submit();
 }
-function phoneForm(frm, path){
+function phoneForm(frmId, path){
 	var reg = /^[a-z][a-z0-9_-]{3,20}@([a-z\d\.-]+)\.([a-z\.]{2,6})$/;
 	var email = document.getElementById("email");
 	let errorMsg = document.getElementById("errorMsg");
@@ -34,8 +34,26 @@ function phoneForm(frm, path){
 		return;
 	}
 	else{
-	let phone = document.getElementById("frm");
-	phone.action = path;
-	phone.submit();
+	let frm = document.getElementById(frmId);
+	frm.action=path;
+	frm.submit();
+	
 	}
+}
+
+function openPop(url){
+	pop_auth = window.open(url, '인증 팝업', 'top=10, left=10, width=500, height=600');
+	pop_auth.focus();
+}
+
+function checkAuth() {
+	var email1 = document.getElementById("email");
+	var email2 = document.getElementById("email");
+	if(email1!=eemail2){
+		if(phoneForm(frmId, path)){
+		openPop(url);
+		}
+		}
+	else 
+		return;
 }

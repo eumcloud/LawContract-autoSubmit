@@ -32,7 +32,6 @@
 		pageName = "/membership/phoneForm.jsp";
 	else if("successSignForm".contentEquals(currentPage))
 		pageName = "/signature/successSignForm.jsp";
-
 %>
 
 <html>
