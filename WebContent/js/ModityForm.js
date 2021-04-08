@@ -8,5 +8,5 @@ function formSubmit(frmId, path){
 }
 
 function openModityForm(frmId,path){
-	window.open(path, '인증 팝업', 'top=10, left=10, width=500, height=600, status=no, menubar=no, toolbar=no, resizable=no');
+	window.open(path, '수정', 'top=10, left=10, width=500, height=600, status=no, menubar=no, toolbar=no, resizable=no');
 }

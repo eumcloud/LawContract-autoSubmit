@@ -2,13 +2,11 @@
 <script  src='<%=request.getContextPath()%>/js/common.js' type="text/javascript"></script>
 <script  src='<%=request.getContextPath()%>/js/loginForm.js' type="text/javascript"></script>
 <center>
-<br /><br />
+<br /><br /><br />
+<h1>로그인</h1>
+
 <form id='frm' action="<%=request.getContextPath()%>/login/loginProc.jsp" method = "post">
 	<input type="hidden" name="currentPage" value="loginForm"/>
-	<select name="idType">
-		<option value = 'phoneNum'>휴대폰</option>
-		<option value = 'email'>이메일</option>
-	</select><br />
 	<input type = "text" id = "id" name = "id" /><br />
 	<input type = "text" id = "pw" name = "pw" /><br />
 	<input type = "button" value = "비회원 로그인">

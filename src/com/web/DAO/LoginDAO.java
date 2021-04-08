@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.web.DTO.Login;
+import com.web.DTO.Member;
 
 public class LoginDAO {
 
@@ -24,8 +25,6 @@ public class LoginDAO {
 		return conn;
 	}
 	public int LoginProc(Connection conn, Login login) {
-		
-		
 		
 		String sql="select count(*) "
 				+ "from membership "
@@ -63,5 +62,140 @@ public class LoginDAO {
 			e.printStackTrace();
 		}
 		return 0;
+	}
+	public boolean userConfirm(Connection conn, String email, String pw) {
+		String SQL = "select * "
+				+ "from membership "
+				+ "where email = ? "
+				+ "and pw = ?";
+		
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			
+			pstmt.setString(1, email);
+			pstmt.setString(2, pw);
+			
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next())	return true;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+	public Member currentUserInsert(Connection conn, String email, String pw) {
+		String SQL = "select * "
+				+ "from membership "
+				+ "where email = ? "
+				+ "and pw = ?";
+		
+		Member member = new Member();
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			
+			pstmt.setString(1, email);
+			pstmt.setString(2, pw);
+			
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) {
+				member.setNo(rs.getInt(1));
+				member.setEmail(rs.getString(2));
+				member.setPhoneNum(rs.getString(3));
+				member.setResidentNum(rs.getString(4));
+				member.setAddr(rs.getString(5));
+				member.setPw(rs.getString(6));
+				member.setName(rs.getString(7));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return member;
+	}
+	
+	public boolean userConfirm(Connection conn, String email) {
+		String SQL = "select * "
+				+ "from membership "
+				+ "where email = ?";
+		
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			
+			pstmt.setString(1, email);
+			
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next())	return true;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public void userPWUpdate(Connection conn, String email, String newpw ) {
+		String SQL = "update membership "
+				+"set pw = ?"  // newpw
+				+"where email in (" 
+				+ "select email "
+				+ "from membership " 
+				+ "where email = ? " // userid
+				+ ")";
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, newpw);
+			pstmt.setString(2, email);
+			pstmt.executeUpdate();
+			pstmt.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void userADDUpdate(Connection conn, String email, String newaddr ) {
+		String SQL = "update membership "
+				+"set addr = ?"  // newpw
+				+"where email in (" 
+				+ "select email "
+				+ "from membership " 
+				+ "where email = ? " // userid
+				+ ")";
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, newaddr);
+			pstmt.setString(2, email);
+			pstmt.executeUpdate();
+			pstmt.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void userDelete(Connection conn, String email) {
+		String SQL = "delete "
+				+ "from membership "
+				+ "where email = ?";
+		
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, email);
+			pstmt.executeUpdate();
+			pstmt.close();
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

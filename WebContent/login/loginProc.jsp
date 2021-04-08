@@ -1,32 +1,28 @@
 <%@page import="java.sql.Connection"%>
-<%@page import="com.web.DAO.LoginDAO"%>
-<%@page import="com.web.DTO.Login"%>
+<%@page import="com.web.DAO.*"%>
+<%@page import="com.web.DTO.*"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
-	String idtype = request.getParameter("idType");
 	String id = request.getParameter("id");
 	String pw = request.getParameter("pw");
 	
-	Login login = new Login();
-	
-	if("phoneNum".contentEquals(idtype)){
-		login.setPhoneNum(id);
-		login.setPw(pw);
-	}else if("email".contentEquals(idtype)){
-		login.setEmail(id);
-		login.setPw(pw);
-	}
+// 	Login login = new Login();
 	
 	LoginDAO loginDao = new LoginDAO();
 	Connection conn = loginDao.getConn();
-
-	int result = loginDao.LoginProc(conn, login);
-	System.out.println(result);
-	String pagePath = "loginForm";
 	
-	if(result==1){
+// 	int result = loginDao.LoginProc(conn, login);
+	boolean confirmResult = loginDao.userConfirm(conn,id, pw);
+	System.out.println(confirmResult);
+	
+	String pagePath = "loginForm";
+	Member member = new Member();
+	
+	if(confirmResult == true){
 		pagePath = "home";	//home.jsp
+		member = loginDao.currentUserInsert(conn, id, pw);
  		session.setAttribute("usrId", id);
+		session.setAttribute("currentUser", member);
 		System.out.println("로그인 성공!");
 	}
 	else {
