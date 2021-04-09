@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.web.DTO.Login;
+import com.web.DTO.Member;
 
 public class LoginDAO {
 
@@ -64,11 +65,12 @@ public class LoginDAO {
 		}
 		return 0;
 	}
-	public boolean userConfirm(Connection conn, String email) {
-	      String SQL = "select * "
+	public String userConfirm(Connection conn, String email) {
+		Member member = new Member();
+	      String SQL = "select email "
 	            + "from membership "
 	            + "where email = ?";
-	      
+	      String email3 ="";
 	      PreparedStatement pstmt = null;
 	      try {
 	         pstmt = conn.prepareStatement(SQL);
@@ -76,12 +78,15 @@ public class LoginDAO {
 	         pstmt.setString(1, email);
 	         
 	         ResultSet rs = pstmt.executeQuery();
-	         if(rs.next())   return true;
+	         if(rs.next()) {
+	        	member.setEmail(rs.getString(1));
+	        	email3 = member.getEmail();
+	        	 }
 	         
 	      } catch (SQLException e) {
 	         // TODO Auto-generated catch block
 	         e.printStackTrace();
 	      }
-	      return false;
+	      return email3;
 	   }
 }

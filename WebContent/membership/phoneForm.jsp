@@ -2,13 +2,13 @@
 
 <%@ page language="java" pageEncoding="utf-8"%>
 <%
-	String authNum = (String)request.getAttribute("authNum");
+	String authNumOk = (String)request.getAttribute("authNum");
 	String name =request.getParameter("name");
 	session.setAttribute("name", name);
 	String residentNum =request.getParameter("residentNum");
 	String phoneNum =request.getParameter("phoneNum");
-	if(authNum == null)
-		authNum = "";
+	if(authNumOk == null)
+		authNumOk = "";
 	if(name == null)
 		name = "";
 	if(residentNum == null)
@@ -16,6 +16,7 @@
 	if(phoneNum == null)
 		phoneNum = "";
 	
+	String path = request.getContextPath()+"/membership/phoneDBProc.jsp";
 %>
 <!DOCTYPE html>
 <html>
@@ -26,13 +27,21 @@
 <title>본인인증</title>
 <script language="javascript">
 function PopupNextPage(path){
-    window.opener.location.href=path;
-    self.close();
+    var authNum = document.getElementById("authNum").value;
+    var authNumOk = document.getElementById("authNumOk").value;
+	
+    if(authNum==authNumOk){
+	window.opener.location.href=path;
+    self.close();}
+    else {
+    	alert('인증번호를 입력하세요');	
+    }
 }
+
 </script>
 
-<h1><%=authNum %></h1>
-
+<h1><%=authNumOk %></h1>
+<input type="text" id="authNumOk" value="<%=authNumOk%>">;
 </head>
 <body>
 <form action="<%=request.getContextPath() %>/membership/phoneFormProc.jsp" method="post">
@@ -50,12 +59,10 @@ function PopupNextPage(path){
 <option value='알뜰폰'>알뜰폰</option>
 </select>
 </td><td>휴대폰번호</td><td><input type='textarea' name="phoneNum" value="<%=phoneNum %> "></td></tr>
-<tr><td></td><td><input type="submit" value="인증번호 전송"></td>
-<br/><td><input type=textarea></td>
-<td><button onclick="PopupNextPage('<%=request.getContextPath() %>/membership/phoneDBProc.jsp');">확인</button></td>
+<td></td><td><input type="submit" value="인증번호 전송"></td>
+<br/><td><input type=textarea id="authNum"></td>
+<td><button onclick="PopupNextPage('<%=path %>');">확인</button></td>
 </table>
 </center></form>
-
-
 </body>
 </html>

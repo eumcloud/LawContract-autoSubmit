@@ -21,10 +21,11 @@ function sendMember(){
 	
 	document.getElementById('frm').submit();
 }
-function phoneForm(frmId, path){
+function phoneForm(frmId, url){
 	var reg = /^[a-z][a-z0-9_-]{3,20}@([a-z\d\.-]+)\.([a-z\.]{2,6})$/;
 	var email = document.getElementById("email");
 	let errorMsg = document.getElementById("errorMsg");
+	let frm = document.getElementById('frm');
 	if(email.value==""){
 		errorMsg.innerText=('email을 입력하세요');
 		return;
@@ -34,11 +35,9 @@ function phoneForm(frmId, path){
 		return;
 	}
 	else{
-	let frm = document.getElementById(frmId);
-	frm.action=path;
-	frm.submit();
-	
+		  openPop(url);
 	}
+	
 }
 
 function openPop(url){
@@ -46,14 +45,15 @@ function openPop(url){
 	pop_auth.focus();
 }
 
-function checkAuth() {
-	var email1 = document.getElementById("email");
-	var email2 = document.getElementById("email");
-	if(email1!=eemail2){
-		if(phoneForm(frmId, path)){
-		openPop(url);
+function checkAuth(url, frmId) {
+	var email = document.getElementById("email");
+	var emailOk = document.getElementById("emailOk").value
+	
+	if(emailOk!=true){
+		phoneForm(frmId, url)
 		}
-		}
-	else 
-		return;
+	else {
+		alert('중복');
+	}
+		
 }

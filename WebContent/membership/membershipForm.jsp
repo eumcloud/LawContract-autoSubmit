@@ -1,16 +1,21 @@
 
+<%@page import="com.web.DTO.Member"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="com.web.DAO.LoginDAO"%>
+<%@page import="com.web.DAO.Membership"%>
 <%@page import="java.util.Random"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@page contentType="text/html; charset=UTF-8"%>
     
     <%
-   
+    System.out.print("이메일 : "+request.getAttribute("emailOk"));
+    
     String pw = request.getParameter("pw");
     String pwOk = request.getParameter("pwOk");
     String email = request.getParameter("email");
     String path = request.getContextPath()+"/membership/membershipProc.jsp";
-    
-    
+
+    String emailOk =(String)request.getAttribute("emailOk");
+    Member member = new Member();
     if(pw==null){
     	pw="";	
     }
@@ -22,13 +27,12 @@
     }
     
     %>
-<script src='<%=request.getContextPath() %>/js/authForm.js' type="text/javascript"></script>
+<script src='<%=request.getContextPath() %>/js/common.js' type="text/javascript"></script>
 <script src='<%=request.getContextPath() %>/js/conditionForm.js' type="text/javascript"></script>
 <script src='<%=request.getContextPath() %>/js/memberForm.js' type="text/javascript"></script>
 <style>
 #errorMsg{
    color:red;
-
 }
 </style>
 <br/><br/><br/><br/>
@@ -36,13 +40,14 @@
 <div id=errorMsg></div>
 <center>
 <form id='frm' action="<%=request.getContextPath() %>/membership/membershipProc.jsp" method="post">
-
+<input type="text" id="emailOk" value="<%=emailOk%>" />
 <table>
 	
 	<tr>
 		<td align='right'>E-Mail</td>
 		<td>
 			<input type=text id='email' name='email' value="<%=email %>" placeholder='email 입력' style="width: 200px; "/>
+			<input type="button" value="중복 확인" onclick="formSubmit('frm', '<%=request.getContextPath()%>/membership/memberEmailProc.jsp');"> 
 		</td>
     </tr>
 	<tr>
@@ -61,7 +66,7 @@
 	
 	<tr>
 		<td  align='center' height=40 colspan=4>
-			<input type=button onclick="phoneForm('frm', '<%=path %>'), openPop('http://localhost:8080/20210402_miniPj2/membership/phoneForm.jsp');" value='인증하기' style="width: 120px; "/> 
+			<input type=button onclick="checkAuth('http://localhost:8080/20210402_miniPj2/membership/phoneForm.jsp', frm)" value='인증하기' style="width: 120px; "/> 
 		</td>
     </tr>
 	
@@ -70,10 +75,6 @@
 </center>
 
 <%@ page contentType="text/html; charset=UTF-8"%>
-
-
-<input type="hidden" name="currentPage" value="membershipForm"/>
-
 
 <br/><br/><br/><br/>
 
