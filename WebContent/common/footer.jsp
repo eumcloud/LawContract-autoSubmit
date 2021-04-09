@@ -11,7 +11,7 @@ html,body {
 	background-color: #282d32; 
 	width: 100%; 
 	height: 150px;
-
+	position: absolute;
 }
 .info{
     -webkit-text-size-adjust: 100%;

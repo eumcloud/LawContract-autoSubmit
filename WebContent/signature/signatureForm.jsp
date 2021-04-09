@@ -94,9 +94,11 @@ function capClick() {
 }
 #contList {
 	width: 350px;
-	height: 2500px;
+	height: 960px;
 	float: left;
 	background: #848484;
+	overFlow-y : scroll;
+	position: fixed;
 }	
 #next{
 	float: right;
@@ -113,6 +115,13 @@ function capClick() {
 #capbtn2 {
 	display: none;
 } 
+#conImg1:hover {
+	border: 5 solid #99610f;
+
+}
+#conImg2:hover {
+	border: 5 solid #99610f;
+}
 </style>
 </head>
 <form id = "frm" method="post">
@@ -121,8 +130,9 @@ function capClick() {
 
 <div id="contList"><br/><br/>
 <h1 align="center" style="color: white;">서류목록</h1><br/><br/><br/>
-<img src="<%=request.getContextPath()%>/image/example1.png" width="80%" style="margin-left: 30px;"/>
-<img src="<%=request.getContextPath()%>/image/example2.png" width="80%" style="margin-left: 30px; margin-top: 100px;"/>
+<img id="conImg1" src="<%=request.getContextPath()%>/image/example1.png" width="80%" style="margin-left: 30px;" onclick="javascript:window.scrollTo(0,0);"/>
+<img id="conImg2" src="<%=request.getContextPath()%>/image/example2.png" width="80%" style="margin-left: 30px; margin-top: 100px;" onclick="javascript:window.scrollTo(0,1200)" />
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 </div>
 		<br/>
 
