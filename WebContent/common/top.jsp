@@ -36,11 +36,9 @@ img{max-width:100%;}
                 <li><a href="<%=path %>feeinfoForm">요금 안내</a></li>
               <li><a href="<%=path %>conditionForm">서명신청</a></li>
             
-                
-              
                 <%if(usrId == null){ %>
                 <li class="rightMenu" style="margin-left: 1100px"><a href="<%=path %>loginForm"><b>로그인</b></a></li>
-                <li class="rightMenu"><a href="<%=path %>phoneForm"><b>회원가입</b></a></li>
+                <li class="rightMenu"><a href="<%=path %>membershipForm"><b>회원가입</b></a></li>
                 <%}else{ %>
                 <li style="margin-left: 850px"><%=usrId %>님 반갑니다.</li>
                 <li class="rightMenu"><a href = "<%=path %>logout">로그아웃</a>

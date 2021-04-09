@@ -21,10 +21,11 @@ function sendMember(){
 	
 	document.getElementById('frm').submit();
 }
-function phoneForm(frm, path){
+function phoneForm(frmId, url){
 	var reg = /^[a-z][a-z0-9_-]{3,20}@([a-z\d\.-]+)\.([a-z\.]{2,6})$/;
 	var email = document.getElementById("email");
 	let errorMsg = document.getElementById("errorMsg");
+	let frm = document.getElementById('frm');
 	if(email.value==""){
 		errorMsg.innerText=('email을 입력하세요');
 		return;
@@ -34,8 +35,25 @@ function phoneForm(frm, path){
 		return;
 	}
 	else{
-	let phone = document.getElementById("frm");
-	phone.action = path;
-	phone.submit();
+		  openPop(url);
 	}
+	
+}
+
+function openPop(url){
+	pop_auth = window.open(url, '인증 팝업', 'top=10, left=10, width=500, height=600');
+	pop_auth.focus();
+}
+
+function checkAuth(url, frmId) {
+	var email = document.getElementById("email");
+	var emailOk = document.getElementById("emailOk").value
+	
+	if(emailOk!=true){
+		phoneForm(frmId, url)
+		}
+	else {
+		alert('중복');
+	}
+		
 }
