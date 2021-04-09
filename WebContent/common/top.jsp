@@ -48,7 +48,7 @@ img{max-width:100%;}
                 <li><%=usrId %>님 반갑습니다.</li>
                 <li><a href = "<%=path %>logout">로그아웃</a>
                 <li><a href = "<%=path %>myinfoForm">내정보</a></li>
-                <li><a href = "<%=path %>">계약 내역</a></li>
+                <li><a href = "<%=path %>modifyForm">계약 내역</a></li>
                 <%} %>
 
             </ul>
