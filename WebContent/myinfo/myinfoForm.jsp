@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<input type="hidden" name="currentPage" value="myinfoForm"/>
 <%@page import="com.web.DAO.*"%>
 <%@page import="com.web.DTO.*"%>
 
@@ -16,7 +15,11 @@
 
 
 <form id = "frm" action="<%=request.getContextPath()%>/index.jsp">
+<input type="hidden" name="currentPage" value="myinfoForm"/>
+<!-- <input type="hidden" name="currentInfoPage" value="myinfoForm" /> -->
+
 	<center>
+		<br />
 		<h1>회원 정보</h1></br>
 		이메일 : <input type="text" name="email" value = "<%=currentUser.getEmail() %>" /><br />
 		휴대폰번호 : <input type="text" name="phoneNum" value="<%=currentUser.getPhoneNum() %>" /><br />

@@ -4,6 +4,7 @@
 <%
 	String currentPage = request.getParameter("currentPage");
 	String pageName = "/form/home.jsp";
+	
 	if(currentPage==null)
 		pageName = "/form/home.jsp";
 	else if("home".contentEquals(currentPage))
@@ -25,9 +26,9 @@
 	else if("signatureForm".contentEquals(currentPage))
 		pageName = "/signature/signatureForm.jsp";
 	else if("myinfoForm".contentEquals(currentPage))
-		pageName = "/myinfo/myinfoForm.jsp";
+		pageName = "/myinfo/infonav.jsp";
 	else if("modifyForm".contentEquals(currentPage))
-		pageName = "/myinfo/modifyForm.jsp";
+		pageName = "/myinfo/infonav.jsp";
 	else if("phoneForm".contentEquals(currentPage))
 		pageName = "/membership/phoneForm.jsp";
 	else if("successSignForm".contentEquals(currentPage))
