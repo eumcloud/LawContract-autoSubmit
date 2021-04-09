@@ -184,7 +184,7 @@ onclick="javascript:window.scrollTo(0,0), capClick(), openPop2('http://localhost
  <br/><br/><br/><br/>
  <a id="target" style="display: none"></a>
 <script>
-$(":button").on('click', function(e) {
+$(":button").on('click', function(e) { 
 // html2canvas(e.target.parentElement).then(function(canvas) {
 // document.body.appendChild(canvas)
 // });
