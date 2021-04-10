@@ -5,7 +5,7 @@
     pageEncoding="UTF-8"%>
 <%
 	Member currentUser = (Member)session.getAttribute("currentUser");
-	LoginDAO dao = new LoginDAO();
+	myInfoDAO dao = new myInfoDAO();
 	Connection conn = dao.getConn();
 	
 	String currentpw = request.getParameter("currentpw");

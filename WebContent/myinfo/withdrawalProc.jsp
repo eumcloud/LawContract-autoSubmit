@@ -6,7 +6,7 @@
 	Member currentUser = (Member)session.getAttribute("currentUser");
 	String pw = request.getParameter("pw");
 	
-	LoginDAO dao = new LoginDAO();
+	myInfoDAO dao = new myInfoDAO();
 	Connection conn = dao.getConn();
 	
 	if(pw.contentEquals(currentUser.getPw())){

@@ -6,9 +6,9 @@
 <%
 	Member currentUser = (Member)session.getAttribute("currentUser");
 	String newaddr = request.getParameter("newaddr");
-	LoginDAO dao = new LoginDAO();
+	myInfoDAO dao = new myInfoDAO();
 	Connection conn = dao.getConn();
 
-	dao.userADDUpdate(conn, currentUser.getEmail(), newaddr);	
+	dao.userADDRUpdate(conn, currentUser.getEmail(), newaddr);	
 	currentUser.setAddr(newaddr);
 %>
