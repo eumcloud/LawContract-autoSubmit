@@ -16,8 +16,6 @@
 
 <form id = "frm" action="<%=request.getContextPath()%>/index.jsp">
 <input type="hidden" name="currentPage" value="myinfoForm"/>
-<!-- <input type="hidden" name="currentInfoPage" value="myinfoForm" /> -->
-
 	<center>
 		<br />
 		<h1>회원 정보</h1></br>
