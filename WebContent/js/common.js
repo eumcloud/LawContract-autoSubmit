@@ -9,7 +9,7 @@ function IsEmpty(id){
 }
 
 function formSubmit(frmId, path){
-	let frm = document.getElementById('frmId');
-	frm.action=path;
+	let frm = document.getElementById(frmId);
+	frm.action = path;
 	frm.submit();
 }

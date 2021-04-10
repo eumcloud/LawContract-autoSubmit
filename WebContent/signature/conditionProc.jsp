@@ -9,15 +9,18 @@ String targetWriter = request.getParameter("targetWriter");
 String targetAddr = request.getParameter("targetAddr");
 String targetEmail = request.getParameter("targetEmail");
 String spcContents = request.getParameter("spcContents");
+String email = request.getParameter("email");
+
 session.setAttribute("creditor", writer);
 session.setAttribute("creditorAddr", addr);
-session.setAttribute("date", date);
+session.setAttribute("signdate", date);
 session.setAttribute("deadline", Term);
 session.setAttribute("money", Loan);
 session.setAttribute("deptor", targetWriter);
 session.setAttribute("deptorAddr", targetAddr);
 session.setAttribute("deptorEmail", targetEmail);
 session.setAttribute("spcContents", spcContents);
+session.setAttribute("creditorEmail", email);
 %>
 
 <jsp:forward page="/index.jsp">

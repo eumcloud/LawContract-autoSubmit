@@ -8,8 +8,8 @@
 
 	String deptorEmail = request.getParameter("deptorEmail");
 System.out.print(deptorEmail);
-	mail.SendMail("ACON", "gihong0703@gamil.com", deptorEmail, "Please sign the contract", "http://localhost:8080/20210402_miniPj2/index.jsp?currentPage=signatureForm");
-	
+/* 	mail.SendMail("ACON", "gihong0703@gamil.com", deptorEmail, "Please sign the contract", "http://localhost:8080/20210402_miniPj2/index.jsp?currentPage=signatureForm");
+	 */
 %>
 <br/><br/><br/>
 <script language="javascript">

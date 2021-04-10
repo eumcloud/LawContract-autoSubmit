@@ -12,7 +12,7 @@ import com.web.DTO.Member;
 
 public class ConditionDAO {
 	public Connection getConn() {
-		String url="jdbc:oracle:thin:@192.168.0.21:1521:xe";
+		String url="jdbc:oracle:thin:@localhost:1521:xe";
 		String usr = "c##acon";
 		String pass= "1234";
 		Connection conn = null;
@@ -26,7 +26,7 @@ public class ConditionDAO {
 	
 	
 	public int getAI(Connection conn) {
-		String sql="select nvl(max(no), 0)+1 from membership";
+		String sql="select nvl(max(no), 0)+1 from contractinfo";
 		int maxNum=0;
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -42,65 +42,37 @@ public class ConditionDAO {
 		}
 		return maxNum;
 	}
-	public void Insert(Connection conn, Condition condition, int maxNum) {
-		
-		String cquery = ""
-				+ "CREATE SEQUENCE contrCondition_SEQ "
-				+ "START WITH 1 "
-				+ "INCREMENT BY 1 "
-				+ "CREATE TABLE contrCondition "
-				+ "( "
-				+ "    creditorName       VARCHAR2(20)      NOT NULL,  "
-				+ "    creditorResiNum    VARCHAR2(14)      NOT NULL,  "
-				+ "    creditorAddr       VARCHAR2(200)     NOT NULL,  "
-				+ "    deptorName         VARCHAR2(20)      NOT NULL,  "
-				+ "    deptorResiNum      VARCHAR2(14)      NOT NULL,  "
-				+ "    deptorAddr         VARCHAR2(200)     NOT NULL,  "
-				+ "    money              INT               NOT NULL,  "
-				+ "    interest           int               NOT NULL,  "
-				+ "    deadline           DATE              NOT NULL,  "
-				+ "    condition          VARCHAR2(400)     NOT NULL,  "
-				+ "    spcContents        VARCHAR2(1000)    NULL,  "
-				+ "    signdate               date              NOT NULL,  "
-				+ "    creditorEmail      VARCHAR2(70)      NULL,  "
-				+ "    deptorEmail        VARCHAR2(70)      NULL,  "
-				+ "    fno                INT               NOT NULL,  "
-				+ "    CONSTRAINT CONTRCONDITION_PK PRIMARY KEY (fno) "
-				+ ") ";
-		
-		String query = "INSERT INTO contrCondition "
-				+ "    (creditorName, creditorResiNum, creditorAddr,deptorName, deptorResiNum,  "
-				+ "    deptorAddr,money, interest, deadline, condition, spcContents, signdate,  "
-				+ "    creditorEmail, deptorEmail) "
-				+ "VALUES "
-				+ "    (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)" ;
-		PreparedStatement pstmt;
-		
+	
+	public int insert(Connection conn, Condition condition) {
+		String sql="INSERT INTO contractinfo (no, creditor, creditorAddr, creditorResiNum, creditorEmail, "
+				+ "deptor, deptorAddr, deptorEmail, spcContents, signDate, deadLine, interest, money) "
+				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
-			pstmt = conn.prepareStatement(query);
+			PreparedStatement pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, condition.getClient());
-			pstmt.setString(2, condition.getClientResiNum());
-			pstmt.setString(3, condition.getClientAddr());
-			
-			pstmt.setString(4, condition.getDebtor());
-			pstmt.setString(5, condition.getDebtorResiNum());
-			pstmt.setString(6, condition.getDebtorAddr());
-			
-			pstmt.setString(7, condition.getMoney());
-			pstmt.setString(8, condition.getInterest());
-			pstmt.setString(9, condition.getDeadline());
-			pstmt.setString(10, condition.getCondition());
-			pstmt.setString(11, condition.getSpcContents());
-			pstmt.setString(12, condition.getSigndate());
-			
-			pstmt.setString(13, condition.getClientEmail());
-			pstmt.setString(14, condition.getDebtorEmail());
+			pstmt.setInt(1, condition.getNo());
+			pstmt.setString(2, condition.getCreditor());
+			pstmt.setString(3, condition.getCreditorAddr());
+			pstmt.setString(4, condition.getCreditorResiNum());
+			pstmt.setString(5, condition.getCreditorEmail());
+			pstmt.setString(6, condition.getDeptor());
+			pstmt.setString(7, condition.getDeptorAddr());
+			pstmt.setString(8, condition.getDeptorEmail());
+			pstmt.setString(9, condition.getSpcContents());
+			pstmt.setString(10, condition.getSignDate());
+			pstmt.setString(11, condition.getDeadLine());
+			pstmt.setInt(12, condition.getInterest());
+			pstmt.setString(13, condition.getMoney());
 			
 			pstmt.executeUpdate();
 			pstmt.close();
+
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}		
+		}
+		
+		return 0;
+		
 	}
 }

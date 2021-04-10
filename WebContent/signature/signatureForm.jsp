@@ -13,29 +13,29 @@ if (creditor== null) creditor = "____________";
 String deptor= (String)session.getAttribute("deptor");
 if (deptor ==null) deptor = "____________";
 
-String money = (String)session.getAttribute(" money ");
+String money = (String)session.getAttribute("money");
 if ( money ==null) money = "______________";
 
-String interest = (String)session.getAttribute(" interest ");
+String interest = (String)session.getAttribute("interest");
 if ( interest ==null) interest = "_____";
 
-String deadline= (String)session.getAttribute(" deadline");
+String deadline= (String)session.getAttribute("deadline");
 if ( deadline==null) deadline= "__________";
 
-String spcContents = (String)session.getAttribute(" spcContents ");
+String spcContents = (String)session.getAttribute("spcContents");
 if ( spcContents ==null) spcContents = "_____________________________";
 
-String creditorRegiNum = (String)session.getAttribute(" creditorRegiNum  ");
+String creditorRegiNum = (String)session.getAttribute("creditorRegiNum");
 if ( creditorRegiNum ==null) creditorRegiNum  = "____________________";
 
-String creditorAddr = (String)session.getAttribute(" creditorAddr ");
+String creditorAddr = (String)session.getAttribute("creditorAddr");
 if ( creditorAddr ==null) creditorAddr ="____________________";
 
 
-String deptorRegiNum = (String)session.getAttribute(" deptorRegiNum ");
+String deptorRegiNum = (String)session.getAttribute("deptorRegiNum");
 if ( deptorRegiNum==null ) deptorRegiNum = "____________________";
 
-String deptorAddr = (String)session.getAttribute(" deptorAddr ");
+String deptorAddr = (String)session.getAttribute("deptorAddr");
 if ( deptorAddr ==null) deptorAddr = "____________________";
 
 
@@ -180,9 +180,12 @@ function capClick() {
                 
 </div></article>
 <img src="<%=request.getContextPath()%>/image/next.png" id="next" width="70px" height="70px" style="margin-right: 300px; margin-bottom: 200px;"
-onclick="javascript:window.scrollTo(0,0), capClick(), openPop2('http://localhost:8080/20210402_miniPj2/signature/sendMailPop.jsp');"/>
+onclick="javascript:window.scrollTo(0,0), capClick(), formSubmit('frm', '<%=request.getContextPath()%>/signature/signatureProc.jsp'), openPop2('http://localhost:8080/20210402_miniPj2/signature/sendMailPop.jsp');"/>
  <br/><br/><br/><br/>
+ 
  <a id="target" style="display: none"></a>
+ <input type="file" name="contarctFile" style="margin-left: 600px;"/>
+ 
 <script>
 $(":button").on('click', function(e) { 
 // html2canvas(e.target.parentElement).then(function(canvas) {
