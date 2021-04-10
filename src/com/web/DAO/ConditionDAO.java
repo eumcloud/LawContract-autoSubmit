@@ -1,5 +1,6 @@
 package com.web.DAO;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -7,10 +8,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.servlet.http.HttpServletRequest;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.web.DTO.Condition;
+import com.web.DTO.ContractFile;
 import com.web.DTO.Member;
 
 public class ConditionDAO {
+	private MultipartRequest multiReq;
 	public Connection getConn() {
 		String url="jdbc:oracle:thin:@localhost:1521:xe";
 		String usr = "c##acon";
@@ -23,10 +30,16 @@ public class ConditionDAO {
 		
 		return conn;
 	}
+	public void getMultiReq(HttpServletRequest request) {
+		String uploadFilePath = request.getServletContext().getRealPath("uploadFile");
+		int maxSize = 1024*1024*10;
+		try {
+		multiReq = new MultipartRequest(request, uploadFilePath, maxSize, "UTF-8", new DefaultFileRenamePolicy());
+		} catch (IOException e) {	e.printStackTrace();	}
+		}
 	
-	
-	public int getAI(Connection conn) {
-		String sql="select nvl(max(no), 0)+1 from contractinfo";
+	public int getAI(Connection conn, String tn) {
+		String sql="select nvl(max(no), 0)+1 from "+tn;
 		int maxNum=0;
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -74,5 +87,45 @@ public class ConditionDAO {
 		
 		return 0;
 		
+	}
+	public ContractFile getcontractFile(HttpServletRequest request, Condition condition) {
+		ContractFile cf = new ContractFile();
+		int no = getAI(getConn(), "contractfile");
+		cf.setNo(no);
+		cf.setCreditorEmail(condition.getCreditorEmail());
+		cf.setDeptorEmail(condition.getDeptorEmail());
+		cf.setFno(condition.getNo());
+		cf.setFilePath(multiReq.getFilesystemName("uploadFile"));
+		cf.setContractFile(multiReq.getOriginalFileName("uploadFile"));
+		cf.setFilePath2(multiReq.getFilesystemName("uploadFile2"));
+		cf.setContractFile2(multiReq.getOriginalFileName("uploadFile2"));
+
+		return cf;
+		
+		
+	}
+	public int Insert(Connection conn, ContractFile cf) {
+		String sql = "INSERT INTO contractFile (no, CREDITOREMAIL, DEPTOREMAIL, CONTRACTFILE, CONTRACTFILE2, FILEPATH, FILEPATH2, FNO) "
+				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, cf.getNo());
+			pstmt.setString(2, cf.getCreditorEmail());
+			pstmt.setString(3, cf.getDeptorEmail());
+			pstmt.setString(4, cf.getContractFile());
+			pstmt.setString(5, cf.getContractFile2());
+			pstmt.setString(6, cf.getFilePath());
+			pstmt.setString(7, cf.getFilePath2());
+			pstmt.setInt(8, cf.getFno());
+			
+			pstmt.executeUpdate();
+			pstmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 0;
 	}
 }

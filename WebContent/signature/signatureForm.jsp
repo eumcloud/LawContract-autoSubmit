@@ -124,7 +124,7 @@ function capClick() {
 }
 </style>
 </head>
-<form id = "frm" method="post">
+<form id = "frm" method="post" enctype="multipart/form-data">
 <body style="background-color: black;">
 <input type="hidden" name="currentPage" value="signatureForm"/>
 
@@ -180,11 +180,13 @@ function capClick() {
                 
 </div></article>
 <img src="<%=request.getContextPath()%>/image/next.png" id="next" width="70px" height="70px" style="margin-right: 300px; margin-bottom: 200px;"
-onclick="javascript:window.scrollTo(0,0), capClick(), formSubmit('frm', '<%=request.getContextPath()%>/signature/signatureProc.jsp'), openPop2('http://localhost:8080/20210402_miniPj2/signature/sendMailPop.jsp');"/>
+onclick="formSubmit('frm', '<%=request.getContextPath()%>/signature/signatureProc.jsp'), openPop2('http://localhost:8080/20210402_miniPj2/signature/sendMailPop.jsp');"/>
  <br/><br/><br/><br/>
  
  <a id="target" style="display: none"></a>
- <input type="file" name="contarctFile" style="margin-left: 600px;"/>
+ <input type="file" name="uploadFile" style="margin-left: 600px; background: white;"/>
+  <input type="file" name="uploadFile2" style="margin-left: 600px; background: white;"/>
+  <input type="button" onclick="javascript:window.scrollTo(0,0), capClick();" value="다운" />
  
 <script>
 $(":button").on('click', function(e) { 
