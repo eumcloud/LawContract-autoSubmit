@@ -16,6 +16,7 @@
 		if(newpw.contentEquals(newpwok)){
 			dao.userPWUpdate(conn, currentUser.getEmail(), newpw);	
 			currentUser.setPw(newpw);
+			System.out.println("수정에 성공하셨습니다.");
 		}
 	}
 	else{

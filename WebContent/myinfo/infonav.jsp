@@ -23,8 +23,8 @@
 		pageName = "/myinfo/myinfoForm.jsp";
 	else if("myinfoForm".contentEquals(currentPage))
 		pageName = "/myinfo/myinfoForm.jsp";
-	else if("modifyForm".contentEquals(currentPage))
-		pageName = "/myinfo/modifyForm.jsp";
+	else if("ContractDetailsForm".contentEquals(currentPage))
+		pageName = "/myinfo/ContractDetailsForm.jsp";
 
 %>    
 <!DOCTYPE html>
@@ -38,7 +38,7 @@
 	<nav>
 		<br/><br/><br/>
         <a href="<%=path%>myinfoForm">회원정보</a>
-        <a href="<%=path%>modifyForm">계약정보</a>
+        <a href="<%=path%>ContractDetailsForm">계약정보</a>
         <br/>
         <jsp:include page="<%=pageName%>"/>        
     </nav>

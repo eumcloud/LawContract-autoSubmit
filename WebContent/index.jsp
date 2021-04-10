@@ -27,7 +27,7 @@
 		pageName = "/signature/signatureForm.jsp";
 	else if("myinfoForm".contentEquals(currentPage))
 		pageName = "/myinfo/infonav.jsp";
-	else if("modifyForm".contentEquals(currentPage))
+	else if("ContractDetailsForm".contentEquals(currentPage))
 		pageName = "/myinfo/infonav.jsp";
 	else if("phoneForm".contentEquals(currentPage))
 		pageName = "/membership/phoneForm.jsp";
