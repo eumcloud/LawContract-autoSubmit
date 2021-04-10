@@ -3,7 +3,6 @@
 
 
 <form id="frm" action="<%=request.getContextPath()%>/myinfo/ContractDetailsProc.jsp" method="post">
-<input type="hidden" name="currentPage" value="ContractDetailsForm"/>
 <table style="width: 650px; ">
 	<thead>
 	<tr>

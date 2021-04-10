@@ -18,6 +18,7 @@
 // 		pageName = "/myinfo/modifyForm.jsp";
 	
 	String currentPage = request.getParameter("currentPage");
+	System.out.println(currentPage);
 	
 	if(currentPage==null)
 		pageName = "/myinfo/myinfoForm.jsp";
@@ -25,6 +26,8 @@
 		pageName = "/myinfo/myinfoForm.jsp";
 	else if("ContractDetailsForm".contentEquals(currentPage))
 		pageName = "/myinfo/ContractDetailsForm.jsp";
+	else if("ContractDetailsProc".contentEquals(currentPage))
+		pageName = "/myinfo/ContractDetailsProc.jsp";
 
 %>    
 <!DOCTYPE html>
@@ -38,7 +41,7 @@
 	<nav>
 		<br/><br/><br/>
         <a href="<%=path%>myinfoForm">회원정보</a>
-        <a href="<%=path%>ContractDetailsForm">계약정보</a>
+        <a href="<%=path%>ContractDetailsProc">계약정보</a>
         <br/>
         <jsp:include page="<%=pageName%>"/>        
     </nav>
