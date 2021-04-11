@@ -2,10 +2,20 @@
     pageEncoding="UTF-8"%>
 <%@page import="com.web.DTO.*"%>
 <%@page import="com.web.DAO.*"%>
+<%@page import="com.web.common.*"%>
 <%@page import="java.util.List"%>
 
 <%
 	List<Contractfile> ContractList = (List<Contractfile>)session.getAttribute("ContractList");
+	
+	String url = request.getContextPath()+"/myinfo/ContractDetailsProc.jsp?currentPage=ContractDetailsProc&pageNumber=";
+	int pageNumber = Integer.parseInt( request.getParameter("pageNumber") );
+	System.out.println("pageNumber : " + pageNumber);
+	int rowsPerPage = (Integer)session.getAttribute("rowsPerPage");
+	System.out.println("rowsPerPage : " + rowsPerPage);
+	int totalPage = (int)session.getAttribute("totalPage");	
+	System.out.println("totalPage : " + totalPage);
+	
 %>
 
 <form id="frm" action="<%=request.getContextPath()%>/myinfo/ContractDetailsProc.jsp" method="post">
@@ -36,6 +46,11 @@
 	</tr>
 <%
 }
+%>
+
+<%
+out.print(ContractTools.getNavi(totalPage, rowsPerPage, url, pageNumber));
 %>	
 </table>
+</form>
 

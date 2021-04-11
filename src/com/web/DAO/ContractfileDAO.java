@@ -51,4 +51,17 @@ public class ContractfileDAO {
 		return lst;
 	}
 	
+	
+	public int getBoardCount(){
+		String sql  ="select count(*) from board ";
+		
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) {		return rs.getInt(1);			}
+			rs.close();
+			pstmt.close();
+		} catch (SQLException e) {			e.printStackTrace();		}
+		return 0;
+	}
 }
