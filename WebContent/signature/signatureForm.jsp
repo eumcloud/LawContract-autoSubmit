@@ -1,3 +1,4 @@
+<%@page import="java.awt.print.Printable"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.web.DTO.Condition"%>
@@ -38,7 +39,7 @@ if ( deptorRegiNum==null ) deptorRegiNum = "____________________";
 String deptorAddr = (String)session.getAttribute("deptorAddr");
 if ( deptorAddr ==null) deptorAddr = "____________________";
 
-
+int fno = (int)session.getAttribute("fno");
 %>
 
 
@@ -56,6 +57,9 @@ if ( deptorAddr ==null) deptorAddr = "____________________";
 function capClick() {
 	document.getElementById("capBtn1").click();
 	document.getElementById("capBtn2").click();
+}
+function getFno(number){
+	alert('계약서 번호는 '+number+'입니다.');
 }
 </script>
 <style type='text/css'>
@@ -132,7 +136,11 @@ function capClick() {
 <h1 align="center" style="color: white;">서류목록</h1><br/><br/><br/>
 <img id="conImg1" src="<%=request.getContextPath()%>/image/example1.png" width="80%" style="margin-left: 30px;" onclick="javascript:window.scrollTo(0,0);"/>
 <img id="conImg2" src="<%=request.getContextPath()%>/image/example2.png" width="80%" style="margin-left: 30px; margin-top: 100px;" onclick="javascript:window.scrollTo(0,1200)" />
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+ <input type="file" name="uploadFile" style="background: white;"/>
+  <input type="file" name="uploadFile2" style="background: white;"/>
+  <button type="button" onclick="javascript:window.scrollTo(0,0), capClick();">계약서 캡처</button>
+  <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 </div>
 		<br/>
 
@@ -141,7 +149,7 @@ function capClick() {
 						<h2 id='title' align="center">금전소비대차 계약서</h2>
 						<div class='contetns'>
 							<br/>
-							
+							<input type="hidden" name="fno" value='<%=fno%>' />
 						
 
   채권자 <%=creditor %> 을「갑」이라 하고, 채무자 <%=deptor %> 을「을」로 하여 「갑」과「을」 간에 다음과 같이 금전소비대차계약을 체결한다.<br/><br/>
@@ -180,13 +188,11 @@ function capClick() {
                 
 </div></article>
 <img src="<%=request.getContextPath()%>/image/next.png" id="next" width="70px" height="70px" style="margin-right: 300px; margin-bottom: 200px;"
-onclick="formSubmit('frm', '<%=request.getContextPath()%>/signature/signatureProc.jsp'), openPop2('http://localhost:8080/20210402_miniPj2/signature/sendMailPop.jsp');"/>
+onclick="formSubmit('frm', '<%=request.getContextPath()%>/signature/signatureProc.jsp'), getFno('<%=fno %>'), openPop2('http://localhost:8080/20210402_miniPj2/signature/sendMailPop.jsp');"/>
  <br/><br/><br/><br/>
  
  <a id="target" style="display: none"></a>
- <input type="file" name="uploadFile" style="margin-left: 600px; background: white;"/>
-  <input type="file" name="uploadFile2" style="margin-left: 600px; background: white;"/>
-  <input type="button" onclick="javascript:window.scrollTo(0,0), capClick();" value="다운" />
+
  
 <script>
 $(":button").on('click', function(e) { 

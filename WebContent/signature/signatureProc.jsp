@@ -29,7 +29,7 @@
 	conditionDAO.insert(conn, condition);
 	ContractFile cf = conditionDAO.getcontractFile(request, condition);
 	conditionDAO.Insert(conn, cf);
-
+	session.setAttribute("fno", cf.getFno());
 %>
 <jsp:forward page="/index.jsp">
 <jsp:param value="signatureForm" name="currentPage"/>

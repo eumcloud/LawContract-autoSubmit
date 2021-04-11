@@ -7,9 +7,12 @@
 <%
 
 	String deptorEmail = request.getParameter("deptorEmail");
-System.out.print(deptorEmail);
-/* 	mail.SendMail("ACON", "gihong0703@gamil.com", deptorEmail, "Please sign the contract", "http://localhost:8080/20210402_miniPj2/index.jsp?currentPage=signatureForm");
-	 */
+	int fno = (int)session.getAttribute("fno");
+	System.out.print(deptorEmail);
+/*  mail.SendMail("ACON", "gihong0703@gamil.com", deptorEmail, 
+		"Please sign the contract", 
+		"http://localhost:8080/20210402_miniPj2/index.jsp?currentPage=signatureForm \r계약서 번호는 "+fno+"입니다");  */
+	 
 %>
 <br/><br/><br/>
 <script language="javascript">
