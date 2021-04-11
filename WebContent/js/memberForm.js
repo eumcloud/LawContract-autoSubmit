@@ -21,11 +21,54 @@ function sendMember(){
 	
 	document.getElementById('frm').submit();
 }
-function phoneForm(frmId, url){
+function phoneForm(url, frmId, path){
 	var reg = /^[a-z][a-z0-9_-]{3,20}@([a-z\d\.-]+)\.([a-z\.]{2,6})$/;
 	var email = document.getElementById("email");
+	var emailOk = document.getElementById("emailOk").value
+	var pw = document.getElementById("pw").value
+	var pwOk = document.getElementById("pwOk").value
 	let errorMsg = document.getElementById("errorMsg");
-	let frm = document.getElementById('frm');
+	formSubmit(frmId, path);
+	if(email.value==""){
+		errorMsg.innerText=('email을 입력하세요');
+		return;
+	}
+	 if(!reg.test(email.value)){
+		errorMsg.innerText=('email 형식이 잘못되었습니다.');
+		return;
+	}
+	 if(emailOk==email.value){
+		alert('중복된 이메일입니다.');
+		return;
+	}
+	 if(pw != pwOk){
+		errorMsg.innerText=('비밀번호가 다릅니다.');
+		return;
+	}
+	else {
+		openPop(url);
+	}
+}
+
+function openPop(url){
+	pop_auth = window.open(url, '인증 팝업', 'top=10, left=10, width=500, height=600');
+	pop_auth.focus();
+}
+
+
+function formSubmit(frmId, path){
+	let frm = document.getElementById(frmId);
+	frm.action=path;
+	frm.submit();	
+}
+function checkEmail(frmId, path){
+	
+	var reg = /^[a-z][a-z0-9_-]{3,20}@([a-z\d\.-]+)\.([a-z\.]{2,6})$/;
+	var email = document.getElementById("email");
+	var emailOk = document.getElementById("emailOk").value
+	let errorMsg = document.getElementById("errorMsg");
+	let frm = document.getElementById('frmId');
+	formSubmit(frmId, path);
 	if(email.value==""){
 		errorMsg.innerText=('email을 입력하세요');
 		return;
@@ -34,26 +77,17 @@ function phoneForm(frmId, url){
 		errorMsg.innerText=('email 형식이 잘못되었습니다.');
 		return;
 	}
-	else{
-		  openPop(url);
-	}
-	
-}
-
-function openPop(url){
-	pop_auth = window.open(url, '인증 팝업', 'top=10, left=10, width=500, height=600');
-	pop_auth.focus();
-}
-
-function checkAuth(url, frmId) {
-	var email = document.getElementById("email");
-	var emailOk = document.getElementById("emailOk").value
-	
-	if(emailOk!=true){
-		phoneForm(frmId, url)
+	if(emailOk==email.value){
+		alert('중복된 이메일입니다.');
+		return;
 		}
-	else {
-		alert('중복');
+	if(emailOk!=email.value) {
+		alert('사용 가능한 이메일입니다.');
+		return;
+		}
+	
 	}
-		
-}
+	
+	
+
+

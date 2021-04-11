@@ -18,9 +18,10 @@
 	Random rand = new Random();
 	int randNum = rand.nextInt(10000);
 	String authNum = String.format("%04d", randNum);
-	System.out.print("디비 전 : "+name);
-	System.out.print("디비 전residentNum : "+residentNum);
-	System.out.print("디비 전 phoneNum : "+phoneNum);
+	
+	System.out.println("디비 전 : "+name);
+	System.out.println("디비 전residentNum : "+residentNum);
+	System.out.println("디비 전 phoneNum : "+phoneNum);
 	request.setAttribute("authNum", authNum);
 %>
 <jsp:forward page="phoneForm.jsp"/>

@@ -13,8 +13,9 @@
 	session.setAttribute("pw", pw);
 	session.setAttribute("pwOk", pwOk);
 	
-	
-	
+	System.out.println("멤버프락 석세스 이메일 :"  +email);
+	System.out.println("멤버프락 석세스 패스워드 :"  +pw);
+	System.out.println("멤버프락 석세스 패스워드 확인 :"  +pwOk);
 	
 %>
 <jsp:forward page="/index.jsp">

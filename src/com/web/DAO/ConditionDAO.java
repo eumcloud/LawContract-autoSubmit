@@ -12,9 +12,9 @@ import com.web.DTO.Member;
 
 public class ConditionDAO {
 	public Connection getConn() {
-		String url="jdbc:oracle:thin:@192.168.0.21:1521:xe";
-		String usr = "c##acon";
-		String pass= "1234";
+		String url="jdbc:oracle:thin:@localhost:1521:xe";
+		String usr = "c##jin";
+		String pass= "jin1234";
 		Connection conn = null;
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
