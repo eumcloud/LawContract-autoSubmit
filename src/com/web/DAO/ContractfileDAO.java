@@ -20,28 +20,35 @@ public class ContractfileDAO {
 	}
 	
 	public List<Contractfile> getBoardList(int PageNumber, int RowsPerPage, String Email){
-		String sql  ="select * "
-				+ "from contractfile "
-				+ "where creditoraddr = ?";
+		String sql = "select creditoraddr, contractname, condition "
+				+ "from ( "
+				+ "select rownum as rn,creditoraddr,contractname, condition "
+				+"from( "
+				+"select * "
+				+"from contractfile "
+				+"where CREDITORADDR = ?"
+				+"order by no desc "
+				+"        ) "
+				+"    ) "
+				+"where rn >= ? and rownum <= ?";
+		
 		List<Contractfile> lst = new ArrayList<Contractfile>();
 		
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, Email);
 			
+			pstmt.setString(1, Email);
+			pstmt.setInt(2, ((PageNumber - 1) * RowsPerPage) + 1);
+			pstmt.setInt(3, RowsPerPage);
 			
 			ResultSet rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
 				Contractfile dao = new Contractfile();
 				
-				dao.setNo(rs.getInt(1));
-				dao.setCreditoraddr(rs.getString(2));
-				dao.setDebtoraddr(rs.getString(3));
-				dao.setContractfile(rs.getString(4));
-				dao.setFilepath(rs.getString(5));
-				dao.setContractname(rs.getString(6));
-				dao.setCondition(rs.getString(7));
+				dao.setCreditoraddr(rs.getString(1));
+				dao.setContractname(rs.getString(2));
+				dao.setCondition(rs.getString(3));
 				
 				lst.add(dao);
 			}
@@ -53,7 +60,7 @@ public class ContractfileDAO {
 	
 	
 	public int getBoardCount(){
-		String sql  ="select count(*) from board ";
+		String sql  ="select count(*) from contractfile ";
 		
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);

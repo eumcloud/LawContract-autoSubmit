@@ -7,50 +7,49 @@
 
 <%
 	List<Contractfile> ContractList = (List<Contractfile>)session.getAttribute("ContractList");
-	
 	String url = request.getContextPath()+"/myinfo/ContractDetailsProc.jsp?currentPage=ContractDetailsProc&pageNumber=";
+	
 	int pageNumber = Integer.parseInt( request.getParameter("pageNumber") );
-	System.out.println("pageNumber : " + pageNumber);
 	int rowsPerPage = (Integer)session.getAttribute("rowsPerPage");
-	System.out.println("rowsPerPage : " + rowsPerPage);
 	int totalPage = (int)session.getAttribute("totalPage");	
-	System.out.println("totalPage : " + totalPage);
+	
+	System.out.println("pageNumber : " + pageNumber);
+	System.out.println("rowsPerPage : " + rowsPerPage);
+	System.out.println("totalPage : " + totalPage);	
 	
 %>
-
-<form id="frm" action="<%=request.getContextPath()%>/myinfo/ContractDetailsProc.jsp" method="post">
+<form id="frm" action="<%=request.getContextPath()%>/myinfo/ContractDetailsProc.jsp" method="get">
 <table style="width: 650px; ">
 	<thead>
 	<tr>
-		<th style="width: 40px; height:20px;" align="center">선택</th>
-		<th style="width: 330px; height:20px;" align="center">계약 상태</th>
-		<th style="width: 80px; height:20px;" align="center">계약명</th>
+		<th style="width: 10px; height:20px;" align="center">선택</th>
+		<th style="width: 10px; height:20px;" align="center">계약 상태</th>
+		<th style="width: 10px; height:20px;" align="center">계약명</th>
 		<th style="width: 120px; height:20px;" align="center">삭제 / 수정</th>
 	</tr>
 	</thead>
 	<tr>
 		<td style="width: 40px; height:20px;" align="center"><hr/></td>
-		<td style="width: 330px; height:20px;" align="center"><hr/></td>
-		<td style="width: 80px; height:20px;" align="center"><hr/></td>
+		<td style="width: 10px; height:20px;" align="center"><hr/></td>
+		<td style="width: 40px; height:20px;" align="center"><hr/></td>
 		<td style="width: 120px; height:20px;" align="center"><hr/></td>
 	</tr>
-
 <%
 	for(Contractfile c : ContractList){
 %>
 	<tr>
-		<td style="width: 40px; height:40px;"><input type="checkbox" value='<%=c.getNo()%>' name="boardCheckbox"/></td>
-		<td style="width: 80px; height:40px;"><%=c.getCondition()%></td>
-		<td style="width: 120px; height:40px;"><%=c.getContractname()%></td>
-		<td style="width: 80px; height:40px;"><%=c.getContractfile() %></td>
+		<td><input type="checkbox" value='<%=c.getNo()%>' name="boardCheckbox"/></td>
+		<td><%=c.getCondition()%></td>
+		<td><%=c.getContractname()%></td>
+		<td><%=c.getContractfile() %></td>
 	</tr>
 <%
 }
 %>
+</table>
 
 <%
-out.print(ContractTools.getNavi(totalPage, rowsPerPage, url, pageNumber));
+out.println(ContractTools.getNavi(totalPage, rowsPerPage, url, pageNumber));
 %>	
-</table>
 </form>
 

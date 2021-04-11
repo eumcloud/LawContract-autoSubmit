@@ -15,7 +15,7 @@ public class ContractTools {
 			if(pageNumber==i)	result+=("</b>");
 		}
 		if(pageNumber<blockCnt)result+=("<a href="+url+(pageNumber+1)+ ">[´ÙÀ½]</a>");
-		
+		System.out.println(result);
 		return result;
 	}
 

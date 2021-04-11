@@ -8,8 +8,8 @@
 <%	
 	Member currentUser = (Member)session.getAttribute("currentUser");
 	
-	int pageNumber = Integer.parseInt( request.getParameter("pageNumber") );
 	int rowsPerPage = 3;
+	int pageNumber = Integer.parseInt( request.getParameter("pageNumber") );
 	
 // 	System.out.println("pageNumber = " + pageNumber);
 	
