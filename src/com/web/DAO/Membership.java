@@ -12,6 +12,7 @@ public class Membership {
 
 
 	public Connection getConn() {
+
 		String url="jdbc:oracle:thin:@192.168.0.21:1521:xe";
 		String usr = "c##acon";
 		String pass= "1234";

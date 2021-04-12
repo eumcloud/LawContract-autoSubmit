@@ -60,7 +60,7 @@ table.table1 th {
 <h1 style="margin-left: 300px;">계약 필수정보 요소</h1><br/><br/>
 <table class="table1">
 <tr style="text-align: center;">
-<th>계약 당사자</th><th>주소</th><th>계약날짜</th><th>계약종료 날짜</th><th>대차금액</th>
+<th>계약 당사자</th><th>주소</th><th>계약날짜</th><th>계약종료 날짜</th><th>대차금액</th><th>이메일</th>
 </tr>
 <tr>
 <td><input type="text" name='writer' placeholder='이름을 입력하세요'/></td>
@@ -68,6 +68,7 @@ table.table1 th {
 <td><input type="date" name='date' value="<%=today%>"/></td>
 <td><input type="date" name='Term' value="<%=today%>"/></td>
 <td><input type="text" name='Loan' placeholder='대차금액을 입력하세요'/></td>
+<td><input type="text" name='email' placeholder='이메일을 입력하세요'/></td>
 </tr>
 </table>
 <br/><br/><br/><br/>
@@ -89,5 +90,5 @@ table.table1 th {
 	<td colspan='2' align="center"><img src="<%=path%>/image/add.png" onclick="add();" width="20px" height="20px"/></td>
 </tr>
 </table>
-<img src="<%=path%>/image/next.png" id="next" width="70px" height="70px" style="margin-right: 300px; margin-bottom: 200px;" onclick="formSubmit('frm', '<%=request.getContextPath() %>/signature/conditionProc.jsp'), openPop('http://localhost:8080/20210402_miniPj2/signature/authPop.jsp');"/>
+<img src="<%=path%>/image/next.png" id="next" width="70px" height="70px" style="margin-right: 300px; margin-bottom: 200px;" onclick="formSubmit('frm', '<%=request.getContextPath()%>/signature/conditionProc.jsp'), openPop('http://localhost:8080/20210402_miniPj2/signature/authPop.jsp');"/>
 </form>
