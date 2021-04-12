@@ -3,7 +3,7 @@ package com.web.DAO;
 import java.sql.*;
 import java.util.*;
 
-import com.web.DTO.Contractfile;
+import com.web.DTO.ContractFile;
 
 public class ContractfileDAO {
 	
@@ -20,7 +20,7 @@ public class ContractfileDAO {
 		} catch (Exception e) {	e.printStackTrace();	}
 	}
 	
-	public List<Contractfile> getBoardList(int PageNumber, int RowsPerPage, String Email){
+	public List<ContractFile> getBoardList(int PageNumber, int RowsPerPage, String Email){
 		String sql = "select creditoraddr, contractname, condition "
 				+ "from ( "
 				+ "select rownum as rn,creditoraddr,contractname, condition "
@@ -33,7 +33,7 @@ public class ContractfileDAO {
 				+"    ) "
 				+"where rn >= ? and rownum <= ?";
 		
-		List<Contractfile> lst = new ArrayList<Contractfile>();
+		List<ContractFile> lst = new ArrayList<ContractFile>();
 		
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -45,10 +45,10 @@ public class ContractfileDAO {
 			ResultSet rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				Contractfile dao = new Contractfile();
+				ContractFile dao = new ContractFile();
 				
-				dao.setCreditoraddr(rs.getString(1));
-				dao.setContractname(rs.getString(2));
+				dao.setCreditorEmail(creditorEmail);(rs.getString(1));
+				dao.setFno(rs.getString(2));
 				dao.setCondition(rs.getString(3));
 				
 				lst.add(dao);
