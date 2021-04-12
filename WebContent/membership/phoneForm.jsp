@@ -7,6 +7,9 @@
 	session.setAttribute("name", name);
 	String residentNum =request.getParameter("residentNum");
 	String phoneNum =request.getParameter("phoneNum");
+	String authNum =request.getParameter("authNum");
+	if(authNum == null)
+		authNum = "";
 	if(authNumOk == null)
 		authNumOk = "";
 	if(name == null)
@@ -17,6 +20,7 @@
 		phoneNum = "";
 	
 	String path = request.getContextPath()+"/membership/phoneDBProc.jsp";
+	String pathNo = request.getContextPath()+"/membership/phoneNoProc.jsp";
 %>
 <!DOCTYPE html>
 <html>
@@ -26,25 +30,42 @@
 <meta charset="utf-8">
 <title>본인인증</title>
 <script language="javascript">
-function PopupNextPage(path){
+function PopupNextPage(path, pathNo, frmId){
     var authNum = document.getElementById("authNum").value;
     var authNumOk = document.getElementById("authNumOk").value;
-	
-    if(authNum==authNumOk){
-	window.opener.location.href=path;
-    self.close();}
-    else {
-    	alert('인증번호를 입력하세요');	
+    if(authNum==""){
+    	alert('인증번호를 입력하세요');
+    	
+    	let frm = document.getElementById(frmId);
+		frm.action=pathNo;
+		frm.submit();
+    	return;
+    	
     }
+    if(authNum==authNumOk){
+    	window.opener.location.href=path;
+        self.close();
+        }
+	else {
+		alert('다시 입력하세요');
+		let frm = document.getElementById(frmId);
+		frm.action=pathNo;
+		frm.submit();
+    	return;
+    }
+    if(authNum==authNumOk){
+    	window.opener.location.href=path;
+        self.close();
+        }
 }
 
 </script>
 
 <h1><%=authNumOk %></h1>
-<input type="text" id="authNumOk" value="<%=authNumOk%>">;
+<input type="hidden" id="authNumOk" value="<%=authNumOk%>">
 </head>
 <body>
-<form action="<%=request.getContextPath() %>/membership/phoneFormProc.jsp" method="post">
+<form id="frm" action="<%=request.getContextPath() %>/membership/phoneFormProc.jsp" method="post">
 <center>
 <br/><br/><br/>
 <table border=0>
@@ -60,8 +81,8 @@ function PopupNextPage(path){
 </select>
 </td><td>휴대폰번호</td><td><input type='textarea' name="phoneNum" value="<%=phoneNum %> "></td></tr>
 <td></td><td><input type="submit" value="인증번호 전송"></td>
-<br/><td><input type=textarea id="authNum"></td>
-<td><button onclick="PopupNextPage('<%=path %>');">확인</button></td>
+<br/><td><input type="text" id="authNum" name="authNum" value="<%=authNum%>"></td>
+<td><button onclick="PopupNextPage('<%=path %>','<%=pathNo%>', 'frm');">확인</button></td>
 </table>
 </center></form>
 </body>
