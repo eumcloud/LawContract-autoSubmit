@@ -24,7 +24,7 @@
 	condition.setDeptorEmail((String)session.getAttribute("deptorEmail"));
 	condition.setSpcContents((String)session.getAttribute("spcContents"));
 	condition.setSignDate((String)session.getAttribute("signdate"));
-
+ 
 	conditionDAO.getMultiReq(request);
 	conditionDAO.insert(conn, condition);
 	ContractFile cf = conditionDAO.getcontractFile(request, condition);
