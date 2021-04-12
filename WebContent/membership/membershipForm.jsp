@@ -12,9 +12,10 @@
     String pwOk = request.getParameter("pwOk");
     String email = request.getParameter("email");
     String path = request.getContextPath()+"/membership/membershipProc.jsp";
-	LoginDAO loginDao = new LoginDAO();
+	 LoginDAO loginDao = new LoginDAO();
  	Connection conn = loginDao.getConn();
-	 String emailOk =  loginDao.userConfirm(conn, email);
+	 String emailOk =  loginDao.userConfirm(conn, email); 
+	
     Member member = new Member();
     if(pw==null){
     	pw="";	
@@ -30,6 +31,7 @@
 <script src='<%=request.getContextPath() %>/js/common.js' type="text/javascript"></script>
 <script src='<%=request.getContextPath() %>/js/conditionForm.js' type="text/javascript"></script>
 <script src='<%=request.getContextPath() %>/js/memberForm.js' type="text/javascript"></script>
+
 <style>
 #errorMsg{
    color:red;
