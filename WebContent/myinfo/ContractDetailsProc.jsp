@@ -7,15 +7,16 @@
     
 <%	
 	Member currentUser = (Member)session.getAttribute("currentUser");
-	
+	String currentUserEmail = currentUser.getEmail();
+	System.out.println("너의 이메일은" + currentUser.getEmail());
 	int rowsPerPage = 3;
 	int pageNumber = Integer.parseInt( request.getParameter("pageNumber") );
 	
 // 	System.out.println("pageNumber = " + pageNumber);
 	
 	ContractfileDAO dao = new ContractfileDAO();
-	
-	List<Contractfile> lst = dao.getBoardList(pageNumber, rowsPerPage, currentUser.getEmail());
+	System.out.println("currentUser = " + currentUser.getEmail());
+	List<ContractFile> lst = dao.getBoardList(pageNumber, rowsPerPage, currentUserEmail);
 	
 	session.setAttribute("ContractList", lst);
 	session.setAttribute("rowsPerPage", rowsPerPage);

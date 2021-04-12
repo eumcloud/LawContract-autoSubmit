@@ -5,14 +5,11 @@
 <%
 	String id = request.getParameter("id");
 	String pw = request.getParameter("pw");
-	
-// 	Login login = new Login();
-	
+		
 	LoginDAO loginDao = new LoginDAO();
 	Connection conn = loginDao.getConn();
 	
-// 	int result = loginDao.LoginProc(conn, login);
-	boolean confirmResult = loginDao.userConfirm(conn, email);
+	boolean confirmResult = loginDao.userConfirm(conn, id);
 	System.out.println(confirmResult);
 	
 	String pagePath = "loginForm";

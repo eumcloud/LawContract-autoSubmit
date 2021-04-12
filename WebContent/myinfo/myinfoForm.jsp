@@ -8,6 +8,7 @@
 <script  src='<%=request.getContextPath()%>/js/ModityForm.js' type="text/javascript"></script>
 <%
 	Member currentUser = (Member)session.getAttribute("currentUser");
+
 	String PwModityFormPath = request.getContextPath() + "/myinfo/PwModityForm.jsp";
 	String AddrModityFormPath = request.getContextPath() + "/myinfo/AddrModityForm.jsp";
 	String WithdrawalFormPath = request.getContextPath() + "/myinfo/withdrawalForm.jsp";

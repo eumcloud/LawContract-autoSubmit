@@ -11,13 +11,6 @@ public class Member {
 	
 	private String pw;// 비밀번호
 	private String chkpw; //비밀번호 확인
-	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
 	public int getNo() {
 		return no;
 	}
@@ -33,8 +26,8 @@ public class Member {
 	public String getPhoneNum() {
 		return phoneNum;
 	}
-	public void setPhoneNum(String phonNum) {
-		this.phoneNum = phonNum;
+	public void setPhoneNum(String phoneNum) {
+		this.phoneNum = phoneNum;
 	}
 	public String getResidentNum() {
 		return residentNum;
@@ -48,6 +41,12 @@ public class Member {
 	public void setAddr(String addr) {
 		this.addr = addr;
 	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public String getPw() {
 		return pw;
 	}
@@ -60,9 +59,5 @@ public class Member {
 	public void setChkpw(String chkpw) {
 		this.chkpw = chkpw;
 	}
-	
-	
-	
-	
 	
 }

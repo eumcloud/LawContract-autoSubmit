@@ -6,7 +6,7 @@
 <%@page import="java.util.List"%>
 
 <%
-	List<Contractfile> ContractList = (List<Contractfile>)session.getAttribute("ContractList");
+	List<ContractFile> ContractList = (List<ContractFile>)session.getAttribute("ContractList");
 	String url = request.getContextPath()+"/myinfo/ContractDetailsProc.jsp?currentPage=ContractDetailsProc&pageNumber=";
 	
 	int pageNumber = Integer.parseInt( request.getParameter("pageNumber") );
@@ -35,13 +35,13 @@
 		<td style="width: 120px; height:20px;" align="center"><hr/></td>
 	</tr>
 <%
-	for(Contractfile c : ContractList){
+	for(ContractFile c : ContractList){
 %>
 	<tr>
 		<td><input type="checkbox" value='<%=c.getNo()%>' name="boardCheckbox"/></td>
 		<td><%=c.getCondition()%></td>
-		<td><%=c.getContractname()%></td>
-		<td><%=c.getContractfile() %></td>
+		<td><%=c.getFno()%></td>
+		<td><%=c.getContractFile() %></td>
 	</tr>
 <%
 }

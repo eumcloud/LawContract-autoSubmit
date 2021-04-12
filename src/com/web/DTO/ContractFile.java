@@ -4,11 +4,18 @@ public class ContractFile {
 	private int no;
 	private String creditorEmail;
 	private String deptorEmail;
-	private String contractFile;
 	private String filePath;
+	private int fno;
 	private String contractFile2;
 	private String filePath2;
-	private int fno;
+	private String contractFile;
+	private String condition;
+	public String getCondition() {
+		return condition;
+	}
+	public void setCondition(String condition) {
+		this.condition = condition;
+	}
 	public int getNo() {
 		return no;
 	}

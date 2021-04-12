@@ -7,13 +7,17 @@ import com.web.DTO.ContractFile;
 
 public class ContractfileDAO {
 	
-	private Connection conn;
+	public Connection conn;
+	
 	public ContractfileDAO() {
+		String url="jdbc:oracle:thin:@localhost:1522:xe";
+		String usr="c##jin";
+		String pass="jin1234";
 		
-		String url="jdbc:oracle:thin:@192.168.0.21:1521:xe";
-		String usr = "c##acon";
-		String pass= "1234";
-		Connection conn = null;
+//		String url="jdbc:oracle:thin:@192.168.0.21:1521:xe";
+//		String usr = "c##acon";
+//		String pass= "1234";
+//		Connection conn = null;
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			conn= DriverManager.getConnection(url, usr, pass);
@@ -21,21 +25,23 @@ public class ContractfileDAO {
 	}
 	
 	public List<ContractFile> getBoardList(int PageNumber, int RowsPerPage, String Email){
-		String sql = "select creditoraddr, contractname, condition "
-				+ "from ( "
-				+ "select rownum as rn,creditoraddr,contractname, condition "
-				+"from( "
-				+"select * "
-				+"from contractfile "
-				+"where CREDITORADDR = ?"
-				+"order by no desc "
-				+"        ) "
-				+"    ) "
-				+"where rn >= ? and rownum <= ?";
+		
+		 String sql = "select condition, fno, contractfile "
+		            + "from ( "
+		            + "select rownum as rn, creditoremail, fno, condition, contractfile "
+		            +"from( "
+		            +"select * "
+		            +"from contractfile "
+		            +"where creditoremail = ? "
+		            +"order by no desc "
+		            +"        ) "
+		            +"    ) "
+		            +"where rn >= ? and rownum <= ?";
 		
 		List<ContractFile> lst = new ArrayList<ContractFile>();
 		
 		try {
+
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, Email);
@@ -47,10 +53,9 @@ public class ContractfileDAO {
 			while(rs.next()) {
 				ContractFile dao = new ContractFile();
 				
-				dao.setCreditorEmail(creditorEmail);
-				dao.set(rs.getString(1));
-				dao.setFno(rs.getString(2));
-				dao.setCondition(rs.getString(3));
+				dao.setCondition(rs.getString(1));
+				dao.setFno(rs.getInt(2));
+				dao.setContractFile(rs.getString(3));
 				
 				lst.add(dao);
 			}

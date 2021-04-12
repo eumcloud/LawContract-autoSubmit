@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="com.web.DAO.*"%>
+<%@page import="com.web.DTO.*"%>
+
 <%
 	String pageName = "/myinfo/myinfoForm.jsp";
-	
+	Member currentUser = (Member)session.getAttribute("currentUser");
 	String contextPath =request.getContextPath();
 	String path = contextPath +  "/index.jsp?currentPage=";	
 	

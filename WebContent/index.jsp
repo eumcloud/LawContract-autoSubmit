@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/common/header.jspf" %>
+<%@page import="com.web.DAO.*"%>
+<%@page import="com.web.DTO.*"%>
+
 <%
+
 	String currentPage = request.getParameter("currentPage");
 	String pageName = "/form/home.jsp";
 	
