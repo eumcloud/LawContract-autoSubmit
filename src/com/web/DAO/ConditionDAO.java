@@ -105,8 +105,8 @@ public class ConditionDAO {
 		
 	}
 	public int Insert(Connection conn, ContractFile cf) {
-		String sql = "INSERT INTO contractFile (no, CREDITOREMAIL, DEPTOREMAIL, CONTRACTFILE, CONTRACTFILE2, FILEPATH, FILEPATH2, FNO) "
-				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO contractFile (no, CREDITOREMAIL, DEPTOREMAIL, CONTRACTFILE, CONTRACTFILE2, FILEPATH, FILEPATH2, FNO, CONDITION) "
+				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, '¹Ì¿Ï·á')";
 
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
