@@ -12,7 +12,7 @@
 	Connection conn = loginDao.getConn();
 	
 // 	int result = loginDao.LoginProc(conn, login);
-	boolean confirmResult = loginDao.userConfirm(conn,id, pw);
+	boolean confirmResult = loginDao.userConfirm(conn, email);
 	System.out.println(confirmResult);
 	
 	String pagePath = "loginForm";

@@ -64,3 +64,28 @@ public class LoginDAO {
 		}
 		return 0;
 }
+	public String userConfirm(Connection conn, String email) {
+		Member member = new Member();
+	      String SQL = "select email "
+	            + "from membership "
+	            + "where email = ?";
+	      String email3 ="";
+	      PreparedStatement pstmt = null;
+	      try {
+	         pstmt = conn.prepareStatement(SQL);
+	         
+	         pstmt.setString(1, email);
+	         
+	         ResultSet rs = pstmt.executeQuery();
+	         if(rs.next()) {
+	        	member.setEmail(rs.getString(1));
+	        	email3 = member.getEmail();
+	        	 }
+	         
+	      } catch (SQLException e) {
+	         // TODO Auto-generated catch block
+	         e.printStackTrace();
+	      }
+	      return email3;
+	   }
+}

@@ -47,7 +47,8 @@ public class ContractfileDAO {
 			while(rs.next()) {
 				ContractFile dao = new ContractFile();
 				
-				dao.setCreditorEmail(creditorEmail);(rs.getString(1));
+				dao.setCreditorEmail(creditorEmail);
+				dao.set(rs.getString(1));
 				dao.setFno(rs.getString(2));
 				dao.setCondition(rs.getString(3));
 				
