@@ -18,8 +18,9 @@
 	System.out.println("totalPage : " + totalPage);	
 	
 %>
-<form id="frm" action="<%=request.getContextPath()%>/myinfo/ContractDetailsProc.jsp" method="get">
-<br /><br /><br />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+<form class="table" id="frm" action="<%=request.getContextPath()%>/myinfo/ContractDetailsProc.jsp" method="get">
 <table style="width: 650px; ">
 	<thead>
 	<tr>
@@ -31,12 +32,6 @@
 		</center>
 	</tr>
 	</thead>
-	<tr>
-		<td style="height:20px;" align="center"><hr/></td>
-		<td style="height:20px;" align="center"><hr/></td>
-		<td style="height:20px;" align="center"><hr/></td>
-		<td style="height:20px;" align="center"><hr/></td>
-	</tr>
 <%
 	for(ContractFile c : ContractList){
 %>
@@ -51,7 +46,6 @@
 }
 %>
 </table>
-<br /><br /><br />
 <%
 out.println(ContractTools.getNavi(totalPage, rowsPerPage, url, pageNumber));
 %>

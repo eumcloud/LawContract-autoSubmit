@@ -2,6 +2,7 @@
 <script  src='<%=request.getContextPath()%>/js/common.js' type="text/javascript"></script>
 <script  src='<%=request.getContextPath()%>/js/loginForm.js' type="text/javascript"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
 <style type="text/css">
    .login{
         width: 500px;
@@ -13,6 +14,7 @@
     font-weight: bolder;
 }
 </style>
+
 <h1>로그인</h1>
 <form class="mx-auto mt-5 form-horizontal login" id='frm' action="<%=request.getContextPath()%>/login/loginProc.jsp" method = "post">
 	<input type="hidden" name="currentPage" value="loginForm"/>
