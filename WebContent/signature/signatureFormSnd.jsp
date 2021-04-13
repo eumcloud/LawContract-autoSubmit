@@ -177,7 +177,7 @@ $(":button").on('click', function(e) {
 // });
 // html2canvas(e.target.parentElement).then(function(canvas) {
 // $('body').append('<img src="' + canvas.toDataURL("image/png") + '"/>');
-// });
+// }); 
 html2canvas(e.target.parentElement).then(function(canvas) {
 if (navigator.msSaveBlob) {
 var blob = canvas.msToBlob();
