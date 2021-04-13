@@ -63,12 +63,12 @@ table.table1 th {
 <th>계약 당사자</th><th>주소</th><th>계약날짜</th><th>계약종료 날짜</th><th>대차금액</th><th>이메일</th>
 </tr>
 <tr>
-<td><input type="text" name='writer' placeholder='이름을 입력하세요'/></td>
-<td><input type="text" name='addr' placeholder='주소를 입력하세요'/></td>
-<td><input type="date" name='date' value="<%=today%>"/></td>
-<td><input type="date" name='Term' value="<%=today%>"/></td>
-<td><input type="text" name='Loan' placeholder='대차금액을 입력하세요'/></td>
-<td><input type="text" name='email' placeholder='이메일을 입력하세요'/></td>
+<td><input type="text" id='writer' name='writer' placeholder='이름을 입력하세요'/></td>
+<td><input type="text" id='addr' name='addr' placeholder='주소를 입력하세요'/></td>
+<td><input type="date" id='date' name='date' value="<%=today%>"/></td>
+<td><input type="date" id='Term' name='Term' value="<%=today%>"/></td>
+<td><input type="text" id='Loan' name='Loan' placeholder='대차금액을 입력하세요'/></td>
+<td><input type="text" id='email' name='email' placeholder='이메일을 입력하세요'/></td>
 </tr>
 </table>
 <br/><br/><br/><br/>
@@ -77,9 +77,9 @@ table.table1 th {
 <th>계약 대상</th><th>주소</th><th>이메일</th>
 </tr>
 <tr>
-<td><input type="text" name='targetWriter' placeholder='이름을 입력하세요'/></td>
-<td><input type="text" name='targetAddr' placeholder='주소를 입력하세요'/></td>
-<td><input type="text" name='targetEmail' placeholder='이메일을 입력하세요'/></td>
+<td><input type="text" id='targetWriter' name='targetWriter' placeholder='이름을 입력하세요'/></td>
+<td><input type="text" id='targetAddr' name='targetAddr' placeholder='주소를 입력하세요'/></td>
+<td><input type="text" id='targetEmail' name='targetEmail' placeholder='이메일을 입력하세요'/></td>
 </tr>
 </table>
 <table id=list>
@@ -90,5 +90,5 @@ table.table1 th {
 	<td colspan='2' align="center"><img src="<%=path%>/image/add.png" onclick="add();" width="20px" height="20px"/></td>
 </tr>
 </table>
-<img src="<%=path%>/image/next.png" id="next" width="70px" height="70px" style="margin-right: 300px; margin-bottom: 200px;" onclick="formSubmit('frm', '<%=request.getContextPath()%>/signature/conditionProc.jsp'), openPop('http://localhost:8080/20210402_miniPj2/signature/authPop.jsp');"/>
+<img src="<%=path%>/image/next.png" id="next" width="70px" height="70px" style="margin-right: 300px; margin-bottom: 200px;" onclick="inputInfo('writer', 'addr', 'date', 'Term', 'Loan', 'email','targetWriter', 'targetAddr', 'targetEmail', 'http://localhost:8080/20210402_miniPj2/signature/authPop.jsp'), formSubmit('frm', '<%=request.getContextPath()%>/signature/conditionProc.jsp');"/>
 </form>
