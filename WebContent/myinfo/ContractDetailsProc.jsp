@@ -7,7 +7,7 @@
     
 <%	
 	Member currentUser = (Member)session.getAttribute("currentUser");
-	int rowsPerPage = 5;
+	int rowsPerPage = 3;
 	int pageNumber = Integer.parseInt( request.getParameter("pageNumber") );
 	
 	ContractfileDAO dao = new ContractfileDAO();
