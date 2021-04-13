@@ -19,37 +19,41 @@
 	
 %>
 <form id="frm" action="<%=request.getContextPath()%>/myinfo/ContractDetailsProc.jsp" method="get">
+<br /><br /><br />
 <table style="width: 650px; ">
 	<thead>
 	<tr>
-		<th style="width: 10px; height:20px;" align="center">선택</th>
-		<th style="width: 10px; height:20px;" align="center">계약 상태</th>
-		<th style="width: 10px; height:20px;" align="center">계약명</th>
-		<th style="width: 120px; height:20px;" align="center">삭제 / 수정</th>
+		<center>
+			<th>선택</th>
+			<th>계약 상태</th>
+			<th>계약명</th>
+			<th>삭제 / 수정</th>
+		</center>
 	</tr>
 	</thead>
 	<tr>
-		<td style="width: 40px; height:20px;" align="center"><hr/></td>
-		<td style="width: 10px; height:20px;" align="center"><hr/></td>
-		<td style="width: 40px; height:20px;" align="center"><hr/></td>
-		<td style="width: 120px; height:20px;" align="center"><hr/></td>
+		<td style="height:20px;" align="center"><hr/></td>
+		<td style="height:20px;" align="center"><hr/></td>
+		<td style="height:20px;" align="center"><hr/></td>
+		<td style="height:20px;" align="center"><hr/></td>
 	</tr>
 <%
 	for(ContractFile c : ContractList){
 %>
 	<tr>
-		<td><input type="checkbox" value='<%=c.getNo()%>' name="boardCheckbox"/></td>
-		<td><%=c.getCondition()%></td>
-		<td><%=c.getFno()%></td>
-		<td><%=c.getContractFile() %></td>
+
+		<td align="center"><input type="checkbox" value='<%=c.getNo()%>' name="boardCheckbox"/></td>
+		<td align="center"><%=c.getCondition()%></td>
+		<td align="center"><%=c.getFno()%></td>
+		<td align="center"><%=c.getContractFile() %></td>
 	</tr>
 <%
 }
 %>
 </table>
-
+<br /><br /><br />
 <%
 out.println(ContractTools.getNavi(totalPage, rowsPerPage, url, pageNumber));
-%>	
+%>
+<br /><br /><br />	
 </form>
-

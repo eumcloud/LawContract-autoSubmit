@@ -6,6 +6,7 @@ public class ContractTools {
 		String result="";
 		
 		int blockCnt = totalPage/rowsPerPage;
+		
 		if(totalPage%rowsPerPage>0)blockCnt++;
 		
 		if(pageNumber>1)result+=("<a href="+url+(pageNumber-1)+ ">[이전]</a>");
@@ -15,7 +16,6 @@ public class ContractTools {
 			if(pageNumber==i)	result+=("</b>");
 		}
 		if(pageNumber<blockCnt)result+=("<a href="+url+(pageNumber+1)+ ">[다음]</a>");
-		System.out.println("번호 완료!");
 		return result;
 	}
 

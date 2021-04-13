@@ -10,13 +10,13 @@ public class ContractfileDAO {
 	public Connection conn;
 	
 	public ContractfileDAO() {
-		String url="jdbc:oracle:thin:@localhost:1522:xe";
-		String usr="c##jin";
-		String pass="jin1234";
+//		String url="jdbc:oracle:thin:@localhost:1522:xe";
+//		String usr="c##jin";
+//		String pass="jin1234";
 		
-//		String url="jdbc:oracle:thin:@192.168.0.21:1521:xe";
-//		String usr = "c##acon";
-//		String pass= "1234";
+		String url="jdbc:oracle:thin:@192.168.0.21:1521:xe";
+		String usr = "c##acon";
+		String pass= "1234";
 //		Connection conn = null;
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -66,12 +66,17 @@ public class ContractfileDAO {
 	}
 	
 	
-	public int getBoardCount(){
-		String sql  ="select count(*) from contractfile ";
+	public int getBoardCount(String Email){
+		
+		String sql  ="select count(*) "
+				+ "from contractfile "
+				+ "where creditoremail = ?";
 		
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, Email);
 			ResultSet rs = pstmt.executeQuery();
+			
 			if(rs.next()) {		return rs.getInt(1);			}
 			rs.close();
 			pstmt.close();

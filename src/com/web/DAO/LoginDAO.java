@@ -15,15 +15,15 @@ public class LoginDAO {
 	public Connection getConn() {
 		
 		
-		String url="jdbc:oracle:thin:@localhost:1522:xe";
-		String usr="c##jin";
-		String pass="jin1234";
-		Connection conn = null;
+//		String url="jdbc:oracle:thin:@localhost:1522:xe";
+//		String usr="c##jin";
+//		String pass="jin1234";
+//		Connection conn = null;
 		
-//		String url="jdbc:oracle:thin:@192.168.0.21:1521:xe";
-//		String usr = "c##acon";
-//		String pass= "1234";
-//		Connection conn = null; 
+		String url="jdbc:oracle:thin:@192.168.0.21:1521:xe";
+		String usr = "c##acon";
+		String pass= "1234";
+		Connection conn = null; 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			conn= DriverManager.getConnection(url, usr, pass);
@@ -80,6 +80,29 @@ public class LoginDAO {
 			pstmt = conn.prepareStatement(SQL);
 			
 			pstmt.setString(1, email);
+			
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next())	return true;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public boolean userConfirm(Connection conn, String email, String pw) {
+		String SQL = "select * "
+				+ "from membership "
+				+ "where email = ?"
+				+ "and pw = ?";
+		
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			
+			pstmt.setString(1, email);
+			pstmt.setString(2, pw);
 			
 			ResultSet rs = pstmt.executeQuery();
 			if(rs.next())	return true;
