@@ -39,7 +39,8 @@ if ( deptorRegiNum==null ) deptorRegiNum = "____________________";
 String deptorAddr = (String)session.getAttribute("deptorAddr");
 if ( deptorAddr ==null) deptorAddr = "____________________";
 
-int fno = (int)session.getAttribute("fno");
+Integer fno = (Integer)session.getAttribute("fno");
+
 %>
 
 
@@ -178,7 +179,7 @@ function getFno(number){
 
 <div align='right'>
          「갑」  성 명 :<%=creditor %> (인)
-                <br/>주민등록번호 :<%=creditorRegiNum %>
+                <br/>주민등록번호 :<%=(String)session.getAttribute("creditorRegiNum") %>
                 <br/>주 소 :<%=creditorAddr %>
 <br/><br/>
 
