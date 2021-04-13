@@ -11,7 +11,7 @@
 	System.out.print(deptorEmail);
  mail.SendMail("ACON", "gihong0703@gamil.com", deptorEmail, 
 		"Please sign the contract", 
-		"http://localhost:8080/20210402_miniPj2/index.jsp?currentPage=signatureForm \r계약서 번호는 "+fno+"입니다");  
+		"<a href='http://localhost:8080/20210402_miniPj2/index.jsp?currentPage=conditionFormSnd' >링크입니다</a> \r계약서 번호는 "+fno+"입니다");  
 	 
 %>
 <br/><br/><br/>
@@ -41,5 +41,5 @@ function PopupNextPage(path){
 <center>
 <p><b> 메일전송 완료</b></p>
 <br/><br/>
-<button class = "sendbtn"onclick="PopupNextPage('<%=request.getContextPath() %>/index.jsp?currentPage=myinfoForm');">확인</button>
+<button class = "sendbtn"onclick="PopupNextPage('<%=request.getContextPath() %>/myinfo/ContractDetailsForm.jsp');">확인</button>
 </center>

@@ -37,8 +37,10 @@
 		pageName = "/myinfo/infonav.jsp";
 	else if("phoneForm".contentEquals(currentPage))
 		pageName = "/membership/phoneForm.jsp";
-	else if("successSignForm".contentEquals(currentPage))
-		pageName = "/signature/successSignForm.jsp";
+	else if("conditionFormSnd".contentEquals(currentPage))
+		pageName = "/signature/conditionFormSnd.jsp";
+	else if("signatureFormSnd".contentEquals(currentPage))
+		pageName = "/signature/signatureFormSnd.jsp";
 %>
 <html>
 <body><head><title>여러분을 위한 스마트계약</title></head>

@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -57,12 +58,13 @@ public class ConditionDAO {
 	}
 	
 	public int insert(Connection conn, Condition condition) {
+		System.out.println("DAO "+condition.getDeptorEmail());
 		String sql="INSERT INTO contractinfo (no, creditor, creditorAddr, creditorResiNum, creditorEmail, "
 				+ "deptor, deptorAddr, deptorEmail, spcContents, signDate, deadLine, interest, money) "
 				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			
+		
 			pstmt.setInt(1, condition.getNo());
 			pstmt.setString(2, condition.getCreditor());
 			pstmt.setString(3, condition.getCreditorAddr());
@@ -105,8 +107,9 @@ public class ConditionDAO {
 		
 	}
 	public int Insert(Connection conn, ContractFile cf) {
-		String sql = "INSERT INTO contractFile (no, CREDITOREMAIL, DEPTOREMAIL, CONTRACTFILE, CONTRACTFILE2, FILEPATH, FILEPATH2, FNO) "
-				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+		
+		String sql = "INSERT INTO contractFile (no, CREDITOREMAIL, DEPTOREMAIL, CONTRACTFILE, CONTRACTFILE2, FILEPATH, FILEPATH2, FNO, condition) "
+				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, '미완료')";
 
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -127,5 +130,39 @@ public class ConditionDAO {
 			e.printStackTrace();
 		}
 		return 0;
+	}
+
+	public void addInfo(Connection conn, String deptorRegiNum, String contractNum) {
+		String sql="UPDATE contractinfo SET deptorresinum = ? WHERE no = ?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, deptorRegiNum);
+			pstmt.setString(2, contractNum);
+			pstmt.executeUpdate();
+			pstmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	public void addFile(Connection conn, String contractNum, ContractFile cf) {
+		String sql="UPDATE CONTRACTFILE SET "
+				+ "CONTRACTFILE = ?, CONTRACTFILE2 = ?, FILEPATH = ?, FILEPATH2 = ?, CONDITION = '완료' "
+				+ "WHERE FNO = ?";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, cf.getContractFile());
+			pstmt.setString(2, cf.getContractFile2());
+			pstmt.setString(3, cf.getFilePath());
+			pstmt.setString(4, cf.getFilePath2());
+			pstmt.setString(5, contractNum);
+			pstmt.executeUpdate();
+			pstmt.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 }
