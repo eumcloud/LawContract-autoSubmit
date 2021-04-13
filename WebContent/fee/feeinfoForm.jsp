@@ -4,10 +4,11 @@
     . : 클래스
     # : 아이디
     -->
+<script src='<%=request.getContextPath() %>/js/feeinfoForm.js' type="text/javascript"></script>   
 <input type="hidden" name="currentPage" value="feeinfoForm"/>
 <style type="text/css">
 	.btn button{
-		background: #900;
+		background: #A9F5F2;
 		padding: 2px 15px;
 		margin-left:120px;
 		margin-right:145px;
@@ -29,6 +30,9 @@
 		text-align:left;
 	}
 </style>
+<%
+	String path = request.getContextPath()+"/fee/payment.jsp";
+%>
 <br/><br/><br/>
 <center>
 <h1>급액안내</h1><br/>
@@ -41,9 +45,11 @@
     
     <td>
     	<div class="btn">
-   			<button>선택</button>
-    		<button>선택</button>
-    		<button>선택</button>
+   			<form action="/payment.jsp">
+   				<button onclick="openPop('<%=path%>');">선택</button>
+    			<button>선택</button>
+    			<button>선택</button>
+    		</form>
     	</div>
    </td>
   </tr>
