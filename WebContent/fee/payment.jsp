@@ -5,19 +5,26 @@
     # : 아이디
     -->
 <style type="text/css">
+	.headBox {
+		margin-top : 0px;
+		background: red;
+		text-align:center;
+		height: 90px;
+		
+	}
 	.boxAll {
 		margin-top : 0px;
 		background: red;
 		text-align:center;
+		height: 90px;
+		
 	}
+	
 	.boxTwo{
 		background: #A9F5F2;
-		margin-top : 50px;
+		margin-top : 15px;
 	}
-	.box3{
-		background: #A9F5F2;
-		margin-top : 50px;
-	}
+	
 	.boxTwo table{
 		background: #ffffff;
 		margin : auto;
@@ -50,14 +57,16 @@
 </style>
 <div class="boxAll">
 <body>
-		<div class="boxAll">
-		<h1>요금결제</h1>
+		<div class="headBox">
+		<div style="text-align:center">
+		<h1 style="valign=middle">요금결제</h1>
+		</div>
 		</div>
 		<div class="boxTwo">
 		<table width="350px">
 			<tr bgcolor="#4000FF">
-				<th width="250px"><h2>상점명</h2></th>
-				<td><b>주) ACON 프로젝트</b></td>
+				<th width="250px" valign=middle><h2>상점명</h2></th>
+				<td ><b>주) ACON 프로젝트</b></td>
 			</tr>
 			<tr bgcolor="#81F7F3">
 				<th><h2>상품명</h2></th>
