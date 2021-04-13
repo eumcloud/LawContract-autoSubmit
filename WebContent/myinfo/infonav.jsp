@@ -22,7 +22,8 @@
 		pageName = "/myinfo/ContractDetailsProc.jsp?pageName=ContractDetailsProc&pageNumber=1";
 %>
 
- 
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,9 +42,9 @@
 <body>
 <div class="card text-center">
         <div class="card-header">
-          <ul class="nav nav-tabs card-header-tabs mx-auto mt-5">
+          <ul class="nav nav-tabs card-header-tabs mx-auto mt-5" >
             <li class="nav-item">
-              <a class="nav-link active" aria-current="true" href="<%=path%>myinfoForm">회원정보</a>
+              <a class="nav-link active" href="<%=path%>myinfoForm">회원정보</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="<%=path%>ContractDetailsProc&pageName=ContractDetailsProc&pageNumber=1">계약정보</a>
