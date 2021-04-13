@@ -10,7 +10,6 @@
 	ConditionDAO conditionDAO = new ConditionDAO();
 	Connection conn = conditionDAO.getConn();
 	Condition condition = new Condition();
-	
 	condition.setNo(conditionDAO.getAI(conn, "contractinfo"));
 	condition.setCreditor((String)session.getAttribute("creditor"));
 	condition.setCreditorAddr((String)session.getAttribute("creditorAddr"));
@@ -24,12 +23,13 @@
 	condition.setDeptorEmail((String)session.getAttribute("deptorEmail"));
 	condition.setSpcContents((String)session.getAttribute("spcContents"));
 	condition.setSignDate((String)session.getAttribute("signdate"));
- 
+	
 	conditionDAO.getMultiReq(request);
 	conditionDAO.insert(conn, condition);
 	ContractFile cf = conditionDAO.getcontractFile(request, condition);
+	cf.setFno(condition.getNo());
+	session.setAttribute("fno", condition.getNo());
 	conditionDAO.Insert(conn, cf);
-	session.setAttribute("fno", cf.getFno());
 %>
 <jsp:forward page="/index.jsp">
 <jsp:param value="signatureForm" name="currentPage"/>

@@ -21,6 +21,7 @@ session.setAttribute("deptorAddr", targetAddr);
 session.setAttribute("deptorEmail", targetEmail);
 session.setAttribute("spcContents", spcContents);
 session.setAttribute("creditorEmail", email);
+
 %>
 
 <jsp:forward page="/index.jsp">
