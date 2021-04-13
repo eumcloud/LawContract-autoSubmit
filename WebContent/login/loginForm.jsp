@@ -1,18 +1,34 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <script  src='<%=request.getContextPath()%>/js/common.js' type="text/javascript"></script>
 <script  src='<%=request.getContextPath()%>/js/loginForm.js' type="text/javascript"></script>
-<center>
-<br /><br /><br />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<style type="text/css">
+   .login{
+        width: 500px;
+   }
+   h1 {
+    text-align: center;
+    margin-top: 45px;
+    font-size: 60px;
+    font-weight: bolder;
+}
+</style>
 <h1>로그인</h1>
-
-<form id='frm' action="<%=request.getContextPath()%>/login/loginProc.jsp" method = "post">
+<form class="mx-auto mt-5 form-horizontal login" id='frm' action="<%=request.getContextPath()%>/login/loginProc.jsp" method = "post">
 	<input type="hidden" name="currentPage" value="loginForm"/>
-	<input type = "text" id = "id" name = "id" /><br />
-	<input type = "text" id = "pw" name = "pw" /><br />
-	<input type = "button" value = "비회원 로그인">
-	<input type = "button" onclick = "checkEmpty();" value = "로그인하기"> <br /> 
-	<a href = "">아이디 찾기 </a>
-	<a href = "" >비밀번호 찾기</a>
+        <div class="form-group">
+            <input type = "text" class="form-control" id = "id" name = "id" /><br />
+        </div>
+        <div class="form-group">
+            <input type = "text" class="form-control" id = "pw" name = "pw" /><br />
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+			<input type = "button" class="btn btn-outline-secondary" value = "비회원 로그인">
+			<input type = "button" class="btn btn-outline-secondary" onclick = "checkEmpty();" value = "로그인하기"> <br /> 
+		  </div>
+		</div>
 </form>
 </center>
+<br/><br /><br />
   
