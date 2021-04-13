@@ -9,6 +9,7 @@
 	ConditionListDAO conditionListDAO = new ConditionListDAO();
 	List<Condition> lst = conditionListDAO.getConditionList(contractNum);
 	session.setAttribute("ConditionLst", lst);
+	
 %>
 <jsp:forward page="/index.jsp">
 <jsp:param value="signatureFormSnd" name="currentPage"/>
