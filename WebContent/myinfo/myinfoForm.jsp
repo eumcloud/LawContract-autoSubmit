@@ -31,30 +31,30 @@
 <form id = "frm" action="<%=request.getContextPath()%>/index.jsp">
 <input type="hidden" name="currentPage" value="myinfoForm"/>
 	<div class="Member-info mb-3 mx-auto mt-5 row ">
-        <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+        <label for="staticEmail" class="col-sm-2 col-form-label" style="padding-left: 0px;">Email</label>
         <div class="col-sm-10">
           <input type="text" readonly class="form-control-plaintext" name = "email" id="" value="<%=currentUser.getEmail() %>"/>
         </div>
     </div>
       <div class="Member-info mb-3 mx-auto mt-5 row ">
-            <label for="staticEmail" class="col-sm-2 col-form-label">폰 번호</label>
+            <label for="staticEmail" class="col-sm-2 col-form-label" style="padding-left: 0px;">폰 번호</label>
             <div class="col-sm-10">
               <input type="text" readonly class="form-control-plaintext" name="phoneNum" id="staticEmail" value="<%=currentUser.getPhoneNum() %>"/>
             </div>
     </div>
       <div class="Member-info input-group mb-3 mx-auto mt-5 ">
-            <label for="staticEmail" class="col-sm-2 col-form-label">비밀번호</label>
+            <label for="staticEmail" class="col-sm-2 col-form-label" style="padding-left: 0px;">비밀번호</label>
             <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2" value = "*********"/>
             <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="openModityForm('frm', '<%=PwModityFormPath%>');">수정</button>
      </div>
 
-      <div class="Member-info input-group mb-3 mx-auto mt-5 ">
+      <div class="Member-info input-group mb-3 mx-auto mt-5 style="margin-left: 250px;">
         <label for="staticEmail" class="col-sm-2 col-form-label">주소</label>
         <input type="text" class="form-control" name="addr" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2" value ="<%=currentUser.getAddr() %>"/>
         <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="openModityForm('frm', '<%=AddrModityFormPath%>');">수정</button>
   	</div>
   	
-      <div class="Member-info mb-3 row mx-auto mt-5 ">
+      <div class="Member-info mb-3 row mx-auto mt-5" style="margin-left: 262px; width: 526px;">
         <label for="staticEmail" class="col-sm-2 col-form-label">이름</label>
         <div class="col-sm-10">
           <input type="text" readonly class="form-control-plaintext" id="" value="<%=currentUser.getName() %>"/>

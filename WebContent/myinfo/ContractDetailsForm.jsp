@@ -20,18 +20,14 @@
 %>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
-<form class="table" id="frm" action="<%=request.getContextPath()%>/myinfo/ContractDetailsProc.jsp" method="get">
-<table style="width: 650px; ">
-	<thead>
+<form id="frm" action="<%=request.getContextPath()%>/myinfo/ContractDetailsProc.jsp" method="get">
+<table class="table table-hover mt-5 mx-auto" style="width: 600px; ">
 	<tr>
-		<center>
-			<th>선택</th>
-			<th>계약 상태</th>
-			<th>계약명</th>
-			<th>삭제 / 수정</th>
-		</center>
+		<th style="padding-left: 80px; width: 188px; " >선택</th>
+		<th style="width: 116px; padding-left: 20px;" >계약 상태</th>
+		<th style="padding-top: 8px; padding-left: 64px;" >계약명</th>
+		<th style="width: 116px; padding-left: 10px;" >삭제 / 수정</th>
 	</tr>
-	</thead>
 <%
 	for(ContractFile c : ContractList){
 %>
@@ -46,8 +42,13 @@
 }
 %>
 </table>
+
+<nav aria-label>
+	<ul class="pagination mx-auto mt-5" style="width: 200;">
 <%
 out.println(ContractTools.getNavi(totalPage, rowsPerPage, url, pageNumber));
 %>
+	</ul>
+</nav>
 <br /><br /><br />	
 </form>
