@@ -13,7 +13,7 @@ List<Condition> lst = (List<Condition>)session.getAttribute("ConditionLst");
 String deptorRegiNum = (String)session.getAttribute("deptorRegiNum");
 
 Integer fno = (Integer)session.getAttribute("fno");
-System.out.print(lst.size());
+
 %>
 
 
@@ -100,6 +100,13 @@ function getFno(number){
 #conImg2:hover {
 	border: 5 solid #99610f;
 }
+#capImg{
+width: 50px; height: 50px; margin: 30px 100px 30px 125px;
+}
+#capImg:hover {
+	background: white;
+	border-radius: 25%;
+}
 </style>
 </head>
 <form id = "frm" method="post" enctype="multipart/form-data">
@@ -112,9 +119,10 @@ function getFno(number){
 <img id="conImg2" src="<%=request.getContextPath()%>/image/example2.png" width="80%" style="margin-left: 30px; margin-top: 100px;" onclick="javascript:window.scrollTo(0,1200)" />
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
  <input type="file" name="uploadFile" style="background: white;"/>
-  <input type="file" name="uploadFile2" style="background: white;"/>
-  <button type="button" onclick="javascript:window.scrollTo(0,0), capClick();">계약서 캡처</button>
-  <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+  <input type="file" name="uploadFile2" style="background: white;"/><br/>
+  
+<img id="capImg" src="/20210402_miniPj2/image/capture.png" onclick="javascript:window.scrollTo(0,0), capClick();">
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 </div>
 		<br/>
 
@@ -125,7 +133,7 @@ function getFno(number){
 							<br/>
 							<input type="hidden" name="fno" value='<%=fno%>' />
 						
-<%for(Condition condition : lst){ %>
+<%for(Condition condition : lst){%>
   채권자 <%=condition.getCreditor() %> 을「갑」이라 하고, 채무자 <%=condition.getDeptor() %> 을「을」로 하여 「갑」과「을」 간에 다음과 같이 금전소비대차계약을 체결한다.<br/><br/>
 <b>제1조 (금전소비대차)</b><br/>  「갑」은 「을」에게 금<%=condition.getMoney() %>원을 대여하고, 「을」은 이를 차용한다.<br/><br/>
 <b>제2조 (이자) </b><br/> 위의 차용금에 대한 이자는 없는 것으로 하되 제3조 정한 기한의 익일부터 실질 변제시 까지 연<%=condition.getInterest()%>%의 연체이자를 지급하여야 한다.<br/><br/>

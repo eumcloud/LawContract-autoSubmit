@@ -6,7 +6,6 @@
 <%@page import="com.web.DAO.ConditionDAO"%>
 <%@page contentType="text/html; charset=UTF-8"%>
 <%
-
 	ConditionDAO conditionDAO = new ConditionDAO();
 	Connection conn = conditionDAO.getConn();
 	Condition condition = new Condition();

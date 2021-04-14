@@ -2,8 +2,7 @@
 <%@page contentType="text/html; charset=UTF-8"%>
 
 <%
-	String deptorEmail = request.getParameter("deptorEmail");
-	session.setAttribute("deptorEmail", deptorEmail);
+String deptorEmail = (String)session.getAttribute("deptorEmail");
 %>
 <!DOCTYPE html>
 <html>
@@ -48,7 +47,7 @@ function PopupNextPage(path){
 <form id='frm' method="post">
 <br/><br/>
 <b>계약 대상자</b><br/><br/>
-<input name="deptorEmail" id= "emailTxt"type="text" placeholder="이메일 입력"><br/><br/>
+<input name="deptorEmail" id= "emailTxt"type="text" placeholder="이메일 입력" value="<%=deptorEmail%>"><br/><br/>
 <button class = "sendbtn"onclick="formSubmit('frm', '<%=request.getContextPath()%>/signature/sendMailPopProc.jsp');">이메일 전송</button>
 <button class = "sendbtn"onclick="PopupNextPage('<%=request.getContextPath() %>/index.jsp?currentPage=myinfoForm');">알림톡 전송</button>
 </form>
