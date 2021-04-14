@@ -14,7 +14,7 @@
     String path = request.getContextPath()+"/membership/membershipProc.jsp";
 	LoginDAO loginDao = new LoginDAO();
  	Connection conn = loginDao.getConn();
- 	String emailOk = loginDao.userConfirm(conn, email); 
+ 	String emailOk = loginDao.userConfirm(conn, email);
 	
     Member member = new Member();
     if(pw==null){
