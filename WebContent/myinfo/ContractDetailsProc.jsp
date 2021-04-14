@@ -17,6 +17,11 @@
 	session.setAttribute("rowsPerPage", rowsPerPage);
 	session.setAttribute("totalPage", dao.getBoardCount(currentUser.getEmail()));
 	
+	String fno = request.getParameter("contractNum");
+	ContractDetailsDAO contractDetailsDAO = new ContractDetailsDAO();
+	List<ContractFile> conList =  contractDetailsDAO.getFileList(fno);
+	session.setAttribute("conList", conList);
+	
 %>
 
 <jsp:forward page="/index.jsp">
