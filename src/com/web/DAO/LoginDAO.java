@@ -14,7 +14,7 @@ public class LoginDAO {
 	
 	public Connection getConn() {
 		
-		
+		 
 //		String url="jdbc:oracle:thin:@localhost:1522:xe";
 //		String usr="c##jin";
 //		String pass="jin1234";
