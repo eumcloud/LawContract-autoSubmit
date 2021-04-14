@@ -5,7 +5,7 @@
     # : 아이디
     -->
 <script src='<%=request.getContextPath() %>/js/feeinfoForm.js' type="text/javascript"></script>   
-<input type="hidden" name="currentPage" value="feeinfoForm"/>
+
 <style type="text/css">
 	.btn button{
 		background: #A9F5F2;
@@ -31,7 +31,9 @@
 	}
 </style>
 <%
-	String path = request.getContextPath()+"/fee/payment.jsp";
+	String pathStar = request.getContextPath()+"/fee/paymentStar.jsp";
+	String pathBus = request.getContextPath()+"/fee/paymentBus.jsp";
+	String pathPre = request.getContextPath()+"/fee/paymentPre.jsp";
 %>
 <br/><br/><br/>
 <center>
@@ -45,10 +47,11 @@
     
     <td>
     	<div class="btn">
-   			<form action="/payment.jsp">
-   				<button onclick="openPop('<%=path%>');">선택</button>
-    			<button>선택</button>
-    			<button>선택</button>
+   			<form id="frm" action="<%=request.getContextPath() %>/index.jsp" method="post">
+   			<input type="hidden" name="currentPage" value="feeinfoForm"/>
+   				<button onclick="openPop('<%=pathStar%>');">선택</button>
+    			<button onclick="openPop('<%=pathBus%>');">선택</button>
+    			<button onclick="openPop('<%=pathPre%>');">선택</button>
     		</form>
     	</div>
    </td>
