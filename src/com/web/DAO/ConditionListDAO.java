@@ -23,7 +23,7 @@ public class ConditionListDAO {
 	}
 	public List<Condition> getConditionList(String contractNum){
 
-		String sql = "SELECT NO, CREDITOR, CREDITORADDR, CREDITOREMAIL, DEPTOR, DEPTORADDR, SPCCONTENTS, SIGNDATE, DEADLINE, INTEREST, MONEY " + 
+		String sql = "SELECT NO, CREDITOR, CREDITORADDR, CREDITOREMAIL, DEPTOR, DEPTORADDR, SPCCONTENTS, SIGNDATE, DEADLINE, INTEREST, MONEY, CREDITORRESINUM " + 
 				"FROM CONTRACTINFO " + 
 				"WHERE NO = ?";
 		
@@ -46,6 +46,7 @@ public class ConditionListDAO {
 				condition.setDeadLine(rs.getString(9));
 				condition.setInterest(rs.getInt(10));
 				condition.setMoney(rs.getString(11));
+				condition.setCreditorResiNum(rs.getString(12));
 				lst.add(condition);
 			}
 			rs.close();
