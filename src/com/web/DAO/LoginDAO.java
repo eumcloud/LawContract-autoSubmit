@@ -52,7 +52,7 @@ public class LoginDAO {
 			
 			}else if (login.getPhoneNum() != null){				
 				pstmt = conn.prepareStatement(sql);
-				
+				 
 				pstmt.setString(1, login.getPhoneNum());
 				pstmt.setString(2, login.getPw());
 				
