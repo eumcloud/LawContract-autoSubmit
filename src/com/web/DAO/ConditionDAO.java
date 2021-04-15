@@ -51,7 +51,7 @@ public class ConditionDAO {
 				maxNum =rs.getInt(1);
 			rs.close();
 			pstmt.close();
-			conn.close();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -82,7 +82,7 @@ public class ConditionDAO {
 			
 			pstmt.executeUpdate();
 			pstmt.close();
-			conn.close();
+
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -127,7 +127,7 @@ public class ConditionDAO {
 			
 			pstmt.executeUpdate();
 			pstmt.close();
-			conn.close();
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -143,7 +143,7 @@ public class ConditionDAO {
 			pstmt.setString(2, contractNum);
 			pstmt.executeUpdate();
 			pstmt.close();
-			conn.close();
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -163,7 +163,7 @@ public class ConditionDAO {
 			pstmt.setString(5, contractNum);
 			pstmt.executeUpdate();
 			pstmt.close();
-			conn.close();
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
