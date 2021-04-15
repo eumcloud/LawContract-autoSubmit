@@ -30,7 +30,7 @@ public class LoginDAO {
 		} catch (Exception e) {	e.printStackTrace();	}
 		
 		return conn;
-	}
+	} 
 	public int LoginProc(Connection conn, Login login) {
 		
 		String sql="select count(*) "
