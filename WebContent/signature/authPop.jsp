@@ -14,7 +14,7 @@
    
    System.out.println(sessionauthNum);
    out.print(sessionauthNum);
-%>
+%> 
 <!DOCTYPE html>
 <html>
 
