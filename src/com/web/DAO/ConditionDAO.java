@@ -20,7 +20,7 @@ import com.web.DTO.Member;
 public class ConditionDAO {
 	private MultipartRequest multiReq;
 	public Connection getConn() {
-		String url="jdbc:oracle:thin:@192.168.0.21:1521:xe";
+		String url="jdbc:oracle:thin:@192.168.0.78:1521:xe";
 		String usr = "c##acon";
 		String pass= "1234";
 		Connection conn = null;
@@ -51,6 +51,7 @@ public class ConditionDAO {
 				maxNum =rs.getInt(1);
 			rs.close();
 			pstmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -81,6 +82,7 @@ public class ConditionDAO {
 			
 			pstmt.executeUpdate();
 			pstmt.close();
+			conn.close();
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -125,6 +127,7 @@ public class ConditionDAO {
 			
 			pstmt.executeUpdate();
 			pstmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -140,6 +143,7 @@ public class ConditionDAO {
 			pstmt.setString(2, contractNum);
 			pstmt.executeUpdate();
 			pstmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -159,6 +163,7 @@ public class ConditionDAO {
 			pstmt.setString(5, contractNum);
 			pstmt.executeUpdate();
 			pstmt.close();
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

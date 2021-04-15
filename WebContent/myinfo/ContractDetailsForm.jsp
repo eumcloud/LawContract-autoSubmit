@@ -47,7 +47,7 @@
 <%
 }
 %>
-<%=fileurl %>
+
 </table>
 
 <nav aria-label>
