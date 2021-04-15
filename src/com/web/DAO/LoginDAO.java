@@ -20,7 +20,7 @@ public class LoginDAO {
 //		String pass="jin1234";
 //		Connection conn = null;
 		
-		String url="jdbc:oracle:thin:@192.168.0.21:1521:xe";
+		String url="jdbc:oracle:thin:@192.168.0.78:1521:xe";
 		String usr = "c##acon";
 		String pass= "1234";
 		Connection conn = null; 

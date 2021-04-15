@@ -10,11 +10,9 @@ public class ContractfileDAO {
 	public Connection conn;
 	
 	public ContractfileDAO() {
-//		String url="jdbc:oracle:thin:@localhost:1522:xe";
-//		String usr="c##jin";
-//		String pass="jin1234";
+
 		
-		String url="jdbc:oracle:thin:@192.168.0.21:1521:xe";
+		String url="jdbc:oracle:thin:@192.168.0.78:1521:xe";
 		String usr = "c##acon";
 		String pass= "1234";
 //		

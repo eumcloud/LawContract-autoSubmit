@@ -20,7 +20,7 @@
 		margin : 25px;
 	}
 	.boxTwo button{
-		width: 306px;
+		width: 250px;
 		height: 60px;
 		 font-size:20px;
 		 font-weight:bold;
