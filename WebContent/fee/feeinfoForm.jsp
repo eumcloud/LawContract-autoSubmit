@@ -7,6 +7,38 @@
 <script src='<%=request.getContextPath() %>/js/feeinfoForm.js' type="text/javascript"></script>   
 
 <style type="text/css">
+	
+	.paymentBox {
+		padding : 10px;
+		background: ##B5B2FF;
+		text-align: center
+	}
+	.paymentBox table{
+		padding : 10px;
+		background: ##B5B2FF;
+		margin: auto;
+	}
+	.paymentStar {
+		background: #123456;
+		width:24%; 
+		float: left;
+		margin: 15px;
+		padding: 20px;
+	}
+	.paymentBus {
+		background: #008299;
+		width:24%;
+		float: left;
+		margin: 15px;
+		padding: 20px;
+	}
+	.paymentPre {
+		background: red;
+		width:24%;
+		float: left;
+		margin: 15px;
+		padding: 20px;
+	}
 	.btn button{
 		background: #A9F5F2;
 		padding: 2px 15px;
@@ -19,7 +51,6 @@
 	.boxForm {
 		width: 1200px;
 		border: solid 3px red;
-		
 	}
 	.boxForm h2{
 		margin : 20px;
@@ -39,7 +70,8 @@
 		popUp="";
 	
 %>
-<input id="popUp" type="text" value="<%=popUp%>">
+<!--결제완료 시 팝업 창 띄우기 위한 것-->
+<input id="popUp" type="hidden" value="<%=popUp%>">
 <script type="text/javascript">
 	var popUp = document.getElementById("popUp").value;
 	if(popUp == "성공")
@@ -47,26 +79,69 @@
 	if(popUp == "실패")
 		alert('결제를 취소하였습니다.');
 </script>
-<br/><br/><br/>
-<center>
 
-<h1>급액안내</h1><br/>
-<table>
-  <tr>
-    <th colspan="7"><img src="<%=request.getContextPath()%>/image/feeinImg.png" width="990px" height="350px"></th>
-    
-  </tr>
-  <tr>
-    
-    <td>
-    	<div class="btn">
+<br/>
+		<div class="paymentBox">
+			
+				<div class ="paymentStar">
+				<center>
+				<table>
+					<tr>
+						<td>안녕하세요</td>
+						<td>paymentStar</td>
+					</tr>
+					<tr>
+						<td>안녕하세요</td>
+						<td>안녕하세요</td>
+					</tr>
+					<tr>
+						<td>안녕하세요</td>
+						<td>안녕하세요</td>
+					</tr>
+				</table>
+			</div>
+			<div class ="paymentBus">
+			<table>
+				<tr>
+					<td>안녕하세요</td>
+					<td>paymentBus</td>
+				</tr>
+				<tr>
+					<td>안녕하세요</td>
+					<td>안녕하세요</td>
+				</tr>
+				<tr>
+					<td>안녕하세요</td>
+					<td>안녕하세요</td>
+				</tr>
+			</table>
+			</div>
+			<div class="paymentPre">
+			<table>
+				<tr>
+					<td>안녕하세요</td>
+					<td>paymentPre</td>
+				</tr>
+				<tr>
+					<td>안녕하세요</td>
+					<td>안녕하세요</td>
+				</tr>
+				<tr>
+					<td>안녕하세요</td>
+					<td>안녕하세요</td>
+				</tr>
+			</table>
+			</div>
+			</center>
+			</div>
+    	<%-- <div class="btn">
    			<form id="frm" action="<%=request.getContextPath() %>/index.jsp" method="post">
    			<input type="hidden" name="currentPage" value="feeinfoForm"/>
    				<button onclick="openPop('<%=pathStar%>');">선택</button>
     			<button onclick="openPop('<%=pathBus%>');">선택</button>
     			<button onclick="openPop('<%=pathPre%>');">선택</button>
     		</form>
-    	</div>
+    	</div> --%>
    </td>
   </tr>
 </table>

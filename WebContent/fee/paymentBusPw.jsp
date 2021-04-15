@@ -10,6 +10,7 @@
 		background: #CA394F;
 		text-align:center;
 		height: 75px;
+		
 	}
 	.boxAll {
 		margin : 0px;
