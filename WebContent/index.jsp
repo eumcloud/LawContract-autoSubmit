@@ -40,7 +40,7 @@
 	else if("conditionFormSnd".contentEquals(currentPage))
 		pageName = "/signature/conditionFormSnd.jsp";
 	else if("signatureFormSnd".contentEquals(currentPage))
-		pageName = "/signature/signatureFormSnd.jsp";
+		pageName = "/signature/signatureFormSnd.jsp"; 
 %>
 <html>
 <body><head><title>여러분을 위한 스마트계약</title></head>
