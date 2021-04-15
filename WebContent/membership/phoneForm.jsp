@@ -53,10 +53,7 @@ function PopupNextPage(path, pathNo, frmId){
 		frm.submit();
     	return;
     }
-    if(authNum==authNumOk){
-    	window.opener.location.href=path;
-        self.close();
-        }
+    
 }
 
 </script>
