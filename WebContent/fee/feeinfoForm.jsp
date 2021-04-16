@@ -5,39 +5,18 @@
     # : 아이디
     -->
 <script src='<%=request.getContextPath() %>/js/feeinfoForm.js' type="text/javascript"></script>   
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
 <style type="text/css">
-	
-	.paymentBox {
-		padding : 10px;
-		background: ##B5B2FF;
-		text-align: center
-	}
-	.paymentBox table{
-		padding : 10px;
-		background: ##B5B2FF;
+	table{
+		width : 80%;
+		height: 600px;
+		font-size : 20px;
 		margin: auto;
+		text-align: center;
 	}
-	.paymentStar {
-		background: #123456;
-		width:24%; 
-		float: left;
-		margin: 15px;
-		padding: 20px;
-	}
-	.paymentBus {
-		background: #008299;
-		width:24%;
-		float: left;
-		margin: 15px;
-		padding: 20px;
-	}
-	.paymentPre {
-		background: red;
-		width:24%;
-		float: left;
-		margin: 15px;
-		padding: 20px;
+	td, tr{
+		padding: 10px;
 	}
 	.btn button{
 		background: #A9F5F2;
@@ -80,60 +59,75 @@
 		alert('결제를 취소하였습니다.');
 </script>
 
-<br/>
-		<div class="paymentBox">
-			
-				<div class ="paymentStar">
-				<center>
-				<table>
-					<tr>
-						<td>안녕하세요</td>
-						<td>paymentStar</td>
-					</tr>
-					<tr>
-						<td>안녕하세요</td>
-						<td>안녕하세요</td>
-					</tr>
-					<tr>
-						<td>안녕하세요</td>
-						<td>안녕하세요</td>
-					</tr>
-				</table>
-			</div>
-			<div class ="paymentBus">
-			<table>
-				<tr>
-					<td>안녕하세요</td>
-					<td>paymentBus</td>
-				</tr>
-				<tr>
-					<td>안녕하세요</td>
-					<td>안녕하세요</td>
-				</tr>
-				<tr>
-					<td>안녕하세요</td>
-					<td>안녕하세요</td>
-				</tr>
-			</table>
-			</div>
-			<div class="paymentPre">
-			<table>
-				<tr>
-					<td>안녕하세요</td>
-					<td>paymentPre</td>
-				</tr>
-				<tr>
-					<td>안녕하세요</td>
-					<td>안녕하세요</td>
-				</tr>
-				<tr>
-					<td>안녕하세요</td>
-					<td>안녕하세요</td>
-				</tr>
-			</table>
-			</div>
-			</center>
-			</div>
+<br/><br/><br/>
+<form id="frm" action="<%=request.getContextPath() %>/index.jsp" method="post">
+<input type="hidden" name="currentPage" value="feeinfoForm"/>
+		<table border="1" >
+    		<tr>
+    			<td><table  border="1" >
+    				<tr>
+    					<td style="font-size: 35px; color: #FF8A4E">STARTER</td>
+    				</tr>
+    				<tr>
+    					<td>수량 : 10건<br/>
+    					금액 : 10,000원</td>
+    				</tr>
+    				
+    				<tr>
+    					<td>혼자 모든 문서를 관리해야 하는<br/>
+    					프리랜서, 1인 기업
+    					</td>
+    				</tr>
+    				<tr>
+    					<td><button onclick="openPop('<%=pathStar%>');">선택</button>
+    					</td>
+    				</tr>
+    				</table></td>
+    		
+    			<td><table  border="1" >
+    				<tr>
+    					<td style="font-size: 35px; color: #FF8A4E">BUSINESS</td>
+    				</tr>		
+    				<tr>
+    					<td>수량 : 100건<br/>
+    						금액 : 40,000원
+    					</td>
+    				</tr>
+    				
+    				<tr>
+    					<td>문서를 효율적으로 관리하고자 하는<br>
+    					 소규모 팀, 중소기업
+    					</td>
+    				</tr>
+    				<tr>
+    					<td><button onclick="openPop('<%=pathBus%>');">선택</button>
+    					</td>
+    				</tr>
+    				</table></td>
+    		
+    			<td><table  border="1">
+    				<tr>
+    					<td style="font-size: 35px; color: #FF8A4E">PREMIUM</td>
+    				</tr>
+    				<tr>
+    					<td>수량 : 무제한<br/>금액 : 100,000원</td>
+    					
+    				</tr>
+    				
+    				<tr>
+    					<td>여러 부서에서 함께 대량의 문서를<br/>
+    					관리하는 기관, 회사
+    				</td>
+    				</tr>
+    				<tr>
+    				<td>
+    					<button onclick="openPop('<%=pathPre%>');">선택</button>
+    				</td>
+    				</tr>
+    				</table></td>
+    		</tr>
+    	</table>
+</form>
     	<%-- <div class="btn">
    			<form id="frm" action="<%=request.getContextPath() %>/index.jsp" method="post">
    			<input type="hidden" name="currentPage" value="feeinfoForm"/>
@@ -142,9 +136,7 @@
     			<button onclick="openPop('<%=pathPre%>');">선택</button>
     		</form>
     	</div> --%>
-   </td>
-  </tr>
-</table>
+ 
 <br/>
 <hr/>
 <br/>
