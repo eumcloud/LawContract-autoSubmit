@@ -26,7 +26,7 @@ public Connection getConn() {
 		
 		return conn;
 	}
-	
+	 
 	public void userPWUpdate(Connection conn, String email, String newpw ) {
 		String SQL = "update membership "
 				+"set pw = ?"  // newpw
