@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%@page import="com.web.DTO.ContractFile"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="com.web.DAO.ConditionDAO"%>
@@ -20,3 +21,4 @@
 <jsp:forward page="/index.jsp">
 <jsp:param value="signatureFormSnd" name="currentPage"/>
 </jsp:forward>
+

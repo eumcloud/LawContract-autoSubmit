@@ -10,7 +10,7 @@
 	int fno = (int)session.getAttribute("fno");
 	System.out.print(sendEmail);
  mail.SendMail("ACON", "gihong0703@gamil.com", sendEmail, 
-		"Please sign the contract", 
+		"Please sign the contract",
 		"<a href='http://localhost:8080/20210402_miniPj2/index.jsp?currentPage=conditionFormSnd' >링크입니다</a> \r계약서 번호는 "+fno+"입니다");  
 	 
 %>

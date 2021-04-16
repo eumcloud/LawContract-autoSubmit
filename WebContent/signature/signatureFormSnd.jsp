@@ -1,3 +1,4 @@
+
 <%@page import="java.util.List"%>
 <%@page import="java.awt.print.Printable"%>
 <%@page import="java.util.Date"%>
@@ -15,7 +16,8 @@ String deptorRegiNum = (String)session.getAttribute("deptorRegiNum");
 Integer fno = (Integer)session.getAttribute("fno");
 
 %>
-
+<%@page contentType="text/html; charset=UTF-8"%>
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -199,6 +201,3 @@ el.click();
 });
 });
 </script>
-</body>
-</form>
-</html>

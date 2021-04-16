@@ -1,3 +1,4 @@
+
 <%@page import="com.web.DTO.Condition"%>
 <%@page import="java.util.List"%>
 <%@page import="com.web.DAO.ConditionListDAO"%>
@@ -13,3 +14,16 @@
 <jsp:forward page="/index.jsp">
 <jsp:param value="signatureFormSnd" name="currentPage"/>
 </jsp:forward>
+
+<%@page contentType="text/html; charset=UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>
+
