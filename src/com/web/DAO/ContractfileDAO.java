@@ -53,7 +53,7 @@ public class ContractfileDAO {
 			
 			while(rs.next()) {
 				ContractFile dao = new ContractFile();
-				
+				 
 				dao.setCondition(rs.getString(1));
 				dao.setFno(rs.getInt(2));
 				dao.setContractFile(rs.getString(3));
