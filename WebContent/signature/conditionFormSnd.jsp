@@ -35,6 +35,7 @@
 <script src="<%=request.getContextPath() %>/js/conditionForm.js" type="text/javascript"></script>
 </head>
 <body>
+
 <form id="frm" action="<%=request.getContextPath() %>/signature/conditionProcSnd.jsp" method="post">
 <input type="hidden" name="currentPage" value="conditionFormSnd"/>
 <center>
@@ -47,5 +48,6 @@
 </div>
 </center>
 </form>
+<br/><br/><br/><br/><br/><br/><br/><br/>
 </body>
 </html>
