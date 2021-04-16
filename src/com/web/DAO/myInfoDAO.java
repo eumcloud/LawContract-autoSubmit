@@ -13,11 +13,12 @@ public Connection getConn() {
 //		String usr="c##jin";
 //		String pass="jin1234";
 //		Connection conn = null;
-	
+
 		String url="jdbc:oracle:thin:@192.168.0.78:1521:xe";
 		String usr = "c##acon";
 		String pass= "1234";
 		Connection conn = null;
+
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			conn= DriverManager.getConnection(url, usr, pass);
@@ -84,6 +85,38 @@ public Connection getConn() {
 			pstmt.close();
 	
 		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void ContractDelete(Connection conn, String email, int num) {
+		String ContractFileDeleteSQL = "delete "
+				+ "from contractfile "
+				+ "where creditoremail = ? "
+				+ "and No = ? ";
+		String ConditionDeleteSQL = "delete "
+				+ "from condition "
+				+ "where creditoremail = ?"
+				+ "and No = ?";
+		
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = conn.prepareStatement(ContractFileDeleteSQL);
+			pstmt.setString(1, email);
+			pstmt.setInt(2, num);
+			
+			pstmt.executeUpdate();
+			pstmt.close();
+			
+			pstmt = conn.prepareStatement(ConditionDeleteSQL);
+			pstmt.setString(1, email);
+			pstmt.setInt(2, num);
+			
+			pstmt.executeUpdate();
+			pstmt.close();
+			
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
