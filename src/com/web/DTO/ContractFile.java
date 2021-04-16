@@ -10,8 +10,22 @@ public class ContractFile {
 	private String filePath2;
 	private String contractFile;
 	private String condition;
+	private String downloadPath;
+	private String downloadPath2;
 	public String getCondition() {
 		return condition;
+	}
+	public String getDownloadPath() {
+		return downloadPath;
+	}
+	public void setDownloadPath(String downloadPath) {
+		this.downloadPath = downloadPath;
+	}
+	public String getDownloadPath2() {
+		return downloadPath2;
+	}
+	public void setDownloadPath2(String downloadPath2) {
+		this.downloadPath2 = downloadPath2;
 	}
 	public void setCondition(String condition) {
 		this.condition = condition;

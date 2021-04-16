@@ -25,11 +25,11 @@ public class ContractfileDAO {
 		} catch (Exception e) {	e.printStackTrace();	}
 	}
 	
-	public List<ContractFile> getBoardList(int PageNumber, int RowsPerPage, String Email){
+	public List<ContractFile> getBoardList(int PageNumber, int RowsPerPage, String Email, String contextPath, String uploadFolderName){
 		
-		 String sql = "select condition, fno, contractfile "
+		 String sql = "select condition, fno, contractfile, contractfile2 "
 		            + "from ( "
-		            + "select rownum as rn, creditoremail, fno, condition, contractfile "
+		            + "select rownum as rn, creditoremail, fno, condition, contractfile, contractfile2 "
 		            +"from( "
 		            +"select * "
 		            +"from contractfile "
@@ -57,6 +57,11 @@ public class ContractfileDAO {
 				dao.setCondition(rs.getString(1));
 				dao.setFno(rs.getInt(2));
 				dao.setContractFile(rs.getString(3));
+				dao.setContractFile2(rs.getString(4));
+				dao.setDownloadPath("<a href='"+contextPath+"/"+uploadFolderName+"/"+rs.getString(3)+"' download='"+rs.getString(3)+"' id='file"+rs.getInt(2)+"'  style='display: none'>"+
+						rs.getInt(2)+"</a><br/>");
+				dao.setDownloadPath2("<a href='"+contextPath+"/"+uploadFolderName+"/"+rs.getString(4)+"' download='"+rs.getString(4)+"' id='filee"+rs.getInt(2)+"'  style='display: none'>" + 
+						rs.getInt(2)+"</a>");
 				
 				lst.add(dao);
 			}
