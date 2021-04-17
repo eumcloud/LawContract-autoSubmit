@@ -136,13 +136,14 @@ width: 50px; height: 50px; margin: 30px 100px 30px 125px;
 #reqBtn{
 	position:fixed;float:right;right:20%;bottom:100px;
 	z-index:1000;
-	width:150px;
-	height:90px
+	width:100px;
+	height:50px
 }
+
 #signHere{
 position: relative;
-top:60px;
-left:25px;
+top:55px;
+left:30px;
 
 }
 #chkSign{
@@ -157,6 +158,11 @@ position: absolute;
 width:100px;
 height:100px;
 }
+#signit{
+width:140px;
+height:70px;
+}
+
 </style>
 </head>
 <form id = "frm" method="post" enctype="multipart/form-data">
@@ -253,7 +259,7 @@ $("#signit").click(()=>{
 	
 	var popX = (document.body.offsetWidth/2)-(300/2);
 	var popY = (window.screen.height/2)-(300/2);
-	var option ="width=300px, height=300px, top="+popY+",left="+popX;
+	var option ="width=440px, height=440px, top="+popY+",left="+popX;
 	window.open(url,'',option);
 });
 </script>

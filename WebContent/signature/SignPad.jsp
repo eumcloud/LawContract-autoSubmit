@@ -15,6 +15,8 @@
 #signature-pad canvas{
 background-color:#DDEDE0;
 opacity:0.5;
+width:400px;
+height:350px;
 }
 .m-signature-pad{
 align:center;

@@ -1,8 +1,8 @@
 var canvas = $("#signature-pad canvas")[0];
         var sign = new SignaturePad(canvas, {
-            minWidth: 5,
-            maxWidth: 10,
-            penColor: "rgb(66, 133, 244)"
+            minWidth: 3,
+            maxWidth: 3,
+            penColor: "#12191F"
         });
          
         $("[data-action]").on("click", function(){
