@@ -13,3 +13,10 @@ function formSubmit(frmId, path){
 	frm.action = path;
 	frm.submit();
 }
+function toDataURL(){
+	  var signPad = document.getElementById('signPad');
+	  signPad.src = canvas.toDataURL();
+	  var signHere = document.querySelector("#signHere");
+	  window.opener.signHere.innerHTML +="<Img id='signImg' src='"+signPad.src+"'/>";
+	  self.close();
+	}

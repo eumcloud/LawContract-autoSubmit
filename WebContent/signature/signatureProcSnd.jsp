@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <%@page import="com.web.DTO.ContractFile"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="com.web.DAO.ConditionDAO"%>

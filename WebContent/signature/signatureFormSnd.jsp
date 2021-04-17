@@ -16,9 +16,6 @@ String deptorRegiNum = (String)session.getAttribute("deptorRegiNum");
 Integer fno = (Integer)session.getAttribute("fno");
 
 %>
-<%@page contentType="text/html; charset=UTF-8"%>
-<!DOCTYPE html>
-
 <html>
 <head>
 <meta charset="utf-8">
@@ -29,6 +26,7 @@ Integer fno = (Integer)session.getAttribute("fno");
 <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
 <script src="<%=request.getContextPath() %>/js/common.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath() %>/js/conditionForm.js" type="text/javascript"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <script type="text/javascript">
 function capClick() {
 	document.getElementById("capBtn1").click();
@@ -39,22 +37,30 @@ function getFno(number){
 }
 </script>
 <style type='text/css'>
+body {
+            margin: 0;
+            padding: 0;
+            font: 14pt "Tahoma";
+            line-height:150%;
+        }
+
 .paper {
-	width:595px;
-	height:842px;
-	padding:80px;
-	background-color: #fff;
-	padding: 40px;
-	margin: 0 auto;
+	width: 21cm;
+	min-height: 29.7cm;
+	padding: 2cm;
+	margin: 1cm auto;
+	border-radius: 5px;
+	background: white;
 
 }
 .paper2 {
-	width:595px;
-	height:842px;
-	padding:80px;
-	background-color: #fff;
-	padding: 40px;
-	margin: 0 auto;
+	width: 21cm;
+	min-height: 29.7cm;
+	padding: 2cm;
+	margin: 1cm auto;
+	border-radius: 5px;
+	background: white;
+ 
 }
 
 #title {
@@ -109,6 +115,14 @@ width: 50px; height: 50px; margin: 30px 100px 30px 125px;
 	background: white;
 	border-radius: 25%;
 }
+#signHere{
+position: relative;
+}
+#signImg{
+top: 0px;
+left: 50%;
+position: absolute;
+}
 </style>
 </head>
 <form id = "frm" method="post" enctype="multipart/form-data">
@@ -128,7 +142,7 @@ width: 50px; height: 50px; margin: 30px 100px 30px 125px;
 </div>
 		<br/>
 
-		<div class='paper'><input id="capBtn1" type="button" value="캡쳐" />
+		<div class='paper'><input id="capBtn1" type="button"  class="capBtn" value="캡쳐" />
 
 						<h2 id='title' align="center">금전소비대차 계약서</h2>
 						<div class='contetns'>
@@ -152,7 +166,7 @@ width: 50px; height: 50px; margin: 30px 100px 30px 125px;
 </div></div> <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 
-<article class='paper2'><input id="capBtn2" type="button" value="캡쳐"/> <br/><br/>
+<article class='paper2'><input id="capBtn2" type="button"  class="capBtn" value="캡쳐"/> <br/><br/>
 <b>제8조 (특약사항)</b><br/>  상기 계약 일반사항 이외에 아래 내용을 특약사항으로 정하며, 일반사항과 특약사항이 상충되는 경우에는 특약사항을 우선하여 적용하도록 한다.<br/>
 1. <%=condition.getSpcContents() %><br/>2.<br/>3.<br/>
 
@@ -166,7 +180,7 @@ width: 50px; height: 50px; margin: 30px 100px 30px 125px;
                 <br/>주 소 :<%=condition.getCreditorAddr() %>
 <br/><br/>
 
-      「을」  성 명 :<%=condition.getDeptor() %> (인)
+      「을」  성 명 :<%=condition.getDeptor() %><div id="signHere">(인)</div>
                 <br/>주민등록번호 :<%=deptorRegiNum %>
                 <br/>주 소 :<%=condition.getDeptorAddr() %>
 <%
@@ -174,14 +188,14 @@ width: 50px; height: 50px; margin: 30px 100px 30px 125px;
 %>
 </div></article>
 <img src="<%=request.getContextPath()%>/image/next.png" id="next" width="70px" height="70px" style="margin-right: 300px; margin-bottom: 200px;"
-onclick="formSubmit('frm', '<%=request.getContextPath()%>/myinfo/ContractDetailsForm.jsp');"/>
- <br/><br/><br/><br/>
+onclick="formSubmit('frm', '<%=request.getContextPath()%>/signature/signatureProcSnd.jsp');"/>
+ <br/><br/><br/><br/><div id=reqBtn><button class="btn btn-primary" id=signit style="margin-left: 600px;">서명하기</button> </div>
  
  <a id="target" style="display: none"></a>
 
  
 <script>
-$(":button").on('click', function(e) { 
+$(".capBtn").on('click', function(e) { 
 // html2canvas(e.target.parentElement).then(function(canvas) {
 // document.body.appendChild(canvas)
 // });
@@ -200,4 +214,16 @@ el.click();
 }
 });
 });
+
+$("#signit").click(()=>{
+	var url = "<%=request.getContextPath()%>/signature/SignPad.jsp"
+	
+	var popX = (document.body.offsetWidth/2)-(300/2);
+	var popY = (window.screen.height/2)-(300/2);
+	var option ="width=300px, height=300px, top="+popY+",left="+popX;
+	window.open(url,'',option);
+});
 </script>
+</body>
+</form>
+</html>

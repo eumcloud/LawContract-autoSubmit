@@ -52,13 +52,13 @@ public class contractSet {
 					+ "<br/><div align=center> "+sf.format(nowTime) +"</div><br/><br/><br/><br/> "
 					
 					+ "<div align='right'> "
-					+ "         「갑」  성 명 :"+creditor+" (인) "+"<span id=firstSign></span>" 
+					+ "         「갑」  성 명 :"+creditor+"  <div id='signHere'>(인)</div> "+"<span id=firstSign></span>" 
 					+ "                <br/>주민등록번호 :"+creditorResiNum+" "
 					+ "                <br/>주 소 :"+creditorAddr+" "
 					+ "<br/><br/> "
 					+ "      「을」  성 명 :"+deptor+" (인) "+"<span id=nextSign></span>"
 					+ "      <br/>주민등록번호 :"+deptorResiNum+" "
-					+ "      <br/>주 소 :"+deptorAddr;
+					+ "      <br/>주 소 :"+deptorAddr+"</div>";
 		
 		
 		return norm + spc+ signArea;

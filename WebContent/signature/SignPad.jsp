@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%
+
+    %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,16 +20,25 @@ opacity:0.5;
 align:center;
 }
 </style>
+<script type="text/javascript">
+function toDataURL(){
+	  var signPad = document.getElementById('signPad');
+	  signPad.src = canvas.toDataURL();
+	  var signHere = document.querySelector("#signHere");
+	  window.opener.signHere.innerHTML +="<Img src='"+signPad.src+"'/>";
+	  self.close();
+	}
+</script>
 </head>
 <body>
 <div id="signature-pad" class="m-signature-pad">
         <div class="m-signature-pad--body">
-            <canvas></canvas>
+            <canvas id="signPad"></canvas>
         </div>
         <div class="m-signature-pad--footer">
             <div class="description">사인해 주세요~</div>
             <button type="button" class="button clear" data-action="clear">지우기</button>
-            <button type="button" class="button save" data-action="save">저장</button>
+            <button type="button" class="button save" data-action="save" onclick="toDataURL();">저장</button>
         </div>
     </div>
 
