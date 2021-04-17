@@ -55,11 +55,12 @@ function capClick() {
 </script>
 <style type='text/css'>
 body {
-            margin: 0;
-            padding: 0;
-            font: 14pt "Tahoma";
-            line-height:150%;
-        }
+        margin: 0;
+        padding: 0;
+        font: 15pt "Tahoma";
+        line-height:200%;
+        
+    }
 
 .paper {
 	width: 21cm;
@@ -68,7 +69,7 @@ body {
 	margin: 1cm auto;
 	border-radius: 5px;
 	background: white;
-
+	
 }
 .paper2 {
 	width: 21cm;
@@ -140,11 +141,21 @@ width: 50px; height: 50px; margin: 30px 100px 30px 125px;
 }
 #signHere{
 position: relative;
+top:60px;
+left:25px;
+
+}
+#chkSign{
+position:absolute;
 }
 #signImg{
 top: 0px;
 left: 50%;
 position: absolute;
+}
+#signsize{
+width:100px;
+height:100px;
 }
 </style>
 </head>
@@ -170,7 +181,7 @@ position: absolute;
 
 						<h2 id='title' align="center">금전소비대차 계약서</h2>
 						<div class='contetns'>
-							<br/>
+							<br/><br/><br/>
 						
 						
 
@@ -197,9 +208,11 @@ position: absolute;
 
 본 계약의 성립을 증명하기 위하여 본 증서 각자 서명 날인한 후 1통씩 보관한다.<br/><br/>
 <br/><div align=center> <%=sf.format(nowTime) %></div><br/><br/><br/><br/>
-
-<div align='right'>
-         「갑」  성 명 :<%=creditor %> <div id="signHere">(인)</div>
+<!----------------------------------------------작업중  ---------------------------------->
+<div id=chknSign align='right'>
+		<div><c id="signHere" style='opacity:0.9'></c></div>
+		
+         「갑」  성 명 :<%=creditor %> (인)
                 <br/>주민등록번호 :<%=(String)session.getAttribute("creditorRegiNum") %>
                 <br/>주 소 :<%=creditorAddr %>
 <br/><br/>

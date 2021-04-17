@@ -25,7 +25,7 @@ function toDataURL(){
 	  var signPad = document.getElementById('signPad');
 	  signPad.src = canvas.toDataURL();
 	  var signHere = document.querySelector("#signHere");
-	  window.opener.signHere.innerHTML +="<Img src='"+signPad.src+"'/>";
+	  window.opener.signHere.innerHTML +="<Img id=signsize src='"+signPad.src+"'/>";
 	  self.close();
 	}
 </script>
