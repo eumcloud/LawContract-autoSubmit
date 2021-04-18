@@ -96,7 +96,27 @@ public class LoginDAO {
 	         }
 	         return email3;
 	      }
-	
+	public String kakaoLogin(Connection conn, String email) {
+		String sql = "select pw from membership " +
+					"where email = ?";
+		String passWord = "";
+			try {
+				PreparedStatement pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, email);
+				ResultSet rs = pstmt.executeQuery();
+				if(rs.next()) {
+					passWord=rs.getString(1);
+					rs.close();
+					pstmt.close();
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		return passWord;
+		
+	}
 	public boolean userConfirm(Connection conn, String email, String pw) {
 		String SQL = "select * "
 				+ "from membership "
