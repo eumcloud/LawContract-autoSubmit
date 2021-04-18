@@ -9,11 +9,12 @@
 
 <style type="text/css">
 	table{
-		width : 80%;
-		height: 600px;
+		width : 90%;
+		height: 800px;
 		font-size : 20px;
 		margin: auto;
 		text-align: center;
+		font-weight: bold;
 	}
 	td, tr{
 		padding: 10px;
@@ -24,8 +25,9 @@
 		margin-left:120px;
 		margin-right:145px;
 		margin-top:20px;
-		width: 80px;
-		height: 60px;
+		width: 200px;
+		height: 100px;
+		border-radius:15px;
 	}
 	.boxForm {
 		width: 1200px;
@@ -39,14 +41,21 @@
 		margin : 20px;
 		text-align:left;
 	}
+	.line{border-bottom: 1px solid red;}
 </style>
 <%
-	String pathStar = request.getContextPath()+"/fee/paymentStar.jsp";
-	String pathBus = request.getContextPath()+"/fee/paymentBus.jsp";
-	String pathPre = request.getContextPath()+"/fee/paymentPre.jsp";
+	String feePath = request.getContextPath()+"/fee/feePaymentProc.jsp";
+	String pathStar = request.getContextPath()+"/fee/feeinfoProcStar.jsp";
+	String pathBus = request.getContextPath()+"/fee/feeinfoProcBus.jsp";
+	String pathPre = request.getContextPath()+"/fee/feeinfoProcPre.jsp";
 	String popUp = (String)request.getAttribute("popUp");
+	String usrId = (String)session.getAttribute("usrId");
+	System.out.println(usrId);
+	
 	if(popUp ==null)
 		popUp="";
+	if(usrId ==null)
+		usrId="";
 	
 %>
 <!--결제완료 시 팝업 창 띄우기 위한 것-->
@@ -62,31 +71,37 @@
 <br/><br/><br/>
 <form id="frm" action="<%=request.getContextPath() %>/index.jsp" method="post">
 <input type="hidden" name="currentPage" value="feeinfoForm"/>
+
 		<table border="1" >
     		<tr>
     			<td><table  border="1" >
     				<tr>
-    					<td style="font-size: 35px; color: #FF8A4E">STARTER</td>
+    					<td height="190px" style="font-size: 35px; color: #FF8A4E">STARTER<br/>
+    						━━━━━━━━━━━━━━━━━━
+    					</td>
     				</tr>
+    				
     				<tr>
-    					<td>수량 : 10건<br/>
+    					<td height="250px">수량 : 10건<br/>
     					금액 : 10,000원</td>
     				</tr>
     				
     				<tr>
-    					<td>혼자 모든 문서를 관리해야 하는<br/>
+    					<td>━━━━━━━━━━━━━━━━━━<br/>혼자 모든 문서를 관리해야 하는<br/>
     					프리랜서, 1인 기업
     					</td>
     				</tr>
     				<tr>
-    					<td><button onclick="openPop('<%=pathStar%>');">선택</button>
+    					<td>
+    						<input type="hidden" id="usrId" value="<%=usrId%>"/>
+    						<div class="btn"><button onclick="openPath('<%=pathStar%>','<%=feePath%>' ,'frm');">선택</button></div>
     					</td>
     				</tr>
     				</table></td>
     		
     			<td><table  border="1" >
     				<tr>
-    					<td style="font-size: 35px; color: #FF8A4E">BUSINESS</td>
+    					<td style="font-size: 35px; color: #FF8A4E; ">BUSINESS</td>
     				</tr>		
     				<tr>
     					<td>수량 : 100건<br/>
@@ -100,7 +115,8 @@
     					</td>
     				</tr>
     				<tr>
-    					<td><button onclick="openPop('<%=pathBus%>');">선택</button>
+    					<td>
+    						<div class="btn"><button onclick="openPath('<%=pathBus%>','<%=feePath%>' ,'frm');">선택</button></div>
     					</td>
     				</tr>
     				</table></td>
@@ -121,7 +137,7 @@
     				</tr>
     				<tr>
     				<td>
-    					<button onclick="openPop('<%=pathPre%>');">선택</button>
+    					<div class="btn"><button onclick="openPath('<%=pathPre%>','<%=feePath%>' ,'frm');">선택</button></div>
     				</td>
     				</tr>
     				</table></td>
@@ -136,7 +152,6 @@
     			<button onclick="openPop('<%=pathPre%>');">선택</button>
     		</form>
     	</div> --%>
- 
 <br/>
 <hr/>
 <br/>

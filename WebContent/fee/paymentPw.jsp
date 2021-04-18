@@ -55,7 +55,7 @@ function openPopCloss(path){
 }
 </script>
 <%
-	String popUp = "star";
+	String popUp = "payment";
 	session.setAttribute("popUp", popUp);
 %>
 <body>

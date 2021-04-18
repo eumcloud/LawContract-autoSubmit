@@ -54,6 +54,7 @@
 </style>
 <%
 	String path = request.getContextPath()+"/fee/feeinfoForm.jsp";
+	
 %>
 <script type="text/javascript">
 function openPopCloss(path){
@@ -69,7 +70,7 @@ function openPopCloss(path){
 		</div>
 		</div>
 		<div class="boxTwo">
-		<form action="<%=request.getContextPath()%>/fee/paymentBusPw.jsp">
+		<form action="<%=request.getContextPath()%>/fee/paymentPw.jsp">
 		<table width="350px">
 			<tr bgcolor="#FAF8F6">
 				<th width="250px"><h2>상점명</h2></th>
@@ -77,11 +78,11 @@ function openPopCloss(path){
 			</tr>
 			<tr bgcolor="#F3EEE8">
 				<th><h2>상품명</h2></th>
-				<td><b>테스트 아이템</b></td>
+				<td><b><%=session.getAttribute("pakicg")  %> </b></td>
 			</tr>
 			<tr bgcolor="#FAF8F6">
 				<th><h2>결제금액</h2></th>
-				<td><b>???원</b></td>
+				<td><b><%=session.getAttribute("money")  %></b></td>
 			</tr>
 			<tr bgcolor="#F3EEE8">
 				<th><h2>계열사</h2></th>
@@ -114,7 +115,7 @@ function openPopCloss(path){
 			</tr>
 			<tr bgcolor="#F3EEE8">
 				<th colspan="2">
-				<button onclick="openPopCloss('<%=request.getContextPath()%>/fee/feeinfoProc.jsp')">취소</button><button>다음</button>
+				<button onclick="openPopCloss('<%=request.getContextPath()%>/fee/feePaymentProc.jsp')">취소</button><button>다음</button>
 				</th>
 			</tr>
 		</table>
@@ -123,5 +124,3 @@ function openPopCloss(path){
 		</div>
 		</div>
 </body>
-	
-

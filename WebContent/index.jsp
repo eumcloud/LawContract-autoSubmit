@@ -5,7 +5,6 @@
 <%@page import="com.web.DTO.*"%>
 
 <%
-
 	String currentPage = request.getParameter("currentPage");
 	String pageName = "/form/home.jsp";
 	
