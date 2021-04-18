@@ -17,8 +17,8 @@ public class ContractDetailsDAO {
 	public ContractDetailsDAO() {
 		
 		String url="jdbc:oracle:thin:@localhost:1521:xe";
-		String usr = "c##acon";
-		String pass= "1234";
+		String usr = "c##jon";
+		String pass= "wns1234";
 		
 //		String url="jdbc:oracle:thin:@localhost:1522:xe";
 //		String usr="c##jin";

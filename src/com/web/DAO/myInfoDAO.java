@@ -15,8 +15,8 @@ public Connection getConn() {
 //		Connection conn = null;
 
 	String url="jdbc:oracle:thin:@localhost:1521:xe";
-	String usr = "c##acon";
-	String pass= "1234";
+	String usr = "c##jon";
+	String pass= "wns1234";
 		Connection conn = null;
 
 		try {

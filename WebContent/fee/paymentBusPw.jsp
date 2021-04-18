@@ -54,10 +54,12 @@ function openPopCloss(path){
    	self.close();
 }
 </script>
+
 <%
 	String padd = "bus";
 	session.setAttribute("padd", padd);
 %>
+<script src='<%=request.getContextPath() %>/js/inpayForm.js' type="text/javascript"></script>
 <body>
 		<div class="boxAll">
 		<div class="headBox">
@@ -66,7 +68,7 @@ function openPopCloss(path){
 		</div>
 		</div>
 		<div class="boxTwo">
-		<form action="<%=request.getContextPath()%>/fee/paymentPwProc.jsp" method="post">
+		<form id='frm' action="<%=request.getContextPath() %>/fee/feeinfoForm.jsp" method="post">
 		<table width="350px">
 			<tr bgcolor="#FAF8F6">
 				<th colspan="2"><h2>패스워드</h2></th>
@@ -75,7 +77,9 @@ function openPopCloss(path){
 				<th colspan="2"><input type="password" placeholder='비밀번호 6자리 입력하세요'></th>
 			</tr>
 			<tr bgcolor="#FAF8F6">
-				<th colspan="2"><button onclick="openPopCloss('<%=request.getContextPath()%>/fee/paymentPwNoProc.jsp');">취소</button><button onclick="openPopCloss('<%=request.getContextPath()%>/fee/paymentPwProc.jsp');">다음</button></th>
+				<th colspan="2"><button onclick="openPopCloss('<%=request.getContextPath()%>/fee/paymentPwNoProc.jsp');">취소</button>
+				<button onclick="open1('frm', '<%=request.getContextPath() %>/fee/feeinfoForm.jsp');" >다음</button>
+				</th>
 			</tr>
 		</table>
 		</form>
