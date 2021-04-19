@@ -44,7 +44,6 @@ h1 {
         </div>
         
         <div>
-         
 			<input type = "button" weht="" class="btn btn-outline-secondary" value = "비회원 로그인">
 			</div>
 			<div>
