@@ -41,7 +41,7 @@
 			System.out.println("카카오로그인 성공!");
 			pagePath = "home";
 		}
-	}
+	} 
 %>
 <jsp:forward page="/index.jsp">
 <jsp:param value="<%=pagePath %>" name="currentPage"/>
