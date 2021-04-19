@@ -14,13 +14,13 @@
 	.boxAll {
 		margin : 0px;
 		background: #F3EEE8;
-		text-align:center;
+		text-align:center; 
 	}
 	.boxTwo{
 		margin : 25px;
 	}
-	.boxTwo button{
-		width: 306px;
+	.boxTwo button{ 
+		width: 250px;
 		height: 60px;
 		 font-size:20px;
 		 font-weight:bold;
@@ -55,8 +55,8 @@ function openPopCloss(path){
 }
 </script>
 <%
-	String padd = "pre";
-	session.setAttribute("padd", padd);
+	String popUp = "payment";
+	session.setAttribute("popUp", popUp);
 %>
 <body>
 		<div class="boxAll">

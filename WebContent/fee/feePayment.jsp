@@ -29,7 +29,7 @@
 		background: #ffffff;
 		width: 100%;
 		height: 400px;
-	}
+	} 
 	.boxTwo td{
 		text-align: left;
 		border : 1px solid black;
@@ -69,7 +69,7 @@ function openPopCloss(path){
 		</div>
 		</div>
 		<div class="boxTwo">
-		<form action="<%=request.getContextPath()%>/fee/paymentBusPw.jsp">
+		<form action="<%=request.getContextPath()%>/fee/paymentPw.jsp">
 		<table width="350px">
 			<tr bgcolor="#FAF8F6">
 				<th width="250px"><h2>상점명</h2></th>
@@ -114,7 +114,7 @@ function openPopCloss(path){
 			</tr>
 			<tr bgcolor="#F3EEE8">
 				<th colspan="2">
-				<button onclick="openPopCloss('<%=request.getContextPath()%>/fee/feeinfoProc.jsp')">취소</button><button>다음</button>
+				<button onclick="openPopCloss('<%=request.getContextPath()%>/fee/feePaymentProc.jsp')">취소</button><button>다음</button>
 				</th>
 			</tr>
 		</table>
