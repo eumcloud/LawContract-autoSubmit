@@ -32,6 +32,7 @@ h1 {
 <form class="mx-auto mt-5 form-horizontal login" id='frm' action="<%=request.getContextPath()%>/login/loginProc.jsp" method = "post">
 	<input type="hidden" name="currentPage" value="loginForm"/>
 	<div class="acon">
+	
 	<img src="<%=request.getContextPath()%>/image/logo.png" alt="에이콘" height="150" width="150" style="margin-left: auto; margin-right: auto; display: block;">
 	<h1>로그인</h1>
 	</div>
