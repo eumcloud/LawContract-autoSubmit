@@ -5,13 +5,7 @@
 	String money = "100,000원";
 
 	session.setAttribute("pakicg", pakicg);
-<<<<<<< HEAD
 	session.setAttribute("money", money); 
  
-=======
-	session.setAttribute("money", money);
-
->>>>>>> branch 'youngsin' of https://github.com/eumcloud/mini2Pj
-	System.out.println("안녕하세요");
 %>
 <jsp:forward page="feePayment.jsp"/>

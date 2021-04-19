@@ -4,7 +4,6 @@
     . : 클래스
     # : 아이디
     -->
-<<<<<<< HEAD
 <style type="text/css">
 	.headBox {
 		margin-top : 0px;
@@ -54,57 +53,6 @@ function openPopCloss(path){
 	window.opener.location.href=path;
    	self.close();
 }
-=======
-<style type="text/css">
-	.headBox {
-		margin-top : 0px;
-		background: #CA394F;
-		text-align:center;
-		height: 75px;
-	}
-	.boxAll {
-		margin : 0px;
-		background: #F3EEE8;
-		text-align:center;
-	}
-	.boxTwo{
-		margin : 25px;
-	}
-	.boxTwo button{
-		width: 250px;
-		height: 60px;
-		 font-size:20px;
-		 font-weight:bold;
-	}
-	.boxTwo table{
-		background: #ffffff;
-		width: 100%;
-		height: 200px;
-	}
-	.boxTwo td{
-		text-align: left;
-		border : 1px solid black;
-		margin : 10px;
-	}
-	.boxTwo th{
-		text-align: center;
-		border : 1px solid black;
-		margin : 10px;
-	}
-	input {
-  		width:300px;
-  		height: 40px;
-  		font-size:20px;
-  		margin : 10px;
-  		text-align: center;
-	}	
-</style>
-<script type="text/javascript">
-function openPopCloss(path){
-	window.opener.location.href=path;
-   	self.close();
-}
->>>>>>> branch 'youngsin' of https://github.com/eumcloud/mini2Pj
 </script>
 <%
 	String popUp = "payment";
