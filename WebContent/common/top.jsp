@@ -6,13 +6,18 @@ String usrId = (String)session.getAttribute("usrId");
 System.out.println("현재 접속중인 id :" + usrId);
 %>
 <style type="text/css">
-*{margin:0; padding:0;}
+     
+*{margin:0;
+ padding:0;
+
+  
+   }
 ul{list-style: none;}
 a{color: inherit; text-decoration: none; }
 #wrap{width:100%; overflow:hidden;}
 img{max-width:100%;}
 #header{width:100%; height: 80px; background:#282d32; position: fixed; top: 0; left: 0; transition: 0.5s; z-index: 2;}
-#header .flex-box{ text- width: 100%; height: 100%; max-width: 1024px; display:flex;flex-direction:row;  align-items: center; }
+#header .flex-box{ text-width: 100%; height: 100%; max-width: 1024px; display:flex;flex-direction:row;  align-items: center; }
 #header a.logo{ align-self: stretch;}
 #header a.logo img{height: 100%;}
 #header ul li{display: inline-block; margin: 0 10px;}
@@ -36,17 +41,13 @@ img{max-width:100%;}
                 <li><a href="<%=path %>feeinfoForm">요금 안내</a></li>
               <li><a href="<%=path %>conditionForm">서명신청</a></li>
             
+            
                 <%if(usrId == null){ %>
-                <li class="rightMenu" style="margin-left: 1100px"><a href="<%=path %>loginForm"><b>로그인</b></a></li>
+                <li class="rightMenu" style="margin-left: 700px"><a href="<%=path %>loginForm"><b>로그인</b></a></li>
                 <li class="rightMenu"><a href="<%=path %>membershipForm"><b>회원가입</b></a></li>
                 <%}else{ %>
      
-                <li><%=usrId %>님 반갑습니다.</li>
-                <li><a href = "<%=path %>logout">로그아웃</a>
-                <li><a href = "<%=path %>myinfoForm">내정보</a></li>
-                <li><a href = "<%=path %>ContractDetailsProc&pageNumber=1">계약 내역</a></li>
-                <li><a href = "<%=path %>ContractDetailsProc&pageNumber=1">계약 내역</a></li>
-                <li style="margin-left: 850px"><%=usrId %>님 반갑니다.</li>
+                <li style="margin-left: 400px"><%=usrId %>님 반갑니다.</li>
                 <li class="rightMenu"><a href = "<%=path %>logout">로그아웃</a>
                 <li class="rightMenu"><a href = "<%=path %>myinfoForm">내정보</a></li>
                 <li class="rightMenu"><a href = "<%=path %>modifyForm">계약 내역</a></li>

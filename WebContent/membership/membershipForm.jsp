@@ -43,7 +43,7 @@
 <center>
 <form id='frm' action="<%=request.getContextPath() %>/membership/membershipProc.jsp" method="post">
 <input type="text" id="emailOk" value="<%=emailOk%>" />
-<table>
+<table style="height:100%;">
 	
 	<tr>
 		<td align='right'>E-Mail</td>
@@ -68,7 +68,7 @@
 	
 	<tr>
 		<td  align='center' height=40 colspan=4>
-			<input type=button onclick="phoneForm('http://localhost:8080/20210402_miniPj2/membership/phoneForm.jsp', 'frm', '<%=request.getContextPath()%>/membership/membershipProc.jsp')" value='인증하기' style="width: 120px; "/> 
+			<input type=button onclick="phoneForm('http://localhost:8080/20210402_miniPj2/membership/phoneForm.jsp', 'frm', '<%=request.getContextPath()%>/membership/membershipProc.jsp')" value='인증하기' style="width: 160px;"/> 
 		</td>
     </tr>
 	

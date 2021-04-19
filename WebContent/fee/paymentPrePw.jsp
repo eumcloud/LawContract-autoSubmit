@@ -69,7 +69,7 @@ function openPopCloss(path){
 		<form action="<%=request.getContextPath()%>/fee/paymentPwProc.jsp" method="post">
 		<table width="350px">
 			<tr bgcolor="#FAF8F6">
-				<th colspan="2"><h2>패스워드</h2></th>
+				<th colspan="2"><font size="2em">패스워드</font></th>
 			</tr>
 			<tr bgcolor="#F3EEE8">
 				<th colspan="2"><input type="password" placeholder='비밀번호 6자리 입력하세요'></th>

@@ -10,7 +10,9 @@
 	String url = request.getContextPath()+"/myinfo/ContractDetailsProc.jsp?currentPage=ContractDetailsProc&pageNumber=";
 	int pageNumber = Integer.parseInt( request.getParameter("pageNumber") );
 	int rowsPerPage = (Integer)session.getAttribute("rowsPerPage");
-	int totalPage = (int)session.getAttribute("totalPage");	
+	int totalPage = (int)session.getAttribute("totalPage");
+	String[] boarderckeck = request.getParameterValues("boardCheckbox");
+	
 	String ContractDetailsModityFormPath = request.getContextPath() + "/myinfo/ContractDetailsModityForm.jsp";
 	String ContractDetailsDeleteProcPath = request.getContextPath() + "/myinfo/ContractDetailsDeleteProc.jsp";
 	String ContractDetailsSubmitProcPath = request.getContextPath() + "/myinfo/ContractDetailsSubmitProc.jsp";
@@ -55,12 +57,12 @@ function downClick(fno) {
 %>
 	<tr>
 
-		<td align="center"><input type="checkbox" value='<%=c.getFno()%>' name="boardCheckbox"/></td>
+		<td align="center"><input type="checkbox" <%=boarderckeck %> value='<%=c.getFno()%>' name="boardCheckbox"/></td>
 		<td align="center"><%=c.getCondition()%></td>
-		<td align="center"><p><%=c.getFno() %></p>
+		<td align="center"><p><%=c.getFno()%></p>
 		</td>
 		<td><img id="downImg" src="<%=request.getContextPath()%>/image/download.png" onclick="downClick('<%=c.getFno()%>');">
-		<input type="hidden" name="contractNum" value="<%=c.getFno()%>"/></td>
+		<input type="hidden" name="contractNum" value="<%=c.getFno()%>"/>111</td>
 		<td align="center"><%=c.getDownloadPath() %><%=c.getDownloadPath2() %></td>
 		<%
 }
@@ -78,7 +80,7 @@ out.println(ContractTools.getNavi(totalPage, rowsPerPage, url, pageNumber));
 %>
 	</ul>
 </nav>
-<input type="checkbox" name="checkAllName" onclick="checkAll('checkAllName', 'boardCheckbox')" >전체선택</input>
+<input type="checkbox" id='checkAllName' name="checkAllName" onclick="checkAll('checkAllName', 'boardCheckbox')" >전체선택</input>
 <input type="button" name="btn" onclick="formSubmit('frm', '<%=ContractDetailsDeleteProcPath%>');" value = "삭제 " />	
-<input type="button" name="btn" onclick="openPop('<%=request.getContextPath() %>/fee/paymentBus.jsp');" value = "법원제출 " />	
+<input type="button" name="btn" onclick="openPop2('boardCheckbox', '<%=request.getContextPath() %>/fee/paymentBus.jsp');" value = "법원제출 " />	
 </form>

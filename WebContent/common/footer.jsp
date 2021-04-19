@@ -6,11 +6,16 @@ String contxtPath =request.getContextPath();
 html,body {
 	margin: 0;
 	padding: 0;
+	height: 100%;
+
+    overflow: hidden;
+
 }
 .footer {
 	background-color: #282d32; 
-	width: 100%; 
-	height: 150px;
+	width: 100%;  
+	height: 100%;
+	margin-top: 110px;
 	position: absolute;
 }
 .info{
@@ -18,6 +23,7 @@ html,body {
     -webkit-font-smoothing: antialiased;
     font-family: NotoSans,sans-serif;
     font-weight: 400;
+    font-height: 400;
     letter-spacing: -.04em;
     word-break: keep-all;
     color: hsla(0,0%,100%,.4);
@@ -56,6 +62,7 @@ html,body {
 
 }
 </style>
+
 <footer class="footer">
 <div class="infos">
 <div class="info">
