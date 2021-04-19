@@ -12,6 +12,10 @@ public class Membership {
 
 
 	public Connection getConn() {
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'youngsin' of https://github.com/eumcloud/mini2Pj
 		String url="jdbc:oracle:thin:@192.168.0.78:1521:xe";
 		String usr = "c##acon";
 		String pass= "1234";

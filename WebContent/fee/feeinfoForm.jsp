@@ -10,12 +10,21 @@
 <style type="text/css">
 	table{
 		width : 90%;
+<<<<<<< HEAD
 		height: 730px;
 		font-size : 20px;
 		margin: auto;
 		text-align: center;
 		font-weight: bold;
 	} 
+=======
+		height: 800px;
+		font-size : 20px;
+		margin: auto;
+		text-align: center;
+		font-weight: bold;
+	}
+>>>>>>> branch 'youngsin' of https://github.com/eumcloud/mini2Pj
 	td, tr{
 		padding: 10px;
 	}
@@ -28,17 +37,24 @@
 		width: 200px;
 		height: 100px;
 		border-radius:15px;
+<<<<<<< HEAD
 		font-size:2em;
 		color: #ffffff;
 		border-radius:0.5em;
 		padding:5px 20px;"
 		
+=======
+>>>>>>> branch 'youngsin' of https://github.com/eumcloud/mini2Pj
 	}
 	.boxForm {
 		width: 1200px;
+<<<<<<< HEAD
 		text-align : center;
 		border: solid 3px #3B240B;
 		background: #FAF8F6;
+=======
+		border: solid 3px red;
+>>>>>>> branch 'youngsin' of https://github.com/eumcloud/mini2Pj
 	}
 	.boxForm h2{
 		margin : 20px;
@@ -49,6 +65,7 @@
 		text-align:left;
 	}
 	.line{border-bottom: 1px solid red;}
+<<<<<<< HEAD
 	.a {
 		line-height:80px;
 	}
@@ -63,6 +80,8 @@
 		border:3px #3B240B solid;
 		background: #6D8ECE;
 	}
+=======
+>>>>>>> branch 'youngsin' of https://github.com/eumcloud/mini2Pj
 </style>
 <%
 	String feePath = request.getContextPath()+"/fee/feePaymentProc.jsp";
@@ -76,23 +95,35 @@
 	if(popUp ==null)
 		popUp="";
 	if(usrId ==null)
+<<<<<<< HEAD
 		usrId=""; 
+=======
+		usrId="";
+>>>>>>> branch 'youngsin' of https://github.com/eumcloud/mini2Pj
 	
 %>
 <!--결제완료 시 팝업 창 띄우기 위한 것-->
 <input id="popUp" type="hidden" value="<%=popUp%>">
+<<<<<<< HEAD
 <script type="text/javascript">
+=======
+<script type="text/javascript">
+>>>>>>> branch 'youngsin' of https://github.com/eumcloud/mini2Pj
 	var popUp = document.getElementById("popUp").value;
 	if(popUp == "성공")
 		alert('결제가 완료되었습니다.');
 	if(popUp == "실패")
 		alert('결제를 취소하였습니다.');
 </script>
+<<<<<<< HEAD
 <head>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 </head>
+=======
+>>>>>>> branch 'youngsin' of https://github.com/eumcloud/mini2Pj
 
+<<<<<<< HEAD
 <h1></h1>
 <br/><br/><br/>
 <form id="frm" action="<%=request.getContextPath() %>/index.jsp" method="post">
@@ -180,6 +211,92 @@
     	</table>
 </form>
     	
+=======
+<br/><br/><br/>
+<form id="frm" action="<%=request.getContextPath() %>/index.jsp" method="post">
+<input type="hidden" name="currentPage" value="feeinfoForm"/>
+
+		<table border="1" >
+    		<tr>
+    			<td><table  border="1" >
+    				<tr>
+    					<td height="190px" style="font-size: 35px; color: #FF8A4E">STARTER<br/>
+    						━━━━━━━━━━━━━━━━━━
+    					</td>
+    				</tr>
+    				
+    				<tr>
+    					<td height="250px">수량 : 10건<br/>
+    					금액 : 10,000원</td>
+    				</tr>
+    				
+    				<tr>
+    					<td>━━━━━━━━━━━━━━━━━━<br/>혼자 모든 문서를 관리해야 하는<br/>
+    					프리랜서, 1인 기업
+    					</td>
+    				</tr>
+    				<tr>
+    					<td>
+    						<input type="hidden" id="usrId" value="<%=usrId%>"/>
+    						<div class="btn"><button onclick="openPath('<%=pathStar%>','<%=feePath%>' ,'frm');">선택</button></div>
+    					</td>
+    				</tr>
+    				</table></td>
+    		
+    			<td><table  border="1" >
+    				<tr>
+    					<td style="font-size: 35px; color: #FF8A4E; ">BUSINESS</td>
+    				</tr>		
+    				<tr>
+    					<td>수량 : 100건<br/>
+    						금액 : 40,000원
+    					</td>
+    				</tr>
+    				
+    				<tr>
+    					<td>문서를 효율적으로 관리하고자 하는<br>
+    					 소규모 팀, 중소기업
+    					</td>
+    				</tr>
+    				<tr>
+    					<td>
+    						<div class="btn"><button onclick="openPath('<%=pathBus%>','<%=feePath%>' ,'frm');">선택</button></div>
+    					</td>
+    				</tr>
+    				</table></td>
+    		
+    			<td><table  border="1">
+    				<tr>
+    					<td style="font-size: 35px; color: #FF8A4E">PREMIUM</td>
+    				</tr>
+    				<tr>
+    					<td>수량 : 무제한<br/>금액 : 100,000원</td>
+    					
+    				</tr>
+    				
+    				<tr>
+    					<td>여러 부서에서 함께 대량의 문서를<br/>
+    					관리하는 기관, 회사
+    				</td>
+    				</tr>
+    				<tr>
+    				<td>
+    					<div class="btn"><button onclick="openPath('<%=pathPre%>','<%=feePath%>' ,'frm');">선택</button></div>
+    				</td>
+    				</tr>
+    				</table></td>
+    		</tr>
+    	</table>
+</form>
+    	<%-- <div class="btn">
+   			<form id="frm" action="<%=request.getContextPath() %>/index.jsp" method="post">
+   			<input type="hidden" name="currentPage" value="feeinfoForm"/>
+   				<button onclick="openPop('<%=pathStar%>');">선택</button>
+    			<button onclick="openPop('<%=pathBus%>');">선택</button>
+    			<button onclick="openPop('<%=pathPre%>');">선택</button>
+    		</form>
+    	</div> --%>
+>>>>>>> branch 'youngsin' of https://github.com/eumcloud/mini2Pj
 <br/>
 <hr/>
 <br/>

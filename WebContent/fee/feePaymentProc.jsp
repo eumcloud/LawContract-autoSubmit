@@ -9,4 +9,8 @@
 %>
 <jsp:forward page="/index.jsp">
 <jsp:param value="<%=homePath %>" name="currentPage"/>
+<<<<<<< HEAD
 </jsp:forward>  
+=======
+</jsp:forward>
+>>>>>>> branch 'youngsin' of https://github.com/eumcloud/mini2Pj
