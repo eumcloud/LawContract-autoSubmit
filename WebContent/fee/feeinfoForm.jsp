@@ -63,7 +63,7 @@
 		border:3px #3B240B solid;
 		background: #6D8ECE;
 	}
-</style>
+</style><!--ㅇㅇ  -->
 <%
 	String feePath = request.getContextPath()+"/fee/feePaymentProc.jsp";
 	String pathStar = request.getContextPath()+"/fee/feeinfoProcStar.jsp";
