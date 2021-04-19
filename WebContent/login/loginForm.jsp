@@ -27,6 +27,7 @@
         </div>
         <div class="form-group">
         <input type="hidden" onclick="formSubmit('frm', '<%=request.getContextPath()%>/login/kakaoProc.jsp')" value="카톡로그인" id ="kakaoProc"/>
+        <input type="hidden" id="kakaoName" name ="kakaoName" />
           <div class="col-sm-offset-2 col-sm-10">
 			   <a href="javascript:kakaoLogin();"><img src = "https://gb.go.kr/Main/Images/ko/member/certi_kakao_login.png" style="height: 60px; width:auto"></a>
 			<input type = "button" class="btn btn-outline-secondary" id="loginBtn"onclick = "checkEmpty();" value = "로그인하기"> <br /> 
@@ -51,6 +52,7 @@
                             console.log(kakao_account.email);
                             console.log(kakao_account.profile.nickname);
                             var id = document.getElementById("id").value = kakao_account.email;
+                            var name = document.getElementById("kakaoName").value = kakao_account.profile.nickname;
                             document.getElementById("kakaoProc").click();
                         }
                     });
