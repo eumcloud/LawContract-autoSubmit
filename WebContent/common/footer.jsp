@@ -8,14 +8,12 @@ html,body {
 	padding: 0;
 	height: 100%;
 
-    overflow: hidden;
 
 }
 .footer {
 	background-color: #282d32; 
 	width: 100%;  
 	height: 100%;
-	margin-top: 110px;
 	position: absolute;
 }
 .info{
