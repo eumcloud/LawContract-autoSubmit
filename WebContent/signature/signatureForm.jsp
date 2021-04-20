@@ -229,7 +229,7 @@ height:70px;
                 
 </div></article>
 <img src="<%=request.getContextPath()%>/image/next.png" id="next" width="70px" height="70px" style="margin-right: 300px; margin-bottom: 200px;"
-onclick="formSubmit('frm', '<%=request.getContextPath()%>/signature/signatureProc.jsp'), openPop2('http://localhost:8080/20210402_miniPj2/signature/sendMailPop.jsp');"/>
+onclick="formSubmit('frm', '<%=request.getContextPath()%>/signature/signatureProc.jsp'), openPop2('http://192.168.0.78:8080/20210402_miniPj2/signature/sendMailPop.jsp');"/>
  <br/><br/><br/><br/> <div id=reqBtn><button class="btn btn-primary" id=signit>서명하기</button> </div>	
  <a id="target" style="display: none"></a>
 
