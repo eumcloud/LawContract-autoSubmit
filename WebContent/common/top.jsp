@@ -45,11 +45,8 @@ img{max-width:100%;}
                 <li><a href = "<%=path %>logout">로그아웃</a>
                 <li><a href = "<%=path %>myinfoForm">내정보</a></li>
                 <li><a href = "<%=path %>ContractDetailsProc&pageNumber=1">계약 내역</a></li>
-                <li><a href = "<%=path %>ContractDetailsProc&pageNumber=1">계약 내역</a></li>
-                <li style="margin-left: 850px"><%=usrId %>님 반갑니다.</li>
-                <li class="rightMenu"><a href = "<%=path %>logout">로그아웃</a>
-                <li class="rightMenu"><a href = "<%=path %>myinfoForm">내정보</a></li>
-                <li class="rightMenu"><a href = "<%=path %>modifyForm">계약 내역</a></li>
+                
+               
                 <%} %>
 
             </ul>

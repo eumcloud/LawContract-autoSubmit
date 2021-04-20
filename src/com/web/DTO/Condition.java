@@ -19,6 +19,14 @@ public class Condition {
 	private int interest; //이자율
 	private String money; //빌려주는 금액
 	
+	private String lawaction;//법원제출현황
+	
+	public String getLawaction() {
+		return lawaction;
+	}
+	public void setLawaction(String lawaction) {
+		this.lawaction = lawaction;
+	}
 	public int getNo() {
 		return no;
 	}
