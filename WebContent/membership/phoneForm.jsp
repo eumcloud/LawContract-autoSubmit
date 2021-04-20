@@ -12,7 +12,7 @@
 		authNum = "";
 	if(authNumOk == null)
 		authNumOk = "";
-	if(name == null)
+	if(name == null) 
 		name = "";
 	if(residentNum == null)
 		residentNum = "";

@@ -7,7 +7,7 @@ String sessionauthNum = String.format("%04d", randNum);
 String residentNum = request.getParameter("residentNum");
 session.setAttribute("creditorRegiNum", residentNum);
 session.setAttribute("sessionauthNum", sessionauthNum);
-
+ 
 %>
 <jsp:forward page="authPop.jsp">
 <jsp:param value="conditionForm" name="currentPage"/>

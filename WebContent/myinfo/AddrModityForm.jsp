@@ -4,7 +4,7 @@ pageEncoding="UTF-8"%>
 <%@page import="com.web.DTO.*"%>
 
 <%
-Member currentUser = (Member)session.getAttribute("currentUser");
+Member currentUser = (Member)session.getAttribute("currentUser"); 
 %>
 <html>
 <body>

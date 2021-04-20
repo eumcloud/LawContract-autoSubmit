@@ -7,7 +7,7 @@
 	String kakaoName = request.getParameter("kakaoName");
 		
 	LoginDAO loginDao = new LoginDAO();
-	Connection conn = loginDao.getConn();
+	Connection conn = loginDao.getConn(); 
 	String pw = loginDao.kakaoLogin(conn, email);
 	System.out.println(pw);
 	boolean confirmResult = loginDao.userConfirm(conn, email, pw);

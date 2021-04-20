@@ -14,7 +14,7 @@ on"%>
 	session.setAttribute("residentNum", residentNum);
 	session.setAttribute("phoneNum", phoneNum);
 	
-	
+	 
 	Random rand = new Random();
 	int randNum = rand.nextInt(10000);
 	String authNum = String.format("%04d", randNum);

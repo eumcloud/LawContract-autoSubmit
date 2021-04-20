@@ -10,7 +10,7 @@
 	String phoneNum = (String)session.getAttribute("phoneNum");
 	String residentNum = (String)session.getAttribute("residentNum");
 	String email = (String)session.getAttribute("email");
-	String pw = (String)session.getAttribute("pw");
+	String pw = (String)session.getAttribute("pw"); 
 	
 	System.out.println("디비 저장하는 장소");
 	System.out.println("name : "+name);

@@ -5,7 +5,7 @@
 <%@page import="com.web.DAO.Membership"%>
 <%@page import="java.util.Random"%>
 <%@page contentType="text/html; charset=UTF-8"%>
-    
+     
     <%
     System.out.print("이메일 : "+request.getAttribute("emailOk"));
     String pw = request.getParameter("pw");

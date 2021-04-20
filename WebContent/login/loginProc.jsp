@@ -9,7 +9,7 @@
 	LoginDAO loginDao = new LoginDAO();
 	Connection conn = loginDao.getConn();
 	
-	boolean confirmResult = loginDao.userConfirm(conn, id, pw);
+	boolean confirmResult = loginDao.userConfirm(conn, id, pw); 
 	System.out.println(confirmResult);
 	
 	String pagePath = "loginForm";

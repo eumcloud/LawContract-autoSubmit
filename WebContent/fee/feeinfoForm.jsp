@@ -70,7 +70,7 @@
 	String pathBus = request.getContextPath()+"/fee/feeinfoProcBus.jsp";
 	String pathPre = request.getContextPath()+"/fee/feeinfoProcPre.jsp";
 	String popUp = (String)request.getAttribute("popUp");
-	String usrId = (String)session.getAttribute("usrId");
+	String usrId = (String)session.getAttribute("usrId"); 
 	System.out.println(usrId);
 	
 	if(popUp ==null)
