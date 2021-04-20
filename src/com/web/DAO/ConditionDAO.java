@@ -61,8 +61,8 @@ public class ConditionDAO {
 	public int insert(Connection conn, Condition condition) {
 		System.out.println("DAO "+condition.getDeptorEmail());
 		String sql="INSERT INTO contractinfo (no, creditor, creditorAddr, creditorResiNum, creditorEmail, "
-				+ "deptor, deptorAddr, deptorEmail, spcContents, signDate, deadLine, interest, money) "
-				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ "deptor, deptorAddr, deptorEmail, spcContents, signDate, deadLine, interest, money, lawaction) "
+				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 		
@@ -79,6 +79,8 @@ public class ConditionDAO {
 			pstmt.setString(11, condition.getDeadLine());
 			pstmt.setInt(12, condition.getInterest());
 			pstmt.setString(13, condition.getMoney());
+			
+			pstmt.setString(14, condition.getLawaction());
 			
 			pstmt.executeUpdate();
 			pstmt.close();

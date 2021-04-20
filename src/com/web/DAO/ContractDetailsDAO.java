@@ -133,6 +133,7 @@ public class ContractDetailsDAO {
 				c.setDeadLine(rs.getString(12));
 				c.setInterest(rs.getInt(13));
 				c.setMoney(rs.getString(14));
+				c.setLawaction(rs.getString(15));
 				
 				userContractInfo.add(c);
 			}

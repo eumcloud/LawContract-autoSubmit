@@ -43,6 +43,7 @@ function downClick(fno) {
 #downImg:hover {
 	background: #d0d1d0;
 }
+
 </style>
 <form id="frm" action="<%=request.getContextPath()%>/myinfo/ContractDetailsProc.jsp" method="get">
 <input type='hidden' value='<%=track %>'/>
@@ -50,10 +51,9 @@ function downClick(fno) {
 	  
 	<tr>
 		<th style="padding-left: 80px; width: 188px;" ><input type="checkbox" name="checkAllName" onclick="checkAll('checkAllName', 'boardCheckbox')" >전체선택</input></th>
+		<th style="padding-top: 8px; padding-left: 35px;" >계약번호</th>
 		<th style="width: 116px; padding-left: 20px;" >계약 상태</th>
 		<th style=" width: 160px; text-align:center;" >계약 요약내용</th>
-		<th style="padding-top: 8px; padding-left: 35px;" >계약번호</th>
-	
 		<th  style="width: 100px; padding-left: 15px;">다운로드</th>
 		<th  style="width: 150px; padding-left: 15px;">법원제출 현황</th>
 	</tr>
@@ -62,23 +62,23 @@ function downClick(fno) {
 String Creditor = cond.getCreditor();
 String Deptor = cond.getDeptor();
 String Money = cond.getMoney() + "만 원";
+String Lawaction = cond.getLawaction();
 
 	if (cond.getCreditor()==null){  Creditor="김길동";}
 	if (cond.getDeptor()==null){  Deptor="왕개똥";}
 	if (cond.getMoney()==null){  Money="오백전";}
+	if (cond.getLawaction()==null){  Lawaction="확인 중";}
 	
 	for(ContractFile c : ContractList){
 %>
 	<tr>
-
+		<%-- <input type="hidden" name="contractNum" value="<%=c.getFno()%>"/></td> --%>
 		<td align="center"><input type="checkbox" value='<%=c.getFno()%>' name="boardCheckbox"/></td>
+		<td align="center"><p><%=c.getFno() %></p></td>
 		<td align="center"><%=c.getCondition()%></td>
 		<td align='center'><%="채권자 : "+Creditor +" 채무자 : " +Deptor+" "+ Money %>
-		<td align="center"><p><%=c.getFno() %></p>
-		</td>
-		<td><img id="downImg" src="<%=request.getContextPath()%>/image/download.png" onclick="downClick('<%=c.getFno()%>');">
-		<input type="hidden" name="contractNum" value="<%=c.getFno()%>"/></td>
-		<td align="center"><%=c.getDownloadPath() %><%=c.getDownloadPath2() %></td>
+		<td><img id="downImg" src="<%=request.getContextPath()%>/image/download.png" onclick="downClick('<%=c.getFno()%>');"><%=c.getDownloadPath() %><%=c.getDownloadPath2() %></td>
+		<td align="center"><%=Lawaction %></td>
 		
 		<%
 }
@@ -87,7 +87,7 @@ String Money = cond.getMoney() + "만 원";
 
 
 
-<tr><td></td><td></td><td></td><td colspan='4' style="padding-left:150px; ">
+<tr><td/><td/><td/><td/><td colspan='3' style="padding-left:10px; ">
 <input type="button" class="btn btn-warning" name="btn" onclick="formSubmit('frm', '<%=ContractDetailsDeleteProcPath%>');" value = "삭제 " />	
 <input type="button" class="btn btn-danger" name="btn" onclick="formSubmit('frm', '<%=ContractDetailsSubmitProcPath%>');" value = "법원제출 " /></td>
 
