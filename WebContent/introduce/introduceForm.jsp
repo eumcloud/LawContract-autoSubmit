@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>서비스소개 페이지</title>
+<title>서비스소개 페이지입니다.</title>
 <style type="text/css">
 .hig{
 background:;

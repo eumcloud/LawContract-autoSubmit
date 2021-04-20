@@ -42,7 +42,7 @@
 		pageName = "/signature/signatureFormSnd.jsp"; 
 %>
 <html>
-<body><head><title>여러분을 위한 스마트계약</title></head>
+<body><head><title>여러분을 위한 스마트계약입니다</title></head>
 <table style="width: 100%;">
 <tr>
 	<td>
