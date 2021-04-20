@@ -1,22 +1,21 @@
-function openPop2(boardCheckbox, path1){
+function openPop2(boardCheckbox, path){
 
     var boardCheckbox1 = document.getElementsByName(boardCheckbox);
-    var chk = false;
-    for(var i=0 ; i<boardCheckbox1.length ; i++){
+    boardCheckbox1 = false;
+    for(var i=0; i<boardCheckbox1.length; i++){
        if(boardCheckbox1[i].checked) {
-         chk = true;
+         boardCheckbox1 = true;
           } else {
-          chk = false;
+          boardCheckbox1 = false;
            }
             
           }
-          if(chk) {
+          if(boardCheckbox1) {
             alert("체크박스를 선택해주세요.");
             return;
             
           } else {
-             window.opener.queryselector(path1);
-	         window.close;
+             alert("절차를 진행합니다.");
              }
 	         
              
