@@ -7,7 +7,7 @@ function add(){
    list.innerHTML +="<tr><td>특약사항"+ count1++ +"</td><td><textarea rows='2' cols='80' name='spcContents"+ count2++ +"'></textarea></td></tr>";
 }
 function openPop(url){
-	pop_auth = window.open(url, '인증 팝업', 'top=10, left=10, width=500, height=600');
+	pop_auth = window.open(url, '인증 팝업', 'top=10, left=10, width=600, height=600');
 	pop_auth.focus();
 }
 function openPop2(url2){
@@ -39,6 +39,6 @@ function inputInfo(writer, addr, date, Term, Loan, targetWriter, targetAddr, tar
       id8.focus();
       return false;
    }
-   pop_auth = window.open(url2, '인증 팝업', 'top=10, left=10, width=500, height=600');
+   pop_auth = window.open(url2, '인증 팝업', 'top=10, left=10, width=600, height=600');
    pop_auth.focus();
 }
