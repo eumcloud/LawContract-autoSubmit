@@ -3,6 +3,7 @@ package com.web.DAO;
 import java.sql.*;
 import java.util.*;
 
+import com.web.DTO.Condition;
 import com.web.DTO.ContractFile;
 
 public class ContractfileDAO {
@@ -23,21 +24,26 @@ public class ContractfileDAO {
 		} catch (Exception e) {	e.printStackTrace();	}
 	}
 	
-	public List<ContractFile> getBoardList(int PageNumber, int RowsPerPage, String Email, String contextPath, String uploadFolderName){
+	public List<Condition> getBoardList(int PageNumber, int RowsPerPage, String Email, String contextPath, String uploadFolderName){
 		
-		 String sql = "select condition, fno, contractfile, contractfile2 "
-		            + "from ( "
-		            + "select rownum as rn, creditoremail, fno, condition, contractfile, contractfile2 "
-		            +"from( "
-		            +"select * "
-		            +"from contractfile "
-		            +"where creditoremail = ? "
-		            +"order by no desc "
-		            +"        ) "
-		            +"    ) "
-		            +"where rn >= ? and rownum <= ?";
+		 String sql = "select condition,fno, contractfile, contractfile2,  creditor, deptor, money, signdate, deadline, lawaction, creditoremail "
+		 		+ "    from ( "
+		 		+ "       select rownum as rn, creditoremail, fno, condition, contractfile, contractfile2,creditor, deptor, money, signdate, deadline, lawaction "
+		 		+ "        from( "
+		 		+ "        select * from"
+		 		+ "        ( "
+		 		+ "        select  f.creditoremail,f.fno, f.condition, f.contractfile, f.contractfile2, i.creditor, i.deptor, i.money, i.signdate, i.deadline, i.lawaction "
+		 		+ "        from contractfile f left join contractinfo i "
+		 		+ "       on f.fno = i.no"
+		 		+ "         )"
+		 		+ "        where creditoremail = ?"
+		 		+ "        order by fno desc  "
+		 		+ "               ) "
+		 		+ "            ) "
+		 		+ "        where rn >= ? and rownum <= ?";
+		 
 		
-		List<ContractFile> lst = new ArrayList<ContractFile>();
+		List<Condition> lst = new ArrayList<Condition>();
 		
 		try {
 
@@ -50,7 +56,7 @@ public class ContractfileDAO {
 			ResultSet rs = pstmt.executeQuery();
 			   
 			while(rs.next()) {
-				ContractFile dao = new ContractFile();
+				Condition dao = new Condition();
 				 
 				dao.setCondition(rs.getString(1));
 				dao.setFno(rs.getInt(2));
@@ -60,6 +66,13 @@ public class ContractfileDAO {
 						rs.getInt(2)+"</a><br/>");
 				dao.setDownloadPath2("<a href='"+contextPath+"/"+uploadFolderName+"/"+rs.getString(4)+"' download='"+rs.getString(4)+"' id='filee"+rs.getInt(2)+"'  style='display: none'>" + 
 						rs.getInt(2)+"</a>");
+				dao.setCreditor(rs.getString(5));
+				dao.setDeptor(rs.getString(6));
+				dao.setMoney(rs.getString(7));
+				dao.setSignDate(rs.getString(8));
+				dao.setDeadLine(rs.getString(9));
+				dao.setLawaction(rs.getString(10));
+				dao.setCreditorEmail(rs.getString(11));
 				
 				lst.add(dao);
 			}
@@ -68,6 +81,7 @@ public class ContractfileDAO {
 			
 		} catch (SQLException e) {			e.printStackTrace();		}
 		return lst;
+		
 	}
 	
 	

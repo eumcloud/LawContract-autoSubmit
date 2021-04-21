@@ -21,6 +21,63 @@ public class Condition {
 	
 	private String lawaction = "신청 전";//법원제출현황
 	
+	private String filePath;
+	private int fno;
+	private String contractFile2;
+	public String getFilePath() {
+		return filePath;
+	}
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
+	}
+	public int getFno() {
+		return fno;
+	}
+	public void setFno(int fno) {
+		this.fno = fno;
+	}
+	public String getContractFile2() {
+		return contractFile2;
+	}
+	public void setContractFile2(String contractFile2) {
+		this.contractFile2 = contractFile2;
+	}
+	public String getFilePath2() {
+		return filePath2;
+	}
+	public void setFilePath2(String filePath2) {
+		this.filePath2 = filePath2;
+	}
+	public String getContractFile() {
+		return contractFile;
+	}
+	public void setContractFile(String contractFile) {
+		this.contractFile = contractFile;
+	}
+	public String getCondition() {
+		return condition;
+	}
+	public void setCondition(String condition) {
+		this.condition = condition;
+	}
+	public String getDownloadPath() {
+		return downloadPath;
+	}
+	public void setDownloadPath(String downloadPath) {
+		this.downloadPath = downloadPath;
+	}
+	public String getDownloadPath2() {
+		return downloadPath2;
+	}
+	public void setDownloadPath2(String downloadPath2) {
+		this.downloadPath2 = downloadPath2;
+	}
+	private String filePath2;
+	private String contractFile;
+	private String condition;
+	private String downloadPath;
+	private String downloadPath2;
+	
 	public String getLawaction() {
 		return lawaction;
 	}

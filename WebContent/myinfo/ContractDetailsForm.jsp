@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="com.web.DTO.*"%>
@@ -6,7 +7,7 @@
 <%@page import="java.util.List"%>
 
 <%
-	List<ContractFile> ContractList = (List<ContractFile>)session.getAttribute("ContractList");
+	List<Condition> ContractList = (List<Condition>)session.getAttribute("ContractList");
 	String url = request.getContextPath()+"/myinfo/ContractDetailsProc.jsp?currentPage=ContractDetailsProc&pageNumber=";
 	int pageNumber = Integer.parseInt( request.getParameter("pageNumber") );
 	int rowsPerPage = (Integer)session.getAttribute("rowsPerPage");
@@ -47,38 +48,38 @@ function downClick(fno) {
 </style>
 <form id="frm" action="<%=request.getContextPath()%>/myinfo/ContractDetailsProc.jsp" method="get">
 <input type='hidden' value='<%=track %>'/>
-<table class="table table-hover mt-5 mx-auto" style="width: 1100px; ">
+<table class="table table-hover mt-5 mx-auto" style="width: 1200px; ">
 	  
 	<tr>
-		<th style="padding-left: 80px; width: 188px;" ><input type="checkbox" name="checkAllName" onclick="checkAll('checkAllName', 'boardCheckbox')" >전체선택</input></th>
-		<th style="padding-top: 8px; padding-left: 35px;" >계약번호</th>
-		<th style="width: 116px; padding-left: 20px;" >계약 상태</th>
-		<th style=" width: 160px; text-align:center;" >계약 요약내용</th>
-		<th  style="width: 100px; padding-left: 15px;">다운로드</th>
-		<th  style="width: 150px; padding-left: 15px;">법원제출 현황</th>
+		<th style="padding-left: 60px; width: 188px;" ><input type="checkbox" name="checkAllName" onclick="checkAll('checkAllName', 'boardCheckbox')" >전체선택</input></th>
+		<th style="width:120px;padding-top: 8px; background-color:skyblue; padding-left: 10px;" >계약번호</th>
+		<th style="width: 124px; padding-left: 20px;" >계약 상태</th>
+		<th style=" width: 180px; text-align:center;" >계약 요약내용</th>
+		<th  style="width: 120px; padding-left: 15px;">다운로드</th>
+		<th  style="width: 100px; padding-left: 30px;">계약일</th>
+		<th  style="width: 100px; padding-left: 30px;">종료일</th>
+		<th  style="width: 160px; padding-left: 15px;">법원제출 현황</th>
 	</tr>
 <%
-	Condition cond = new Condition();
-String Creditor = cond.getCreditor();
-String Deptor = cond.getDeptor();
-String Money = cond.getMoney() + "만 원";
-String Lawaction = cond.getLawaction();
+SimpleDateFormat sf = new SimpleDateFormat("yyyy.MM.dd");
+for(Condition c : ContractList){
 
-	if (cond.getCreditor()==null){  Creditor="김길동";}
-	if (cond.getDeptor()==null){  Deptor="왕개똥";}
-	if (cond.getMoney()==null){  Money="오백전";}
-	if (cond.getLawaction()==null){  Lawaction="확인 중";}
+	String condition = c.getCondition(); if(condition==null){condition = "진행 중";}
+	String lawaction = c.getLawaction(); if(lawaction==null){lawaction = "확인 중";}
+	String signdate = c.getSignDate().replace("00:00:00",""); 
+	String deadline = c.getDeadLine().replace("00:00:00",""); 
 	
-	for(ContractFile c : ContractList){
 %>
 	<tr>
 		<%-- <input type="hidden" name="contractNum" value="<%=c.getFno()%>"/></td> --%>
-		<td align="center"><input type="checkbox" value='<%=c.getFno()%>' name="boardCheckbox"/></td>
+		<td align="center" ><input type="checkbox" value='<%=c.getFno()%>' name="boardCheckbox"/></td>
 		<td align="center"><p><%=c.getFno() %></p></td>
-		<td align="center"><%=c.getCondition()%></td>
-		<td align='center'><%="채권자 : "+Creditor +" 채무자 : " +Deptor+" "+ Money %>
+		<td align="center"><%=condition%></td>
+		<td align='left' style='width:500px;'><%="  채권자 : "+ c.getCreditor() +"과 채무자 : " +c.getDeptor()+"의 "+ c.getMoney()+"만 원" %>
 		<td><img id="downImg" src="<%=request.getContextPath()%>/image/download.png" onclick="downClick('<%=c.getFno()%>');"><%=c.getDownloadPath() %><%=c.getDownloadPath2() %></td>
-		<td align="center"><%=Lawaction %></td>
+		<td align="center" style='width:150px;'><%=signdate %></td>
+		<td align="center" style='width:150px;'><%=deadline %></td>
+		<td align="center"><%=lawaction %></td>
 		
 		<%
 }
@@ -87,7 +88,7 @@ String Lawaction = cond.getLawaction();
 
 
 
-<tr><td/><td/><td/><td/><td colspan='3' style="padding-left:10px; ">
+<tr><td/><td/><td/><td/><td/><td/><td colspan='3' style="padding-left:10px; ">
 <input type="button" class="btn btn-warning" name="btn" onclick="formSubmit('frm', '<%=ContractDetailsDeleteProcPath%>');" value = "삭제 " />	
 <input type="button" class="btn btn-danger" name="btn" onclick="formSubmit('frm', '<%=ContractDetailsSubmitProcPath%>');" value = "법원제출 " /></td>
 

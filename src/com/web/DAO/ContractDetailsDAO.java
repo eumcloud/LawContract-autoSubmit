@@ -36,31 +36,48 @@ public class ContractDetailsDAO {
 						contractFile.getFno()+"</a>";
 		
 	}
-	public List<ContractFile> getFileList(String fno){
-		String sql="select fno, FILEPATH, CONTRACTFILE, FILEPATH2, CONTRACTFILE2 from CONTRACTFILE "
-				+ "where fno=?";
-		List<ContractFile> lst = new ArrayList<ContractFile>();
+	public List<Condition> getFileList( String no){
+		String sql="SELECT i.no,  f.fno, f.contractfile, f.filepath, "
+				+ "f.contractfile2, f.filepath2, f.condition, i.creditor, i.deptor, "
+				+ " i.money, i.signdate, i.deadline  "
+				+ " from contractinfo i left join contractfile  f "
+				+ " on i.no=f.no ";
+		
+		
+		/* List<ContractFile> lst = new ArrayList<ContractFile>(); */
+		List<Condition> lst = new ArrayList<Condition>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, fno);
+			
+			pstmt.setString(1, no);
+			
 	
 			ResultSet rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				ContractFile contractFile = new ContractFile();
-				contractFile.setFno(rs.getInt(1));
-				contractFile.setFilePath(rs.getString(2));
-				contractFile.setContractFile(rs.getString(3));
-				contractFile.setFilePath2(rs.getString(4));
-				contractFile.setContractFile2(rs.getString(5));
+				/* ContractFile contractFile = new ContractFile(); */
+				Condition cond = new Condition();
 				
-				lst.add(contractFile);
+				cond.setFno(rs.getInt(1));
+				cond.setFilePath(rs.getString(2));
+				cond.setContractFile(rs.getString(3));
+				cond.setFilePath2(rs.getString(4));
+				cond.setContractFile2(rs.getString(5));
+				cond.setCreditor(rs.getString(6));
+				cond.setDeptor(rs.getString(7));
+				cond.setMoney(rs.getString(8));
+				cond.setSignDate(rs.getString(9));
+				cond.setDeadLine(rs.getString(10));
+				
+				lst.add(cond);
 			}
+			
+			
 			rs.close();
 			pstmt.close();
 
 		} catch (SQLException e) {			e.printStackTrace();		}
-		return lst;
+		return lst ;
 	}
 	
 	//작성자 송증빈 
