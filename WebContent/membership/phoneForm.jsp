@@ -60,7 +60,7 @@ function PopupNextPage(path, pathNo, frmId){
 
 <h1><%=authNumOk %></h1>
 <input type="hidden" id="authNumOk" value="<%=authNumOk%>">
-</head>
+</head> 
 <body>
 <form id="frm"  class="form-inline" style="margin-left: 90px;" action="<%=request.getContextPath() %>/membership/phoneFormProc.jsp" method="post">
 	<center>
