@@ -28,6 +28,8 @@
 <script type="text/javascript" src='<%=request.getContextPath()+"/js/common.js"%>'></script>
 <script type="text/javascript" src='<%=request.getContextPath()+"/js/contractDetails.js"%>'></script>
 <script type="text/javascript" src='<%=request.getContextPath()+"/js/jquery-1.11.3.min.js"%>'></script>
+<script type="text/javascript" src='<%=request.getContextPath()+"/js/feeProc.js"%>'></script>
+
 <script type="text/javascript">
 function downClick(fno) {
 	document.getElementById("file"+fno).click();
@@ -46,12 +48,12 @@ function downClick(fno) {
 }
 
 </style>
-<form id="frm" action="<%=request.getContextPath()%>/myinfo/ContractDetailsProc.jsp" method="get">
+<form id="frm" action="<%=request.getContextPath()%>/myinfo/ContractDetailsProc.jsp" method="post">
 <input type='hidden' value='<%=track %>'/>
 <table class="table table-hover mt-5 mx-auto" style="width: 1200px; ">
 	  
 	<tr>
-		<th style="padding-left: 60px; width: 188px;" ><input type="checkbox" name="checkAllName" onclick="checkAll('checkAllName', 'boardCheckbox')" >전체선택</input></th>
+		<th style="padding-left: 60px; width: 188px;" ><input type="checkbox" name="checkAllName" onclick="checkAll('checkAllName', 'boardCheckbox')" />전체선택</th>
 		<th style="width:120px;padding-top: 8px; background-color:skyblue; padding-left: 10px;" >계약번호</th>
 		<th style="width: 124px; padding-left: 20px;" >계약 상태</th>
 		<th style=" width: 180px; text-align:center;" >계약 요약내용</th>
@@ -90,7 +92,7 @@ for(Condition c : ContractList){
 
 <tr><td/><td/><td/><td/><td/><td/><td colspan='3' style="padding-left:10px; ">
 <input type="button" class="btn btn-warning" name="btn" onclick="formSubmit('frm', '<%=ContractDetailsDeleteProcPath%>');" value = "삭제 " />	
-<input type="button" class="btn btn-danger" name="btn" onclick="formSubmit('frm', '<%=ContractDetailsSubmitProcPath%>');" value = "법원제출 " /></td>
+<input type="button" class="btn btn-danger" name="btn" onclick="checkForm('<%=request.getContextPath() %>/fee/feePayment.jsp')" value = "법원제출 " /></td>
 
 		
 	</tr>
