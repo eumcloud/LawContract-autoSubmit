@@ -1,3 +1,5 @@
+<%@page import="java.sql.Connection"%>
+<%@page import="com.web.DAO.LawActionDAO"%>
 <%@page import="Selenium.SeleniumTest"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -19,8 +21,12 @@
 	}
 	else {
 		nextPage="ContractDetailsProc";
+// 		SeleniumTest seleniumTest = new SeleniumTest();
+		LawActionDAO actionDAO = new LawActionDAO();
+		Connection conn = actionDAO.getConn();
+		actionDAO.getLawaction(conn, result);
 	}
-	SeleniumTest seleniumTest = new SeleniumTest();
+	
 %>
 <jsp:forward page="/index.jsp">
 <jsp:param value="<%=nextPage %>" name="currentPage"/>
