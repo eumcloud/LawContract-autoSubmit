@@ -92,7 +92,7 @@ for(Condition c : ContractList){
 
 <tr><td/><td/><td/><td/><td/><td/><td colspan='3' style="padding-left:10px; ">
 <input type="button" class="btn btn-warning" name="btn" onclick="formSubmit('frm', '<%=ContractDetailsDeleteProcPath%>');" value = "삭제 " />	
-<input type="button" class="btn btn-danger" name="btn" onclick="checkForm('<%=request.getContextPath() %>/fee/feePayment.jsp')" value = "법원제출 " /></td>
+<input type="button" class="btn btn-danger" name="btn" onclick="checkForm('<%=request.getContextPath() %>/fee/feePayment.jsp', 'frm', '<%=request.getContextPath() %>/myinfo/ContractDetailsSubmitProc.jsp')" value = "법원제출 " /></td>
 
 		
 	</tr>

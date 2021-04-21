@@ -1,4 +1,9 @@
-function checkForm(url){
+function formSubmit(frmId, path){
+	let frm = document.getElementById(frmId);
+	frm.action = path;
+	frm.submit();
+}
+function checkForm(url, frmId, path){
       var objWrite3 = document.getElementsByName("boardCheckbox");
       var count = 0;
      for(var i=0;i<objWrite3.length;i++){
@@ -10,6 +15,7 @@ function checkForm(url){
        alert("체크항목을 선택 해 주세요.");
        return false;
     }
+    formSubmit(frmId, path)
     pop_auth = window.open(url, '인증 팝업', 'top=10, left=10, width=500, height=600');
 	pop_auth.focus();
 }

@@ -14,11 +14,8 @@ import org.openqa.selenium.support.ui.Select;
 
 public class SeleniumTest {
  
-    public static void main(String[] args) {
-        SeleniumTest selTest = new SeleniumTest();
+
         
-    }
- 
     
     //WebDriver
     private WebDriver driver;
@@ -32,7 +29,7 @@ public class SeleniumTest {
     
     public SeleniumTest() {
         super();
- 
+        System.out.println("123123");
         //System Property SetUp
         System.setProperty(WEB_DRIVER_ID, WEB_DRIVER_PATH);
         

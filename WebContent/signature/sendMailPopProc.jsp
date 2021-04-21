@@ -41,5 +41,5 @@ function PopupNextPage(path){
 <center>
 <p><b> 메일전송 완료</b></p>
 <br/><br/>
-<button class = "sendbtn"onclick="PopupNextPage('<%=request.getContextPath() %>/myinfo/ContractDetailsForm.jsp');">확인</button>
+<button class = "sendbtn"onclick="PopupNextPage('<%=request.getContextPath() %>/myinfo/ContractDetailsProc.jsp?pageName=ContractDetailsProc&pageNumber=1');">확인</button>
 </center>
