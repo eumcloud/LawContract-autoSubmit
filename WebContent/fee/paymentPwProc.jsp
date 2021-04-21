@@ -19,7 +19,7 @@
 	if(result==null){
 	nextPage = "feeinfoForm";
 	}
-	else {
+	else { 
 		nextPage="ContractDetailsProc";
 // 		SeleniumTest seleniumTest = new SeleniumTest();
 		LawActionDAO actionDAO = new LawActionDAO();
