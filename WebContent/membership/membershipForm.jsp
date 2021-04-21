@@ -31,52 +31,50 @@
 <script src='<%=request.getContextPath() %>/js/common.js' type="text/javascript"></script>
 <script src='<%=request.getContextPath() %>/js/conditionForm.js' type="text/javascript"></script>
 <script src='<%=request.getContextPath() %>/js/memberForm.js' type="text/javascript"></script>
-
 <style>
 #errorMsg{
    color:red;
 }
+
 </style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
 <br/><br/><br/><br/>
 
 <div id=errorMsg></div>
-<center>
-<form id='frm' action="<%=request.getContextPath() %>/membership/membershipProc.jsp" method="post">
-<input type="text" id="emailOk" value="<%=emailOk%>" />
-<table>
-	
-	<tr>
-		<td align='right'>E-Mail</td>
-		<td>
-			<input type=email id='email' name='email' value="<%=email %>" placeholder='email 입력' style="width: 200px; "/>
-			<input type="button" value="중복 확인" onclick="checkEmail('frm', '<%=request.getContextPath()%>/membership/memberEmailProc.jsp');"> 
-		</td>
-    </tr>
-	<tr>
-		<td align='right' height=40>패스워드</td>
-		<td>
-			<input type=text id='pw' name='pw' value="<%=pw %>" placeholder='pw 입력'/> 
-		</td>
-	</tr>
-	<tr>
-		<td align='right'>패스워드 확인</td>
-		<td>
-			<input type=text id='pwOk' name='pwOk' value="<%=pwOk %>" placeholder='pw 입력'/> 
-		</td>
-	</tr>
-	
-	
-	<tr>
-		<td  align='center' height=40 colspan=4>
-			<input type=button onclick="phoneForm('http://localhost:8080/20210402_miniPj2/membership/phoneForm.jsp', 'frm', '<%=request.getContextPath()%>/membership/membershipProc.jsp')" value='인증하기' style="width: 120px; "/> 
-		</td>
-    </tr>
-	
-</table>
+
+<form id='frm' action="<%=request.getContextPath() %>/membership/membershipProc.jsp" method="post" style="height: 800px;">
+<input type="hidden" id="emailOk" value="<%=emailOk%>" />
+		<center>
+		<img src="<%=request.getContextPath() %>/image/logo.png" style="width: 150px; height: 150px;" />
+		</center>
+		<div>
+		<p class="font-weight-bold" style="margin-left: 650px; margin-top: 20;">이메일</p>
+		<div class="input-group col-sm-4 mx-auto">
+  			<input type="email" class="form-control" placeholder="Please enter your e-mail" id='email' name='email' value="<%=email %>" />
+		</div>
+		</div>
+		<div>
+		<p class="font-weight-bold"style="margin-left: 650px; margin-top: 20;">비밀번호 </p>
+		<div class="input-group col-sm-4 mx-auto">
+  			<input type="password" class="form-control" placeholder="Please enter your Password" id='pw' name='pw' value="<%=pw %>" />
+		</div>
+		</div>
+		<div>
+		<p class="font-weight-bold"style="margin-left: 650px; margin-top: 20;">비밀번호 확인</p>
+		<div class="input-group col-sm-4 mx-auto">
+  			<input type="password" class="form-control" placeholder="Please enter your password again" id='pwOk' name='pwOk' value="<%=pwOk %>"" />
+		</div>
+		</div>
+		<center>
+		<div style="margin-top: 30px; width: 417px;">
+			<input type="button"class="btn btn-outline-secondary" style="width: 45%;" value="중복 확인" onclick="checkEmail('frm', '<%=request.getContextPath()%>/membership/memberEmailProc.jsp');"> 
+			<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			<input type="button" class="btn btn-outline-secondary" style="width: 45%;" onclick="phoneForm('http://localhost:8080/20210402_miniPj2/membership/phoneForm.jsp', 'frm', '<%=request.getContextPath()%>/membership/membershipProc.jsp')" value='인증하기'/> 
+		</div>
+		</center>
 </form>
-</center>
 
-<%@ page contentType="text/html; charset=UTF-8"%>
 
-<br/><br/><br/><br/>
 

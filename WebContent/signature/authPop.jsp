@@ -28,33 +28,58 @@ function PopupNextPage(path){
     self.close();
 }
 </script>
-
+<script src='<%=request.getContextPath() %>/js/authProc.js' type="text/javascript"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <meta charset="utf-8">
 <title>본인인증</title>
 </head>
+<h1><%=sessionauthNum %></h1>
+<input type="hidden" id='sessionauthNum' name="sessionauthNum" value="<%=sessionauthNum %>"/>
 <body>
-<form action="<%=request.getContextPath()%>/signature/authPopProc.jsp" method="post">
-<script src='<%=request.getContextPath() %>/js/authProc.js' type="text/javascript"></script>
-<input type='textarea' id='sessionauthNum' name="sessionauthNum" value="<%=sessionauthNum %>"/>
-<center>
-<br/><br/><br/>
-<table border=0>
+<form  class="form-inline" style="margin-left: 90px;" action="<%=request.getContextPath()%>/signature/authPopProc.jsp" method="post">
+	<center>
+<br/>
+<div style="border: 2px solid gray; padding: 10px; padding-bottom: 40px; border-radius: 20px;">
 <h2>본인인증</h2>
-<tr><td></td><td>이름</td><td><input type='textarea' id='userName' name="userName" value="<%=userName%>"/></td></tr>
-<tr><td></td><td>주민번호</td><td><input type='textarea' id='residentNum' name="residentNum" value="<%=residentNum%>"/></td></tr>
-<tr><td></td><td colspan="2"><input type="checkbox"> 신원인증 및 법률적 활용동의</td></tr>
-<tr><td><select name='carrier'>
+<hr/>
+<img src="<%=request.getContextPath() %>/image/logo.png" style="width: 100px; height: 100px;" />
+<div class="col-xs-3 mx-auto" style="width: 400px; margin: 10px;">
+  <div style="width: 100px; height: auto; float: left;">
+ <label for="exampleInputName2" style=" margin: 5px; font-weight: bold; text-align: left;">이름</label>
+   </div> 
+ <input type="text" class="form-control"id='userName' name="userName" value="<%=userName%>"  placeholder="이름 입력">
+  </div>
+  <div class="col-xs-3 mx-auto" style="width: 400px; margin: 10px;">
+    <div style="width: 100px; height: auto; float: left;">
+    <label for="exampleInputName2" style=" margin: 5px; font-weight: bold; text-align: left;">주민번호</label>
+   </div> 
+   <input type="text" class="form-control"  id='residentNum' name="residentNum" value="<%=residentNum%>" placeholder="-없이 입력">
+  </div>
+
+<input type="checkbox"> 신원인증 및 법률적 활용동의
+<select name='carrier'>
 <option value='SKT'>SKT</option>
 <option value='KT'>KT</option>
 <option value='LG U+'>LG U+</option>
 <option value='알뜰폰'>알뜰폰</option>
-</select>
-</td><td>휴대폰번호</td><td><input type='textarea' id='phoneNum' name="phoneNum" value="<%=phoneNum%>"/></td></tr>
-<tr><td></td><td><input type=submit value=인증번호 요청></td><td><input type=textarea id='inputauthNum' name="inputauthNum" value="<%=inputauthNum%>"></td>
-<tr><td></td><td></td><td><input type="button" onclick="PopupNextPage('userName', 'residentNum', 'phoneNum', 'inputauthNum', 'sessionauthNum', '<%=request.getContextPath() %>/index.jsp?currentPage=signatureForm');" value="확인"/></td>
-</table>
-</center>
-</form>
-</body>
+</select><br/>
 
+ <div class="col-xs-3 mx-auto" style="width: 400px; margin: 10px;">
+    <div style="width: 100px; height: auto; float: left;">
+    <label for="exampleInputName2" style=" margin: 5px; font-weight: bold; text-align: left;">휴대폰번호</label>
+   </div> 
+    <input type="text" class="form-control"id='phoneNum' name="phoneNum" value="<%=phoneNum%>"  placeholder="-없이 입력">
+  </div>
+<input class="btn btn-outline-secondary" style=" margin-left: 26px;" type="submit" value="인증번호 전송">
+ <div class="col-xs-3 mx-auto" style="width: 400px; margin: 10px;">
+    <div style="width: 100px; height: auto; float: left;">
+    <label for="exampleInputName2" style=" margin: 5px; font-weight: bold; text-align: left;">인증번호</label>
+   </div> 
+    <input type="text" class="form-control" id='inputauthNum' name="inputauthNum" value="<%=inputauthNum%>" placeholder="인증번호 입력">
+  </div>
+  
+<input class="btn btn-outline-secondary" type="button" onclick="PopupNextPage('userName', 'residentNum', 'phoneNum', 'inputauthNum', 'sessionauthNum', '<%=request.getContextPath() %>/index.jsp?currentPage=signatureForm');" value="확인"/>
+</div>
+</center></form>
+</body>
 </html>
