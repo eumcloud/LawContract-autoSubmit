@@ -85,7 +85,7 @@ function PopupNextPage(path, pathNo, frmId){
 <select name='carrier'>
 <option value='SKT'>SKT</option>
 <option value='KT'>KT</option>
-<option value='LG U+'>LG U+</option>
+<option value='LG U+'>LG U+</option> 
 <option value='알뜰폰'>알뜰폰</option>
 </select><br/>
  <div class="col-xs-3 mx-auto" style="width: 400px; margin: 10px;">
