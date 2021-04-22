@@ -62,8 +62,8 @@
         
     </div>
         <div class="info-button col-sm-offset-2 col-sm-10 mx-auto mt-5">
-          <input type = "button" class="btn btn-outline-secondary" value = "수정"/>
-          <input type = "button" class="btn btn-outline-secondary" onclick = "checkEmpty();" value = "취소"/> <br /> 
+      		<input type = "submit" class="btn btn-secondary" style="width: 250px;" value = "수정" />
+          	<input type = "button" class="btn btn-secondary" style="width: 244px;" value = "취소"/> <br /> 
         </div>
     </div>
     <br /><br /><br />
