@@ -6,6 +6,7 @@
 <%@page import="com.web.common.*"%>
 <%@page import="java.util.List"%>
 
+
 <%
 	List<Condition> ContractList = (List<Condition>)session.getAttribute("ContractList");
 	String url = request.getContextPath()+"/myinfo/ContractDetailsProc.jsp?currentPage=ContractDetailsProc&pageNumber=";
@@ -40,18 +41,25 @@ function downClick(fno) {
 <style>
 #downImg{
 	width: 40px;
-	height: 40px;
+	height: 50px;
 	margin-left: 17px;
 }
 #downImg:hover {
 	background: #d0d1d0;
 }
 
+.row{
+
+}
+
+
 </style>
-<form id="frm" action="<%=request.getContextPath()%>/myinfo/ContractDetailsProc.jsp" method="post">
+<body class="row">
+
+<form style=margin-bottom:200; id="frm" action="<%=request.getContextPath()%>/myinfo/ContractDetailsProc.jsp" method="post">
 <input type='hidden' value='<%=track %>'/>
 <table class="table table-hover mt-5 mx-auto" style="width: 1200px; ">
-	  
+	 
 	<tr>
 		<th style="padding-left: 60px; width: 188px;" ><input type="checkbox" name="checkAllName" onclick="checkAll('checkAllName', 'boardCheckbox')" />전체선택</th>
 		<th style="width:120px;padding-top: 8px; background-color:skyblue; padding-left: 10px;" >계약번호</th>
@@ -109,3 +117,4 @@ out.println(ContractTools.getNavi(totalPage, rowsPerPage, url, pageNumber));
 </nav>
 
 </form>
+</body>

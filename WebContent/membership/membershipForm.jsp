@@ -44,7 +44,7 @@
 
 <div id=errorMsg></div>
 
-<form id='frm' action="<%=request.getContextPath() %>/membership/membershipProc.jsp" method="post" style="height: 800px;">
+<form id='frm' action="<%=request.getContextPath() %>/membership/membershipProc.jsp" method="post" style="height: 560px;">
 <input type="hidden" id="emailOk" value="<%=emailOk%>" />
 		<center>
 		<img src="<%=request.getContextPath() %>/image/logo.png" style="width: 150px; height: 150px;" />

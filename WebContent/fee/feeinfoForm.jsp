@@ -28,7 +28,7 @@
 		width: 200px;
 		height: 100px;
 		border-radius:15px;
-		font-size:2em;
+		
 		color: #ffffff;
 		border-radius:0.5em;
 		padding:5px 20px;"

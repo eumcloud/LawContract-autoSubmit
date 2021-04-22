@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+
 <script  src='<%=request.getContextPath()%>/js/common.js' type="text/javascript"></script>
 <script  src='<%=request.getContextPath()%>/js/loginForm.js' type="text/javascript"></script>
  <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
@@ -10,14 +11,23 @@
    }
    h1 {
     text-align: center;
-    margin-top: 45px;
+    margin-top: 150px;
     font-size: 60px;
     font-weight: bolder;
 }
+.vo{
+margin-bottom: 50px;
+}
+
 </style>
 
+
+<center>
+<div class="vo">
 <h1>로그인</h1>
+
 <form class="mx-auto mt-5 form-horizontal login" id='frm' action="<%=request.getContextPath()%>/login/loginProc.jsp" method = "post">
+
 	<input type="hidden" name="currentPage" value="loginForm"/>
         <div class="form-group">
             <input type = "text" class="form-control" id = "id" name = "id" /><br />
@@ -33,9 +43,12 @@
 			<input type = "button" class="btn btn-outline-secondary" id="loginBtn"onclick = "checkEmpty();" value = "로그인하기"> <br /> 
 		  </div>
 		</div>
-</form>
-</center>
-<br/><br /><br />
+	</form>
+	</div>
+		</center>
+
+<br/><br /><br /><br/>
+
     <script>
         Kakao.init("e787d06915fe1f7afc8b4209f6cc2c14");
 

@@ -10,7 +10,7 @@
 .hig{
 background:;
 height: 500px;
-margin-top: 10px;
+margin-top: 50px;
 text-width: 100%;
 text-height: 100%;
 line-height:170px;
@@ -26,7 +26,7 @@ margin-top: 20px;
 }
 .mid1{
 background: #E7E7E7;
-height: 600px;
+height: 750px;
 margin-top: 20px;
 }
 .mids{
@@ -106,8 +106,8 @@ margin-top: 40px;
    <div align="center" class="top1"><br/>
    <h1 align="center">전자 계약서</h1>
      <img src="<%=request.getContextPath()%>/image/전자문서.png" alt="계약서로고" width="470" height="390" style="margin-left: auto; margin-right: auto; display: block;"
- /><br/>
- <button type="button" class="btn btn-info">상세정보</button><br/>
+ />
+ <button type="button" class="btn btn-info">상세정보</button>
    </div>
    <div align="center" class="tou1">
    <div align="center" class="left"><br/>
@@ -145,7 +145,7 @@ margin-top: 40px;
                                              <br/><br/>
    </div>
     
-    <div align="center" class="bot1">
+    <div align="center" class="bot1"><br/>
     <h1 align="center">전자 계약서의 보안성</h1>
     <img src="<%=request.getContextPath()%>/image/정보보안.png" alt="계약서양식" width="350" style="margin-left: auto; margin-right: auto; display: block;"/>
     <h4 align="center">계약서 작성이 완료되는 즉시 계약서 양식은 블록체인에 저장되며 위조가 불가능하게 안전하게 보관됩니다.<br/>
