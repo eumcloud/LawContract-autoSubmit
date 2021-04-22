@@ -3,9 +3,14 @@
 String contxtPath =request.getContextPath(); 
 %>
 <style type="text/css">
-html,body {
+html{
 	margin: 0;
 	padding: 0;
+}
+
+body{
+height: 100%;
+margin: 0;
 }
 .footer {
 	background-color: #282d32; 
@@ -38,7 +43,7 @@ html,body {
     font-family: NotoSans,sans-serif;
     font-weight: 400;
     letter-spacing: -.04em;
-    word-break: keep-all;
+    transition: background-color .2s;
     color: hsla(0,0%,100%,.4);
     text-align: right;
     border: 0;
