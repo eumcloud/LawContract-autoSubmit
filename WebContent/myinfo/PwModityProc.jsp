@@ -24,3 +24,6 @@
 	}
 	
 %>
+<jsp:forward page="/index.jsp">
+<jsp:param value="myinfoForm" name="currentPage"/>
+</jsp:forward>

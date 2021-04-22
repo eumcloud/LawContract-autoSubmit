@@ -12,3 +12,6 @@
 	dao.userADDRUpdate(conn, currentUser.getEmail(), newaddr);	
 	currentUser.setAddr(newaddr);
 %>
+<jsp:forward page="/index.jsp">
+<jsp:param value="myinfoForm" name="currentPage"/>
+</jsp:forward>
