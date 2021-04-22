@@ -2,7 +2,7 @@
 
 <script  src='<%=request.getContextPath()%>/js/common.js' type="text/javascript"></script>
 <script  src='<%=request.getContextPath()%>/js/loginForm.js' type="text/javascript"></script>
- <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
 <style type="text/css">
@@ -22,30 +22,32 @@ margin-bottom: 50px;
 </style>
 
 
-<center>
+
 <div class="vo">
-<h1>로그인</h1>
 
 <form class="mx-auto mt-5 form-horizontal login" id='frm' action="<%=request.getContextPath()%>/login/loginProc.jsp" method = "post">
-
-	<input type="hidden" name="currentPage" value="loginForm"/>
-        <div class="form-group">
-            <input type = "text" class="form-control" id = "id" name = "id" /><br />
+      <center>
+      <img src="<%=request.getContextPath() %>/image/logo.png" style="width: 150px; height: 150px;" />
+      </center>   
+   <input type="hidden" name="currentPage" value="loginForm"/>
+        <div class="form-group pt-3">
+           <p class="font-weight-bold"">이메일</p>
+            <input type = "text" class="form-control" id = "id" name = "id" />
         </div>
-        <div class="form-group">
-            <input type = "text" class="form-control" id = "pw" name = "pw" /><br />
+        <div class="form-group pt-3">
+           <p class="font-weight-bold">비밀번호</p>
+            <input type = "text" class="form-control" id = "pw" name = "pw" />
         </div>
+        <div class="form-group pt-3">
+           <input type="hidden" onclick="formSubmit('frm', '<%=request.getContextPath()%>/login/kakaoProc.jsp')" value="카톡로그인" id ="kakaoProc"/>
+           <input type="hidden" id="kakaoName" name ="kakaoName" />
         <div class="form-group">
-        <input type="hidden" onclick="formSubmit('frm', '<%=request.getContextPath()%>/login/kakaoProc.jsp')" value="카톡로그인" id ="kakaoProc"/>
-        <input type="hidden" id="kakaoName" name ="kakaoName" />
-          <div class="col-sm-offset-2 col-sm-10">
-			   <a href="javascript:kakaoLogin();"><img src = "https://gb.go.kr/Main/Images/ko/member/certi_kakao_login.png" style="height: 60px; width:auto"></a>
-			<input type = "button" class="btn btn-outline-secondary" id="loginBtn"onclick = "checkEmpty();" value = "로그인하기"> <br /> 
-		  </div>
-		</div>
-	</form>
-	</div>
-		</center>
+         <a type="button" href="javascript:kakaoLogin();"><img src = "https://gb.go.kr/Main/Images/ko/member/certi_kakao_login.png" style="width:250px; height:60px;" ></a>
+         <input type = "button" class="btn btn-secondary" id="loginBtn"onclick="checkEmpty();" value="로그인하기" style="width:244px; height:60px;" /> <br />
+      </div>
+   </form>
+   </div>
+      </center>
 
 <br/><br /><br /><br/>
 
@@ -73,4 +75,3 @@ margin-bottom: 50px;
             });
         }
     </script>
-  
